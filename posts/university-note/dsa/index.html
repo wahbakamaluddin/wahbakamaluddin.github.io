@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Data Structure &amp; Algorithm | wahba</title>
+<meta name="keywords" content="Notes">
+<meta name="description" content="Notes on data structure &amp; algorithm">
+<meta name="author" content="Wahba Kamaluddin">
+<link rel="canonical" href="http://localhost:1313/posts/university-note/dsa/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/university-note/dsa/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="wahba (Alt + H)">wahba</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Data Structure &amp; Algorithm
+    </h1>
+    <div class="post-meta"><span title='2023-10-21 00:00:00 +0000 UTC'>October 21, 2023</span>&nbsp;·&nbsp;Wahba Kamaluddin
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="http://localhost:1313/images/papermod-cover.png" alt="">
+        
+</figure>
+  <div class="post-content">
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  <ul>
+<li>What is problem solving in a programmer POV?
+<img alt="Screenshot 2023-10-21 at 2.40.17\u202fPM.png" loading="lazy" src="/images/university-notes/DSA/Screenshot_2023-10-21_at_2.40.17_PM.png">
+<ul>
+<li>Taking the statement of a problem and develop a computer program to solve the problem</li>
+<li>A solution is a computer program written in programming language consists of module (e.g dunciton, method, class, etc)</li>
+<li>A good computer program (solution) consists of modules that:
+<ul>
+<li>Organize data collection to facilitate operations</li>
+<li>Store, move and alter data</li>
+<li>Use algorithms to communicate with one another</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What is algorithm?
+<img alt="Screenshot 2023-10-21 at 2.44.56\u202fPM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-21_at_2.44.56_PM.png">
+<ul>
+<li>A step-by-step procedure to perform a task in a finite amount of time</li>
+<li>It operate on a collection of data</li>
+<li>It’s a problem solving using logic</li>
+<li>A well-defined instructions in algorithm include:
+<ul>
+<li>Input</li>
+<li>Processing</li>
+<li>Output</li>
+</ul>
+</li>
+<li>Basic Control Structures;
+<ul>
+<li>Sequential</li>
+<li>Selection</li>
+<li>Repetition</li>
+</ul>
+</li>
+<li>Techniques to design algorithm:
+<ul>
+<li>Pseudocode</li>
+<li>Flowchart</li>
+<li>State Machine</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What is Abstract Data Type (ADT)?
+<ul>
+<li>It’s a high-level conceptual model for organizing and working with data in cs, it defines sets of operations that can be preformed on the data.</li>
+</ul>
+</li>
+<li>What is Data Structure?
+<ul>
+<li>A way of storing and organizing data in a computer so that it can be used efficiently</li>
+<li>Choosing the right data structure will affect the efficiency of an algorithm implementation</li>
+<li>Operations to data structure
+<ul>
+<li>traversing</li>
+<li>searching</li>
+<li>insertion</li>
+<li>deletion</li>
+<li>sorting</li>
+<li>merging</li>
+</ul>
+</li>
+<li>What are 2 data structure types (how data is organized and stored)?
+<img alt="Screenshot 2023-10-21 at 2.58.18\u202fPM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-21_at_2.58.18_PM.png">
+<ul>
+<li><strong>Primitive Data Structures</strong>: These are basic data types provided by programming languages, like integers, floating-point numbers, characters, booleans, and pointers.</li>
+<li><strong>Non-Primitive Data Structures</strong>: These are more complex structures created by combining primitive data types or other non-primitive structures, like arrays, structures, linked lists, stacks, queues, trees, and graphs. They help organize and manage data in various ways.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+<p>
+
+<p><details >
+  <summary markdown="span">W2 - Complexity Analysis</summary>
+  <ul>
+<li>
+<p>Why is algorithm analysis needed?</p>
+<ul>
+<li>To predict the performance (time + space(memory))</li>
+<li>To compare algorithms</li>
+<li>To provide guarantees</li>
+<li>To avoid bugs</li>
+</ul>
+</li>
+<li>
+<p>What are the measurements?</p>
+<ul>
+<li>Effectiveness
+<ul>
+<li>Easy to understand</li>
+<li>Easy to trace</li>
+<li>The step of logical execution are well organized</li>
+</ul>
+</li>
+<li>Termination
+<ul>
+<li>Step of execution contains ending</li>
+<li>Termination happen as planned, not because of problems like looping, out of memory, or infinite value</li>
+</ul>
+</li>
+<li>Efficiency
+<ul>
+<li>Running time</li>
+<li>Memory usage</li>
+<li>Accuracy (output is expected or required)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>What is algorithm complexity?</p>
+<ul>
+<li>The analysis of how the resources required by an algorithm (time and memory) grow as a function as the size of the input data</li>
+<li>it provides measure of how efficient an algorithm is in terms of time and memory usage</li>
+<li>What are 2 primary aspects of algorithm complexity?
+<ul>
+<li>Time
+<ul>
+<li>Most algorithms transform input objects into output objects</li>
+<li>The running time of an algorithm typically grows with the input size</li>
+<li>3 case to consider
+<ul>
+<li>Worst case
+<ul>
+<li>A determination of the max amount of time that an algorithm requires to solve the problems of size <em>n</em></li>
+<li>eg: sorting increasing of number for input:
+<ul>
+<li>9, 8, 7, 6, 5, 4, 3, 2, 1, 0 (the algorithm will need to compare the first number to all the number after it to find the lowest, thus take a looooong time)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Average case
+<ul>
+<li>A determination of the average amount of time that an algorithm requires to solve the problems of size n</li>
+<li>eg: sorting increasing of number for input:
+<ul>
+<li>8,6,4,5,3,2,0,1,9 (the algorithm does not need to compare the numbers all the. way to the back, hence better than the worse case)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Best case
+<ul>
+<li>A determination of the min amount of time that an algorithm requires to solve problems of size n</li>
+<li>eg: sorting increasing of number for input:
+<ul>
+<li>0, 1, 2, 3, 4, 5, 6, 7, 8, 9 (the numbers are already sorted)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Represented using Big O notation
+<ul>
+<li>
+<p>provides idea on how an algorithm will grow in complexity as the number of input increases</p>
+</li>
+<li>
+<p>7 Big O</p>
+<p><img alt="Screenshot 2023-10-22 at 6.41.08\u202fAM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-22_at_6.41.08_AM.png"></p>
+<p><img alt="Screenshot 2023-10-22 at 6.41.25\u202fAM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-22_at_6.41.25_AM.png"></p>
+<p><img alt="Screenshot 2023-10-22 at 6.41.37\u202fAM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-22_at_6.41.37_AM.png"></p>
+<p><img alt="Screenshot 2023-10-22 at 6.41.48\u202fAM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-22_at_6.41.48_AM.png"></p>
+<p><img alt="Screenshot 2023-10-22 at 6.42.00\u202fAM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-22_at_6.42.00_AM.png"></p>
+<p><img alt="Screenshot 2023-10-22 at 8.33.22\u202fAM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-22_at_8.33.22_AM.png"></p>
+<p><img alt="Screenshot 2023-10-22 at 6.42.57\u202fAM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-22_at_6.42.57_AM.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W3 - Linked List</summary>
+  <ul>
+<li>
+<p>A data structure composed of nodes, each node holding some information and a reference to another node in the list</p>
+<ul>
+<li>Nodes can be located anywhere in the memory</li>
+<li>Passing one node to another using references</li>
+<li>Can be implemented many ways, but the most flexible is by using a separate object for each node</li>
+</ul>
+</li>
+<li>
+<p>Closest thing is array, but array has limitation:</p>
+<ul>
+<li>Changing of array size needs to create new array and copy all data</li>
+<li>Data in array are next to each other sequentially, inserting new data require shifting other data</li>
+</ul>
+</li>
+<li>
+<p>What are the types of linked list?</p>
+<ul>
+<li>
+<p>Singly linked list</p>
+<p><img alt="Screenshot 2023-10-30 at 12.06.30\u202fPM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-30_at_12.06.30_PM.png"></p>
+<p><img alt="Screenshot 2023-10-30 at 12.13.40\u202fPM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-30_at_12.13.40_PM.png"></p>
+<ul>
+<li>head: beginning of linked list</li>
+<li>tail: end of linked list</li>
+<li>Each node has:
+<ul>
+<li>Info field: store the info</li>
+<li>Address field: linking nodes (address field that contains reference to the next node — thats why at the tail, the address field is NULL, since there is no next node)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Doubly linked list</p>
+<p><img alt="Screenshot 2023-10-30 at 12.14.23\u202fPM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-30_at_12.14.23_PM.png"></p>
+<p><img alt="Screenshot 2023-10-30 at 12.16.53\u202fPM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-30_at_12.16.53_PM.png"></p>
+<ul>
+<li>head: the beginning of the linked list</li>
+<li>tail: the end of linked list</li>
+<li>Each nodes have:
+<ul>
+<li>Info field: the actual data</li>
+<li>Next field: the address of next node</li>
+<li>Prev field: the address of previous node</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Circular linked list</p>
+<p><img alt="Screenshot 2023-10-30 at 12.17.30\u202fPM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-30_at_12.17.30_PM.png"></p>
+<p><img alt="Screenshot 2023-10-30 at 12.17.41\u202fPM.png" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-30_at_12.17.41_PM.png"></p>
+<ul>
+<li>Can be:
+<ul>
+<li>Singly: The next pointer of tail points to head</li>
+<li>Doubly: The previous pointer of head points to tail</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Self-organizing list</p>
+<p><img alt="example of self-organizing list" loading="lazy" src="DSA-Note%201ca69f7969c644dc8a4bde74abbe89b0/Screenshot_2023-10-30_at_2.47.12_PM.png"></p>
+<p>example of self-organizing list</p>
+<ul>
+<li>A list that reorders its elements based on some self-organizing heuristic to improve average access time</li>
+<li>Methods for organizing list:
+<ul>
+<li>Move-to-front
+<ul>
+<li>After the desired element is located, put it at the beginning of the list</li>
+</ul>
+</li>
+<li>Transpose
+<ul>
+<li>After the desired element is located, swap it with its predecessor unless it is at the head of the list</li>
+</ul>
+</li>
+<li>Count
+<ul>
+<li>Order the list by the number of times elements are being accessed (the more it is accessed, the closer it is to the beginning)</li>
+</ul>
+</li>
+<li>Ordering
+<ul>
+<li>Order the list using certain criteria natural for the information under scrutiny — This means that the order of elements in the list is not fixed; it changes dynamically based on how often and how recently elements are accessed or searched for.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Access to the list</p>
+<ul>
+<li>isEmpty()</li>
+<li>addToHead(Tel)</li>
+<li>addToTail()</li>
+<li>deleteFromHead()</li>
+<li>deleteFromTail()</li>
+<li>Delete(Tel)</li>
+<li>printAll()</li>
+<li>isInList(Tel)</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">IntSLList</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">protected</span><span class="w"> </span><span class="n">IntSLLNode</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">IntSLList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//constructor, initiating a value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">//check if head is empty, then the list is empty</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addToHead</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">intSLLNode</span><span class="p">(</span><span class="n">el</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tail</span><span class="o">==</span><span class="kc">null</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="c1">//if tail is null, then the list is empty (only contain the newly added head)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addToTail</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w">  </span><span class="p">(</span><span class="o">!</span><span class="n">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">tail</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntSLLNode</span><span class="p">(</span><span class="n">el</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="p">.</span><span class="na">next</span><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IntSLLNode</span><span class="p">(</span><span class="n">el</span><span class="p">);</span><span class="w"> </span><span class="c1">//if the list is empty, head = tail</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">deleteFromHead</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">.</span><span class="na">info</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="o">==</span><span class="n">tail</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">//if only one node in the list</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">el</span><span class="p">;</span><span class="w"> </span><span class="c1">//the value deleted is returned</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">deleteFromTail</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="p">.</span><span class="na">info</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="o">==</span><span class="n">tail</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">IntSLLNode</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">next</span><span class="p">);</span><span class="c1">//finding the predecessor of tail</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"> </span><span class="c1">//the predecessor of tail becomes tail</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">tail</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">el</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">printAll</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">IntSLLNode</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">next</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">tmp</span><span class="p">.</span><span class="na">info</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&#34; &#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isInList</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">InsSLLNode</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">tmp</span><span class="o">!=</span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">info</span><span class="o">!=</span><span class="n">el</span><span class="p">;</span><span class="w"> </span><span class="n">tmp</span><span class="o">=</span><span class="n">tmp</span><span class="p">,</span><span class="n">next</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="o">!=</span><span class="kc">null</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">el</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">isEmpty</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">head</span><span class="o">==</span><span class="n">tail</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">el</span><span class="o">==</span><span class="n">head</span><span class="p">.</span><span class="na">info</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">if</span><span class="p">(</span><span class="n">head</span><span class="o">==</span><span class="n">tail</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">el</span><span class="o">==</span><span class="n">head</span><span class="p">.</span><span class="na">info</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">//if only one node in the list</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">el</span><span class="o">==</span><span class="n">head</span><span class="p">.</span><span class="na">info</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w"> </span><span class="c1">//if the node is the head</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">IntSLLNode</span><span class="w"> </span><span class="n">pred</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="c1">//of node is not the head</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">for</span><span class="p">(</span><span class="n">pred</span><span class="o">=</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="o">=</span><span class="n">head</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">tmp</span><span class="o">!=</span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">info</span><span class="w"> </span><span class="o">!=</span><span class="n">el</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">pred</span><span class="o">=</span><span class="n">pred</span><span class="p">.</span><span class="na">next</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="o">=</span><span class="n">tmp</span><span class="p">.</span><span class="na">next</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">!=</span><span class="kc">null</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">pred</span><span class="p">.</span><span class="na">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">.</span><span class="na">next</span><span class="p">;</span><span class="c1">//it skips the deleted node, jump straight to next node</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="k">if</span><span class="p">(</span><span class="n">tmp</span><span class="o">==</span><span class="n">tail</span><span class="p">)</span><span class="w"> </span><span class="c1">//if el is in tail</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">tail</span><span class="o">=</span><span class="n">pred</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Implementation of linked list</p>
+<ul>
+<li>Implement other complex data structure:
+<ul>
+<li>Trees</li>
+<li>Graphs</li>
+<li>Heaps</li>
+</ul>
+</li>
+<li>To store and process polynomials</li>
+<li>To create. dynamic stacks and queues which can grow and shrink at run time</li>
+<li>To add two large numbers (stack)</li>
+<li>To check if it is palindrome — katak ↔ katak</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">W1 - Introduction to Data Structure</summary>
+  
+</details></p>
+</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/notes/">Notes</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">wahba</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
