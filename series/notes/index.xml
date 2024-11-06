@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Notes on wahba</title>
-    <link>http://localhost:1313/series/notes/</link>
+    <link>https://wahbakamaluddin.github.io/series/notes/</link>
     <description>Recent content in Notes on wahba</description>
     <generator>Hugo -- 0.136.5</generator>
     <language>en</language>
     <lastBuildDate>Sat, 21 Oct 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/notes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://wahbakamaluddin.github.io/series/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Calculus</title>
-      <link>http://localhost:1313/posts/university-notes/calculus/</link>
+      <link>https://wahbakamaluddin.github.io/posts/university-notes/calculus/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/university-notes/calculus/</guid>
+      <guid>https://wahbakamaluddin.github.io/posts/university-notes/calculus/</guid>
       <description>Notes on calculus</description>
     </item>
     <item>
       <title>Data Structure &amp; Algorithm</title>
-      <link>http://localhost:1313/posts/university-notes/dsa/</link>
+      <link>https://wahbakamaluddin.github.io/posts/university-notes/dsa/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/university-notes/dsa/</guid>
+      <guid>https://wahbakamaluddin.github.io/posts/university-notes/dsa/</guid>
       <description>Notes on data structure &amp;amp; algorithm</description>
     </item>
     <item>
       <title>Discrete Math</title>
-      <link>http://localhost:1313/posts/university-notes/discrete-math/</link>
+      <link>https://wahbakamaluddin.github.io/posts/university-notes/discrete-math/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/university-notes/discrete-math/</guid>
+      <guid>https://wahbakamaluddin.github.io/posts/university-notes/discrete-math/</guid>
       <description>Notes on discrete math</description>
     </item>
     <item>
       <title>Linear Algebra</title>
-      <link>http://localhost:1313/posts/university-notes/linear-algebra/</link>
+      <link>https://wahbakamaluddin.github.io/posts/university-notes/linear-algebra/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/university-notes/linear-algebra/</guid>
+      <guid>https://wahbakamaluddin.github.io/posts/university-notes/linear-algebra/</guid>
       <description>Notes on linear algebra</description>
     </item>
     <item>
       <title>Computer Digital Electronic</title>
-      <link>http://localhost:1313/posts/university-notes/cde/</link>
+      <link>https://wahbakamaluddin.github.io/posts/university-notes/cde/</link>
       <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/university-notes/cde/</guid>
+      <guid>https://wahbakamaluddin.github.io/posts/university-notes/cde/</guid>
       <description>Computer Digital Electronic</description>
     </item>
   </channel>
