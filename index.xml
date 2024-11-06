@@ -2,31 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>wahba</title>
-    <link>https://wahbakamaluddin.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on wahba</description>
     <generator>Hugo -- 0.136.5</generator>
     <language>en</language>
     <lastBuildDate>Sat, 21 Oct 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://wahbakamaluddin.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Calculus</title>
-      <link>https://wahbakamaluddin.github.io/posts/university-note/calculus/</link>
+      <link>http://localhost:1313/posts/university-note/calculus/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://wahbakamaluddin.github.io/posts/university-note/calculus/</guid>
+      <guid>http://localhost:1313/posts/university-note/calculus/</guid>
       <description>Notes on calculus</description>
     </item>
     <item>
       <title>Data Structure &amp; Algorithm</title>
-      <link>https://wahbakamaluddin.github.io/posts/university-note/dsa/</link>
+      <link>http://localhost:1313/posts/university-note/dsa/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://wahbakamaluddin.github.io/posts/university-note/dsa/</guid>
+      <guid>http://localhost:1313/posts/university-note/dsa/</guid>
       <description>Notes on data structure &amp;amp; algorithm</description>
     </item>
     <item>
-      <title>Linear Algebra</title>
-      <link>https://wahbakamaluddin.github.io/posts/university-note/linear-algebra/</link>
+      <title>Discrete Math</title>
+      <link>http://localhost:1313/posts/university-note/discrete-math/</link>
       <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://wahbakamaluddin.github.io/posts/university-note/linear-algebra/</guid>
+      <guid>http://localhost:1313/posts/university-note/discrete-math/</guid>
+      <description>Notes on discrete math</description>
+    </item>
+    <item>
+      <title>Linear Algebra</title>
+      <link>http://localhost:1313/posts/university-note/linear-algebra/</link>
+      <pubDate>Sat, 21 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/university-note/linear-algebra/</guid>
       <description>Notes on linear algebra</description>
     </item>
   </channel>
