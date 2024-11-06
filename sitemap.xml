@@ -2,40 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://wahbakamaluddin.github.io/posts/university-note/calculus/</loc>
+    <loc>http://localhost:1313/posts/university-notes/calculus/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/posts/university-note/dsa/</loc>
+    <loc>http://localhost:1313/posts/university-notes/dsa/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/posts/university-note/discrete-math/</loc>
+    <loc>http://localhost:1313/posts/university-notes/discrete-math/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/posts/university-note/linear-algebra/</loc>
+    <loc>http://localhost:1313/posts/university-notes/linear-algebra/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/tags/notes/</loc>
+    <loc>http://localhost:1313/posts/university-notes/cde/</loc>
+    <lastmod>2023-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/notes/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/series/notes/</loc>
+    <loc>http://localhost:1313/series/notes/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/series/</loc>
+    <loc>http://localhost:1313/series/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2023-10-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/archives/</loc>
+    <loc>http://localhost:1313/archives/</loc>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://wahbakamaluddin.github.io/search/</loc>
+    <loc>http://localhost:1313/search/</loc>
   </url>
 </urlset>
