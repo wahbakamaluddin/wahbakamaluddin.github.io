@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>njRAT Malware Analysis | wahba</title>
+<meta name="keywords" content="Blogs">
+<meta name="description" content="njRAT Malware Analysis">
+<meta name="author" content="Wahba Kamaluddin">
+<link rel="canonical" href="https://wahbakamaluddin.github.io/posts/blogs/02/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://wahbakamaluddin.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://wahbakamaluddin.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://wahbakamaluddin.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://wahbakamaluddin.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://wahbakamaluddin.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://wahbakamaluddin.github.io/posts/blogs/02/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://wahbakamaluddin.github.io/posts/blogs/02/">
+  <meta property="og:site_name" content="wahba">
+  <meta property="og:title" content="njRAT Malware Analysis">
+  <meta property="og:description" content="njRAT Malware Analysis">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-31T00:00:00+00:00">
+    <meta property="article:tag" content="Blogs">
+    <meta property="og:image" content="https://wahbakamaluddin.github.io/images/blog/02/50.png">
+      <meta property="og:see_also" content="https://wahbakamaluddin.github.io/posts/blogs/01/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wahbakamaluddin.github.io/images/blog/02/50.png">
+<meta name="twitter:title" content="njRAT Malware Analysis">
+<meta name="twitter:description" content="njRAT Malware Analysis">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://wahbakamaluddin.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "njRAT Malware Analysis",
+      "item": "https://wahbakamaluddin.github.io/posts/blogs/02/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "njRAT Malware Analysis",
+  "name": "njRAT Malware Analysis",
+  "description": "njRAT Malware Analysis",
+  "keywords": [
+    "Blogs"
+  ],
+  "articleBody": "Read on Medium\n1. Overview njRAT is a remote access tool (RAT) with a graphical user interface (gui) that allows the operator to hijack victim’s machine for keylogging, screenshot capture, file manipulation and data exfiltration. It is written in .NET programming language and specifically targets Windows computer.\nnjRAT was first discovered in 2012, and Microsoft published the first public report on it in 2014. Microsoft classified it as MSIL/Bladabindi, and named its creation tool VirTool:MSIL/Bladabindi.A also referring it as NJ Rat.\nThe original njRAT was created by a group called M38dHhM believed to be based in Arabic speaking country, primarily targeting the Middle East. However, after its source code leaked in 2013, multiple modified versions emerged, including:\nnjRAT 0.7d Danger Edition njRAT 0.7d Golden Edition njRAT 0.7d Green Edition njRAT Lime Edition 2. Attack Simulation In this analysis, the njRAT variation used is njRAT Green Edition. The njRAT creator can be accessed publicly on GitHub. A lab consists of 2 Windows 10 virtual machines, acting as an attacker and victim will be used to demonstrate the njRAT malware. The lab setup is as follow:\nFigure 1 Lab configuration\nAttacker\nOS: Windows 10\nIP: 10.0.0.10\nVictim\nOS: Windows 10 (Flare VM installed)\nIP: 10.0.0.11\n2.1. njRAT creation Upon running the njRAT creator, a pop-pup window will appear, where listening port for the command and control (C2) server (attacker machine) can be set.\nFigure 2 Pop-up window to set listening port – Attacker machine\nClicking on Builder button on the lower left corner will pop-up a window for njRAT creation where a few options and parameters can be set. Some important parameters are:\nHost: The public IP of the C2 server Port: The listening port of the C2 server Hidden: Set the file attribute of the malware to hidden.Registry StartUp: Create an entry at a location. Copy to StartUp: It will copy itself to windows startup folder. Protect Process [BSOD]: If the process is terminated, it will result in Blue Screen of Death. Anti Kill: Disable keyboard or mouse input if certain process is running. Usb Spread: Copies the malware to program files on every logical drives. Figure 3 Pop-up window to create njRAT - Attacker machine\nClicking on Build button, the executable file can be created with supplied name (in this case it is named Server.exe).\nFigure 4 Saving crafted njRAT - Attacker machine\n2.2. njRAT Distribution njRAT can be distributed in many ways. Some of the attack vectors recorded are :\nPhishing email: njRAT is sent as a malicious attachment. Discord spam. Mail spam of shipment tracking with Zip file attachment. Cloud based storage. Compromised website that trick user into downloading fake update. The general goal is for the crafted njRAT executable file to be executed on victim’s machine, either by directly double clicking the executable file, or by using Visual Basic Script (VBS) for automated execution.\nFigure 5 C2 GUI shows list of infected machine(s) - Attacker machine\nUpon execution by victim, the C2 graphical user interface (GUI) will show list of infected machines.\nFigure 6 Victim’s machine POV - Victim machine\nFrom the point of view of the victim, nothing is changed.\n2.3. njRAT exploitation Right clicking on the victim on the list will reveal list of exploitations that can be executed. Some interesting exploitations are:\nFigure 7 Different exploitations choice - Attacker machine\nManager\nAttacker can view, edit or execute items from File manager, Process Manager, Connections, Registry, Remote Shell Services.\nFigure 8 Manager - Attacker machine\nRun File\nAttacker can execute file or command on victim’s machine.\nFigure 9 Attacker run “calc” command – Attacker machine\nFigure 10 “calc” command was executed on victim’s machine – Victim machine\nRemote Desktop\nAttacker can view victim’s screen in real-time.\nFigure 11 Attacker can view victim’s screen real-time – Attacker Machine\nKeylogger\nAttacker can view every keystroke pressed by the victim.\nFigure 12 Keylogger ability - Attacker machine\nChat\nAttacker can initiate conversation with the victim via a chat box.\nFigure 13 Attacker can communicate with victim via chat - Attacker machine\nFigure 14 Victim can communicate with attacker via a chat box - Victim machine\nSome other exploits are:\nRemote cam: open victim’s webcam Remote DDoS: Use victim’s machine to initiate a DoS attack Microphone: Listen to victim’s microphone Get Passwords: Grab victim’s password Fun: Do vicious things on victim’s machine such as hide cursor, turn off monitor, and text-to-speech. 3. Static Analysis Static analysis is conducted on the crafted njRAT executable file, and FlareVM is used as the sandbox.\n3.1. Overview inspection using pestudio Opening the executable file on pestudio, several important information are gathered:\nIt is a 32-bit executable file (MZ file signature). It is written on .NET (dnspy can be used to analyse the source code) architecture. Figure 15 pestudio\nAnalyzing strings listed by the pestudio, some interesting ones are:\nhttps://dl.dropbox.com/s/p84aaz28t0hepul/Pass.exe?dl=0 HKEY_CURRENT_USER\\Software\\Policies\\Microsoft\\Windows\\System HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\SystemRestore netsh firewall add allowedprogram netsh firewall delete allowedprogram shutdowncomputer restartcomputer logoff DisableTaskMgr Based on these strings, a few guesses on what the malware is capable of can be made; It can modify the registry, shut down the computer, disable task manager, and modify firewall policies.\n3.2. Code analysis using dnspy Since the malware was created using .NET framework, the malware itself was not compiled into machine language, but it is compiled into intermediary language (IL) that preserves class names, method names, and variable names. Hence it is possible to decompile and analyze the source code using tools like dnspy, ILSpy, or dotPeek.\nThe entry point of njRAT is main() function\nFigure 16 Entry point is main function\nmain() function will call OK.ko() function\nFigure 17 main() function will call OK.ko() function\nIt will first create a Mutex to ensure that only one instance of it is running. If the mutex creation failed, therefore if another instance of it is running, the current instance will stop.\nFigure 18 Ok.ko() will create a Mutex\nOK.INS()\nAfter the Mutex creation, it will call OK.INS() function, that will initiate malware installation process*.* In OK.INS() function, if the copy option was selected during njRAT creation, it will check the current path of the executable with the path that was specified during the creation. If it does not match, it will copy the executable file to the specified path, run it, and stop the current instance.\nFigure 19 Copying executable to the specified location\nThen it will modify the firewall rule to add itself as a permitted program.\n![images/blog/02/20.png)\nFigure 20 Add firewall rule to allow itself to run\nIf RegistryStarUP option was selected during njRAT creation, it will add a new entry under CurrentUser at Software\\Microsoft\\Windows\\CurrentVersion\\Run with value of current path of the executable. It will make the executable runs automatically on every user login.\nFigure 21 Function to add registry entry\nFigure 22 New registry entry is added by the malware on victim machine\nIf Hidden and Copy to StartUp option was selected during njRAT creation, the executable file properties will be set to hidden, hence it will not be visible from file explorer by default. It will also be copied to the startup folder C:\\Users\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\nFigure 23 Function to set file attribute to hidden and copy the file to startup folder\nFigure 24 The attribute is set to hidden\nFigure 25 The executable file is copied to startup folder\nIf Kill Process option was selected, it will kill the specified process\nFigure 26 Function to kill specified process\nIf USB spread was selected during njRAT creation, then it will scan each logical drives with that has Program Files folder, and it will copy itself into the folder with its name as specified during the creation. It will also create an autorun.inf file in the same folder and writes its content as:\n1 2 3 [autorun] Open = / Shellexecute= When the infected drive is attached to any machine, Windows will automatically run the autorun.inf and compromise the machine with njRAT.\nOK.RC()\nUpon completion of installation function OK.INS() the malware will start a new thread and initiate connection with the C2 server using OK.RC() function, which most probably stands for Remote Connection or Remote Control.\nFigure 27 OK.RC() function is called to handle connection with C2 server\nIt will initiate connection with C2 server via IP address (defined as OK.HH)\nFigure 28 Initiating connection with C2 server via IP address\nEvery action from the C2 server (hide task manager, open webcam, remote desktop, etc) will be sent as a string and it will be used to execute any functions defined under OK.IND(). All the core functionalities of njRAT is defined under this function.\nFigure 29 OK.IND() function where all the core function of njRAT is defined\nOK.wrk()\nOK.WRK() function is responsible for keylogging features of njRAT\nFigure 30 OK.WRK() function for keylogging features\nOK.mgr.protect\nIf Anti Kill option is set during njRAT creation, it will continuously checks if process taskmgr, processviewer, processhacker, process explorer is running, it will disable keyboard or mouse input to it and end the processes.\nFigure 31 OK.mgr.protect() function as a protection mechanism\nOK.pr()\nIf Protect Process [BSOD] option was selected during njRAT creation, OK.pr() function will be executed. It will set the malware’s ProcessInformationClass to 29, which will categorize the process as critical. Since it is categorized as critical, any attempt to disrupt its operation will results in if the execution of the malware is interrupted, it will result in blue screen of death (BSOD).\nFigure 32 OK.pr() function will set ProcessInformationClass to 29\nFigure 33 Microsoft official documentation\n4. Dynamic analysis Dynamic analysis is conducted on the crafted njRAT executable file, and FlareVM is used as the sandbox.\n4.1. System Behaviour Analysis When the malware was executed on victim machine (double click on Server.exe file), nothing seem to happen on the victim machine, the cursor will turns into a loading icon for a few seconds, then it will be back to normal.\nFigure 34 Malware is executed (double click on Server.exe) – Victim machine\nOn the attacker’s end, when the victim executed the malware, a notification will appear (with evil laughing sound effect) at the bottom right corner listing the victim’s IP address, the machine name, the user name, the OS, the country, and the njRAT version. The compromised machine(s) will be listed on the main page of the C2 interface.\nFigure 35 Notification on the bottom right corner when new machine is compromised – Attacker machine\nFigure 36 Compromised machine(s) are listed on the main page - Attacker machine\nSince RegistryStarUP option was selected during njRAT cration, a new entry under CurrentUser at Software\\Microsoft\\Windows\\CurrentVersion\\Run with value of current path of the executable will be added on victim machine.\nFigure 37 New registry entry is added by the malware on victim machine\nSince Hidden and Copy to StartUp option was selected during njRAT creation, the executable file properties is set to hidden, hence it will not be visible from file explorer by default. It will also be copied to the startup folder C:\\Users\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\nFigure 38 The attribute is set to hidden\nFigure 39 The executable file is copied to startup folder\n4.2. Network Traffic Analysis (using Wireshark) Initialization\nWhen the malware is executed, the victim machine will initiate a regular TCP handshake with the attacker machine. *Note that attacker IP: 10.0.0.10, victim IP: 10.0.0.11\nFigure 40 Victim initialized TCP 3-way handshake with the attacker machine\nThen the victim machine will send its information to attacker machine in cleartext. The information sent are:\nVictim name set during njRAT creation (base64 encoded) Machine name Victim name Date Victim OS Figure 41 Victim machine send its information to attacker machine in cleartext\nFigure 42 CyberChef is used to decode base64\nThe victim machine will then send Victim IP and port number; executable file location; executable file name; and list of True and False values corresponding to the options selected during njRAT creation, all are encoded in based64.\nFigure 43 Victim machine send informations to attacker machine\nFigure 44 Base64 is decoded using cyberchef\nKeylogger\nWhen attacker click on keylogger function, it sends kl command, victim machine then will send the log containing captured keystrokes\nFigure 45 Attacker send “kl” command to victim\nFigure 46 Log sent by victim machine decoded using CyberChef\nRemote Desktop\nLive feed of victim’s desktop is sent as a stream of TCP packets.\nFigure 47 TCP streams of victim’s desktop live feed\n5. References Technical Reports \u0026 Research Papers\n(2024). njRAT Report – Cyber Threat Intelligence Program (CTIP). Retrieved from:https://assets.kpmg.com/content/dam/kpmg/in/pdf/2024/08/kpmg-ctip-njrat-27-aug-2024.pdf Fraunhofer FKIE (Malpedia). njRAT Malware Details. Retrieved from:https://malpedia.caad.fkie.fraunhofer.de/details/win.njrat Cybersecurity Blogs \u0026 Analysis\nnjRAT Analysis – Attack Techniques Hands-on. Retrieved from:https://www.cynet.com/attack-techniques-hands-on/njrat-report-bladabindi/#heading-2 BlackBerry Threat Intelligence. (2021). Threat Thursday: Don’t Let njRAT Take Your Cheddar. Retrieved from:https://blogs.blackberry.com/en/2021/08/threat-thursday-dont-let-njrat-take-your-cheddar Cybereason Research. Who’s Hacking the Hackers? No Honor Among Thieves. Retrieved from:https://www.cybereason.com/blog/research/whos-hacking-the-hackers-no-honor-among-thieves Hands-on Analysis \u0026 Reverse Engineering\nRUN. njRAT Malware Trends. Retrieved from:https://any.run/malware-trends/njrat njRAT Malware Analysis – Reverse Engineering \u0026 Behavior Analysis. Retrieved from:https://piyush3131.github.io/posts/njRAT_Malware_Analysis/ njRAT Builder\nXAKEP-1lly. njRAT 0.7D Green Edition by im523 (GitHub Repository). Retrieved from:https://github.com/XAKEP-1lly/NjRat-0.7D-Green-Edition-by-im523 Video Analysis\nnjRAT Malware Analysis – In-depth Review. Retrieved from:https://www.youtube.com/watch?v=tV-TnyqXBv8\u0026t=172s njRAT Overview \u0026 Analysis. Retrieved from:https://www.youtube.com/watch?v=_utd9EwwFXI News \u0026 Leak Reports\nLeaked Code for njw0rm RAT Spawns New Malware. Retrieved from:https://news.softpedia.com/news/Leaked-Code-for-Njw0rm-RAT-Spawns-New-Malware-470997.shtml njRAT Blog Post. Retrieved from:https://breachnova.com/blog.php?id=27 ",
+  "wordCount" : "2192",
+  "inLanguage": "en",
+  "image":"https://wahbakamaluddin.github.io/images/blog/02/50.png","datePublished": "2025-01-31T00:00:00Z",
+  "dateModified": "2025-01-31T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "Wahba Kamaluddin"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://wahbakamaluddin.github.io/posts/blogs/02/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "wahba",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://wahbakamaluddin.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://wahbakamaluddin.github.io/" accesskey="h" title="wahba (Alt + H)">wahba</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://wahbakamaluddin.github.io/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wahbakamaluddin.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://wahbakamaluddin.github.io/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      njRAT Malware Analysis
+    </h1>
+    <div class="post-meta"><span title='2025-01-31 00:00:00 +0000 UTC'>January 31, 2025</span>&nbsp;·&nbsp;Wahba Kamaluddin
+
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="eager" src="https://wahbakamaluddin.github.io/images/blog/02/50.png" alt="njRAT logo">
+        <p>njRAT logo</p>
+</figure><div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-overview" aria-label="1. Overview">1. Overview</a></li>
+                <li>
+                    <a href="#2-attack-simulation" aria-label="2. Attack Simulation">2. Attack Simulation</a><ul>
+                        
+                <li>
+                    <a href="#21-njrat-creation" aria-label="2.1. njRAT creation">2.1. njRAT creation</a></li>
+                <li>
+                    <a href="#22-njrat-distribution" aria-label="2.2. njRAT Distribution">2.2. njRAT Distribution</a></li>
+                <li>
+                    <a href="#23-njrat-exploitation" aria-label="2.3. njRAT exploitation">2.3. njRAT exploitation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-static-analysis" aria-label="3. Static Analysis">3. Static Analysis</a><ul>
+                        
+                <li>
+                    <a href="#31-overview-inspection-using-pestudio" aria-label="3.1. Overview inspection using pestudio">3.1. Overview inspection using pestudio</a></li>
+                <li>
+                    <a href="#32-code-analysis-using-dnspy" aria-label="3.2. Code analysis using dnspy">3.2. Code analysis using dnspy</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-dynamic-analysis" aria-label="4. Dynamic analysis">4. Dynamic analysis</a><ul>
+                        
+                <li>
+                    <a href="#41-system-behaviour-analysis" aria-label="4.1. System Behaviour Analysis">4.1. System Behaviour Analysis</a></li>
+                <li>
+                    <a href="#42-network-traffic-analysis-using-wireshark" aria-label="4.2. Network Traffic Analysis (using Wireshark)">4.2. Network Traffic Analysis (using Wireshark)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#5-references" aria-label="5. References">5. References</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><a href="https://wahbakamaluddin.medium.com/artificial-intelligence-and-machine-learning-in-layman-term-14da9b485ffd">Read on Medium</a></p>
+<h1 id="1-overview">1. Overview<a hidden class="anchor" aria-hidden="true" href="#1-overview">#</a></h1>
+<p>njRAT is a remote access tool (RAT) with a graphical user interface (gui) that allows the operator to hijack victim’s machine for keylogging, screenshot capture, file manipulation and data exfiltration. It is written in .NET programming language and specifically targets Windows computer.</p>
+<p>njRAT was first discovered in 2012, and Microsoft published the first public report on it in 2014. Microsoft classified it as MSIL/Bladabindi, and named its creation tool VirTool:MSIL/Bladabindi.A also referring it as NJ Rat.</p>
+<p>The original njRAT was created by a group called M38dHhM believed to be based in Arabic speaking country, primarily targeting the Middle East. However, after its source code leaked in 2013, multiple modified versions emerged, including:</p>
+<ul>
+<li>njRAT 0.7d Danger Edition</li>
+<li>njRAT 0.7d Golden Edition</li>
+<li>njRAT 0.7d Green Edition</li>
+<li>njRAT Lime Edition</li>
+</ul>
+<h1 id="2-attack-simulation">2. Attack Simulation<a hidden class="anchor" aria-hidden="true" href="#2-attack-simulation">#</a></h1>
+<p>In this analysis, the njRAT variation used is njRAT Green Edition. The njRAT creator can be accessed publicly on <a href="https://github.com/XAKEP-1lly/NjRat-0.7D-Green-Edition-by-im523">GitHub</a>. A lab consists of 2 <em>Windows 10</em> virtual machines, acting as an attacker and victim will be used to demonstrate the njRAT malware. The lab setup is as follow:</p>
+<p><img alt="Figure 1 Lab configuration" loading="lazy" src="/images/blog/02/01.png"></p>
+<p>Figure 1 Lab configuration</p>
+<p>Attacker</p>
+<p>OS: Windows 10</p>
+<p>IP: 10.0.0.10</p>
+<p>Victim</p>
+<p>OS: Windows 10 (Flare VM installed)</p>
+<p>IP: 10.0.0.11</p>
+<h2 id="21-njrat-creation">2.1. njRAT creation<a hidden class="anchor" aria-hidden="true" href="#21-njrat-creation">#</a></h2>
+<p>Upon running the njRAT creator, a pop-pup window will appear, where listening port for the command and control (C2) server (attacker machine) can be set.</p>
+<p><img alt="Figure 2 Pop-up window to set listening port – Attacker machine" loading="lazy" src="/images/blog/02/02.png"></p>
+<p>Figure 2 Pop-up window to set listening port – Attacker machine</p>
+<p>Clicking on <em>Builder</em> button on the lower left corner will pop-up a window for njRAT creation where a few options and parameters can be set.  Some important parameters are:</p>
+<ul>
+<li>Host: The public IP of the C2 server</li>
+<li>Port: The listening port of the C2 server</li>
+<li>Hidden: Set the file attribute of the malware to hidden.Registry StartUp: Create an entry at a location.</li>
+<li>Copy to StartUp: It will copy itself to windows startup folder.</li>
+<li>Protect Process [BSOD]: If the process is terminated, it will result in Blue Screen of Death.</li>
+<li>Anti Kill: Disable keyboard or mouse input if certain process is running.</li>
+<li>Usb Spread: Copies the malware to program files on every logical drives.</li>
+</ul>
+<p><img alt="Figure 3 Pop-up window to create njRAT - Attacker machine" loading="lazy" src="/images/blog/02/03.png"></p>
+<p>Figure 3 Pop-up window to create njRAT - Attacker machine</p>
+<p>Clicking on <em>Build</em> button, the executable file can be created with supplied name (in this case it is named Server.exe).</p>
+<p><img alt="Figure 4 Saving crafted njRAT - Attacker machine" loading="lazy" src="/images/blog/02/04.png"></p>
+<p>Figure 4 Saving crafted njRAT - Attacker machine</p>
+<h2 id="22-njrat-distribution">2.2. njRAT Distribution<a hidden class="anchor" aria-hidden="true" href="#22-njrat-distribution">#</a></h2>
+<p>njRAT can be distributed in many ways. Some of the attack vectors recorded are :</p>
+<ul>
+<li>Phishing email: njRAT is sent as a malicious attachment.</li>
+<li>Discord spam.</li>
+<li>Mail spam of shipment tracking with Zip file attachment.</li>
+<li>Cloud based storage.</li>
+<li>Compromised website that trick user into downloading fake update.</li>
+</ul>
+<p>The general goal is for the crafted njRAT executable file to be executed on victim’s machine, either by directly double clicking the executable file, or by using Visual Basic Script (VBS) for automated execution.</p>
+<p><img alt="Figure 5 C2 GUI shows list of infected machine(s) - Attacker machine" loading="lazy" src="/images/blog/02/05.png"></p>
+<p>Figure 5 C2 GUI shows list of infected machine(s) - Attacker machine</p>
+<p>Upon execution by victim, the C2 graphical user interface (GUI) will show list of infected machines.</p>
+<p><img alt="Figure 6 Victim&rsquo;s machine POV - Victim machine" loading="lazy" src="/images/blog/02/06.png"></p>
+<p>Figure 6 Victim&rsquo;s machine POV - Victim machine</p>
+<p>From the point of view of the victim, nothing is changed.</p>
+<h2 id="23-njrat-exploitation">2.3. njRAT exploitation<a hidden class="anchor" aria-hidden="true" href="#23-njrat-exploitation">#</a></h2>
+<p>Right clicking on the victim on the list will reveal list of exploitations that can be executed. Some interesting exploitations are:</p>
+<p><img alt="Figure 7 Different exploitations choice - Attacker machine" loading="lazy" src="/images/blog/02/07.png"></p>
+<p>Figure 7 Different exploitations choice - Attacker machine</p>
+<p>Manager</p>
+<p>Attacker can view, edit or execute items from <em>File manager, Process Manager, Connections, Registry, Remote Shell Services.</em></p>
+<p><img alt="Figure 8 Manager - Attacker machine" loading="lazy" src="/images/blog/02/08.png"></p>
+<p>Figure 8 Manager - Attacker machine</p>
+<p>Run File</p>
+<p>Attacker can execute file or command on victim’s machine.</p>
+<p><img alt="Figure 9 Attacker run “calc” command – Attacker machine" loading="lazy" src="/images/blog/02/09.png"></p>
+<p>Figure 9 Attacker run “calc” command – Attacker machine</p>
+<p><img alt="Figure 10 &ldquo;calc&rdquo; command was executed on\u00a0 victim&rsquo;s machine – Victim machine" loading="lazy" src="/images/blog/02/10.png"></p>
+<p>Figure 10 &ldquo;calc&rdquo; command was executed on  victim&rsquo;s machine – Victim machine</p>
+<p>Remote Desktop</p>
+<p>Attacker can view victim’s screen in real-time.</p>
+<p><img alt="Figure 11 Attacker can view victim&rsquo;s screen real-time – Attacker Machine" loading="lazy" src="/images/blog/02/11.png"></p>
+<p>Figure 11 Attacker can view victim&rsquo;s screen real-time – Attacker Machine</p>
+<p>Keylogger</p>
+<p>Attacker can view every keystroke pressed by the victim.</p>
+<p><img alt="Figure 12 Keylogger ability - Attacker machine" loading="lazy" src="/images/blog/02/12.png"></p>
+<p>Figure 12 Keylogger ability - Attacker machine</p>
+<p>Chat</p>
+<p>Attacker can initiate conversation with the victim via a chat box.</p>
+<p><img alt="Figure 13 Attacker can communicate with victim via chat - Attacker machine" loading="lazy" src="/images/blog/02/13.png"></p>
+<p>Figure 13 Attacker can communicate with victim via chat - Attacker machine</p>
+<p><img alt="Figure 14 Victim can communicate with attacker via a chat box - Victim machine" loading="lazy" src="/images/blog/02/14.png"></p>
+<p>Figure 14 Victim can communicate with attacker via a chat box - Victim machine</p>
+<p>Some other exploits are:</p>
+<ul>
+<li>Remote cam: open victim’s webcam</li>
+<li>Remote DDoS: Use victim’s machine to initiate a DoS attack</li>
+<li>Microphone: Listen to victim’s microphone</li>
+<li>Get Passwords: Grab victim’s password</li>
+<li>Fun: Do vicious things on victim’s machine such as hide cursor, turn off monitor, and text-to-speech.</li>
+</ul>
+<h1 id="3-static-analysis">3. Static Analysis<a hidden class="anchor" aria-hidden="true" href="#3-static-analysis">#</a></h1>
+<p>Static analysis is conducted on the crafted njRAT executable file, and FlareVM is used as the sandbox.</p>
+<h2 id="31-overview-inspection-using-pestudio">3.1. Overview inspection using pestudio<a hidden class="anchor" aria-hidden="true" href="#31-overview-inspection-using-pestudio">#</a></h2>
+<p>Opening the executable file on pestudio, several important information are gathered:</p>
+<ul>
+<li>It is a 32-bit executable file (MZ file signature).</li>
+<li>It is written on .NET (dnspy can be used to analyse the source code) architecture.</li>
+</ul>
+<p><img alt="Figure 15 pestudio" loading="lazy" src="/images/blog/02/15.png"></p>
+<p>Figure 15 pestudio</p>
+<p>Analyzing strings listed by the pestudio, some interesting ones are:</p>
+<ul>
+<li><a href="https://dl.dropbox.com/s/p84aaz28t0hepul/Pass.exe?dl=0">https://dl.dropbox.com/s/p84aaz28t0hepul/Pass.exe?dl=0</a></li>
+<li>HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System</li>
+<li>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System</li>
+<li>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore</li>
+<li>netsh firewall add allowedprogram</li>
+<li>netsh firewall delete allowedprogram</li>
+<li>shutdowncomputer</li>
+<li>restartcomputer</li>
+<li>logoff</li>
+<li>DisableTaskMgr</li>
+</ul>
+<p>Based on these strings, a few guesses on what the malware is capable of can be made; It can modify the registry, shut down the computer, disable task manager, and modify firewall policies.</p>
+<h2 id="32-code-analysis-using-dnspy">3.2. Code analysis using dnspy<a hidden class="anchor" aria-hidden="true" href="#32-code-analysis-using-dnspy">#</a></h2>
+<p>Since the malware was created using .NET framework, the malware itself was not compiled into machine language, but it is compiled into intermediary language (IL) that preserves class names, method names, and variable names. Hence it is possible to decompile and analyze the source code using tools like dnspy, ILSpy, or dotPeek.</p>
+<p>The entry point of njRAT is <em>main()</em> function</p>
+<p><img alt="Figure 16 Entry point is main function" loading="lazy" src="/images/blog/02/16.png"></p>
+<p>Figure 16 Entry point is main function</p>
+<p><em>main()</em> function will call <em>OK.ko()</em> function</p>
+<p><img alt="Figure 17 main() function will call OK.ko() function" loading="lazy" src="/images/blog/02/17.png"></p>
+<p>Figure 17 main() function will call OK.ko() function</p>
+<p>It will first create a Mutex to ensure that only one instance of it is running. If the mutex creation failed, therefore if another instance of it is running, the current instance will stop.</p>
+<p><img alt="Figure 18 Ok.ko() will create a Mutex" loading="lazy" src="/images/blog/02/18.png"></p>
+<p>Figure 18 Ok.ko() will create a Mutex</p>
+<p>OK.INS()</p>
+<p>After the Mutex creation, it will call <em>OK.INS()</em> function, that will initiate malware installation process*.* In <em>OK.INS()</em> function, if the <em>copy</em> option was selected during njRAT creation, it will check the current path of the executable with the path that was specified during the creation. If it does not match, it will copy the executable file to the specified path, run it, and stop the current instance.</p>
+<p><img alt="Figure 19 Copying executable to the specified location" loading="lazy" src="/images/blog/02/19.png"></p>
+<p>Figure 19 Copying executable to the specified location</p>
+<p>Then it will modify the firewall rule to add itself as a permitted program.</p>
+<p>![images/blog/02/20.png)</p>
+<p>Figure 20 Add firewall rule to allow itself to run</p>
+<p>If <em>RegistryStarUP</em> option was selected during njRAT creation, it will add a new entry under <em>CurrentUser</em> at <em>Software\Microsoft\Windows\CurrentVersion\Run</em> with value of current path of the executable. It will make the executable runs automatically on every user login.</p>
+<p><img alt="Figure 21 Function to add registry entry" loading="lazy" src="/images/blog/02/21.png"></p>
+<p>Figure 21 Function to add registry entry</p>
+<p><img alt="Figure 22 New registry entry is added by the malware on victim machine" loading="lazy" src="/images/blog/02/22.png"></p>
+<p>Figure 22 New registry entry is added by the malware on victim machine</p>
+<p>If <em>Hidden</em> and <em>Copy to StartUp</em> option was selected during njRAT creation, the executable file properties will be set to hidden, hence it will not be visible from file explorer by default. It will also be copied to the startup folder <em>C:\Users&lt;username&gt;\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</em></p>
+<p><img alt="Figure 23 Function to set file attribute to hidden and copy the file to startup folder" loading="lazy" src="/images/blog/02/23.png"></p>
+<p>Figure 23 Function to set file attribute to hidden and copy the file to startup folder</p>
+<p><img alt="Figure 24 The attribute is set to hidden" loading="lazy" src="/images/blog/02/24.png"></p>
+<p>Figure 24 The attribute is set to hidden</p>
+<p><img alt="Figure 25 The executable file is copied to startup folder" loading="lazy" src="/images/blog/02/25.png"></p>
+<p>Figure 25 The executable file is copied to startup folder</p>
+<p>If Kill Process option was selected, it will kill the specified process</p>
+<p><img alt="Figure 26 Function to kill specified process" loading="lazy" src="/images/blog/02/26.png"></p>
+<p>Figure 26 Function to kill specified process</p>
+<p>If <em>USB spread</em> was selected during njRAT creation, then it will scan each logical drives with that has <em>Program Files</em> folder, and it will copy itself into the folder with its name as specified during the creation. It will also create an <em>autorun.inf</em>  file in the same folder and writes its content as:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">[</span>autorun<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Open</span> <span class="o">=</span> &lt;Program_Files_Folder_Path&gt;/&lt;Malware_Executable_Name&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">Shellexecute</span><span class="o">=</span> &lt;Program_Files_Folder_Path&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>When the infected drive is attached to any machine, Windows will automatically run the <em>autorun.inf</em> and compromise the machine with njRAT.</p>
+<p>OK.RC()</p>
+<p>Upon completion of installation function <em>OK.INS()</em> the malware will start a new thread and initiate connection with the C2 server using <em>OK.RC()</em> function, which most probably stands for Remote Connection or Remote Control.</p>
+<p><img alt="Figure 27 OK.RC() function is called to handle connection with C2 server" loading="lazy" src="/images/blog/02/27.png"></p>
+<p>Figure 27 OK.RC() function is called to handle connection with C2 server</p>
+<p>It will initiate connection with C2 server via IP address (defined as OK.HH)</p>
+<p><img alt="Figure 28 Initiating connection with C2 server via IP address" loading="lazy" src="/images/blog/02/28.png"></p>
+<p>Figure 28 Initiating connection with C2 server via IP address</p>
+<p>Every action from the C2 server (hide task manager, open webcam, remote desktop, etc) will be sent as a string and it will be used to execute any functions defined under <em>OK.IND()</em>. All the core functionalities of njRAT is defined under this function.</p>
+<p><img alt="Figure 29 OK.IND() function where all the core function of njRAT is defined" loading="lazy" src="/images/blog/02/29.png"></p>
+<p>Figure 29 OK.IND() function where all the core function of njRAT is defined</p>
+<p>OK.wrk()</p>
+<p>OK.WRK() function is responsible for keylogging features of njRAT</p>
+<p><img alt="Figure 30 OK.WRK() function for keylogging features" loading="lazy" src="/images/blog/02/30.png"></p>
+<p>Figure 30 OK.WRK() function for keylogging features</p>
+<p>OK.mgr.protect</p>
+<p>If <em>Anti Kill</em> option is set during njRAT creation, it will continuously checks if process <em>taskmgr, processviewer, processhacker, process explorer</em> is running, it will disable keyboard or mouse input to it and end the processes.</p>
+<p><img alt="Figure 31 OK.mgr.protect() function as a protection \u00a0mechanism" loading="lazy" src="/images/blog/02/31.png"></p>
+<p>Figure 31 OK.mgr.protect() function as a protection  mechanism</p>
+<p>OK.pr()</p>
+<p>If <em>Protect Process [BSOD]</em> option <em>was selected during njRAT creation</em>, <em>OK.pr()</em> function will be executed. It will set the malware’s ProcessInformationClass to 29, which will categorize the process as critical. Since it is categorized as critical, any attempt to disrupt its operation will results in if the execution of the malware is interrupted, it will result in blue screen of death (BSOD).</p>
+<p><img alt="Figure 32 OK.pr() function will set ProcessInformationClass to 29" loading="lazy" src="/images/blog/02/32.png"></p>
+<p>Figure 32 OK.pr() function will set ProcessInformationClass to 29</p>
+<p><img alt="Figure 33 Microsoft official documentation" loading="lazy" src="/images/blog/02/33.png"></p>
+<p>Figure 33 Microsoft official documentation</p>
+<h1 id="4-dynamic-analysis">4. Dynamic analysis<a hidden class="anchor" aria-hidden="true" href="#4-dynamic-analysis">#</a></h1>
+<p>Dynamic analysis is conducted on the crafted njRAT executable file, and FlareVM is used as the sandbox.</p>
+<h2 id="41-system-behaviour-analysis">4.1. System Behaviour Analysis<a hidden class="anchor" aria-hidden="true" href="#41-system-behaviour-analysis">#</a></h2>
+<p>When the malware was executed on victim machine (double click on <em>Server.exe</em> file), nothing seem to happen on the victim machine, the cursor will turns into a loading icon for a few seconds, then it will be back to normal.</p>
+<p><img alt="Figure 34 Malware is executed (double click on Server.exe) – Victim machine" loading="lazy" src="/images/blog/02/34.png"></p>
+<p>Figure 34 Malware is executed (double click on Server.exe) – Victim machine</p>
+<p>On the attacker’s end, when the victim executed the malware, a notification will appear (with evil laughing sound effect) at the bottom right corner listing the victim’s IP address, the machine name, the user name, the OS, the country, and the njRAT version. The compromised machine(s) will be listed on the main page of the C2 interface.</p>
+<p><img alt="Figure 35 Notification on the bottom right corner when new machine is compromised – Attacker machine" loading="lazy" src="/images/blog/02/35.png"></p>
+<p>Figure 35 Notification on the bottom right corner when new machine is compromised – Attacker machine</p>
+<p><img alt="Figure 36 Compromised machine(s) are listed on the main page - Attacker machine" loading="lazy" src="/images/blog/02/36.png"></p>
+<p>Figure 36 Compromised machine(s) are listed on the main page - Attacker machine</p>
+<p>Since <em>RegistryStarUP</em> option was selected during njRAT cration, a new entry under <em>CurrentUser</em> at <em>Software\Microsoft\Windows\CurrentVersion\Run</em> with value of current path of the executable will be added on victim machine.</p>
+<p><img alt="Figure 37 New registry entry is added by the malware on victim machine" loading="lazy" src="/images/blog/02/37.png"></p>
+<p>Figure 37 New registry entry is added by the malware on victim machine</p>
+<p>Since <em>Hidden</em> and <em>Copy to StartUp</em> option was selected during njRAT creation, the executable file properties is set to hidden, hence it will not be visible from file explorer by default. It will also be copied to the startup folder <em>C:\Users&lt;username&gt;\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</em></p>
+<p><img alt="Figure 38 The attribute is set to hidden" loading="lazy" src="/images/blog/02/38.png"></p>
+<p>Figure 38 The attribute is set to hidden</p>
+<p><img alt="Figure 39 The executable file is copied to startup folder" loading="lazy" src="/images/blog/02/39.png"></p>
+<p>Figure 39 The executable file is copied to startup folder</p>
+<h2 id="42-network-traffic-analysis-using-wireshark">4.2. Network Traffic Analysis (using Wireshark)<a hidden class="anchor" aria-hidden="true" href="#42-network-traffic-analysis-using-wireshark">#</a></h2>
+<p>Initialization</p>
+<p>When the malware is executed, the victim machine will initiate a regular TCP handshake with the attacker machine. *Note that attacker IP: 10.0.0.10, victim IP: 10.0.0.11</p>
+<p><img alt="Figure 40 Victim initialized TCP 3-way handshake with the attacker machine" loading="lazy" src="/images/blog/02/40.png"></p>
+<p>Figure 40 Victim initialized TCP 3-way handshake with the attacker machine</p>
+<p>Then the victim machine will send its information to attacker machine in cleartext. The information sent are:</p>
+<ul>
+<li>Victim name set during njRAT creation (base64 encoded)</li>
+<li>Machine name</li>
+<li>Victim name</li>
+<li>Date</li>
+<li>Victim OS</li>
+</ul>
+<p><img alt="Figure 41 Victim machine send its information to attacker machine in cleartext" loading="lazy" src="/images/blog/02/41.png"></p>
+<p>Figure 41 Victim machine send its information to attacker machine in cleartext</p>
+<p><img alt="Figure 42 CyberChef is used to decode base64" loading="lazy" src="/images/blog/02/42.png"></p>
+<p>Figure 42 CyberChef is used to decode base64</p>
+<p>The victim machine will then send Victim IP and port number; executable file location; executable file name; and list of <em>True</em> and <em>False</em> values corresponding to the options selected during njRAT creation, all are encoded in based64.</p>
+<p><img alt="Figure 43 Victim machine send informations to attacker machine" loading="lazy" src="/images/blog/02/43.png"></p>
+<p>Figure 43 Victim machine send informations to attacker machine</p>
+<p><img alt="Figure 44 Base64 is decoded using cyberchef" loading="lazy" src="/images/blog/02/44.png"></p>
+<p>Figure 44 Base64 is decoded using cyberchef</p>
+<p>Keylogger</p>
+<p>When attacker click on keylogger function, it sends <em>kl</em> command, victim machine then will send the log containing captured keystrokes</p>
+<p><img alt="Figure 45 Attacker send &ldquo;kl&rdquo; command to victim" loading="lazy" src="/images/blog/02/45.png"></p>
+<p>Figure 45 Attacker send &ldquo;kl&rdquo; command to victim</p>
+<p><img alt="Figure 46 Log sent by victim machine decoded using CyberChef" loading="lazy" src="/images/blog/02/46.png"></p>
+<p>Figure 46 Log sent by victim machine decoded using CyberChef</p>
+<p>Remote Desktop</p>
+<p>Live feed of victim’s desktop is sent as a stream of TCP packets.</p>
+<p><img alt="Figure 47 TCP streams of victim&rsquo;s desktop live feed" loading="lazy" src="/images/blog/02/47.png"></p>
+<p>Figure 47 TCP streams of victim&rsquo;s desktop live feed</p>
+<h1 id="5-references">5. References<a hidden class="anchor" aria-hidden="true" href="#5-references">#</a></h1>
+<p><strong>Technical Reports &amp; Research Papers</strong></p>
+<ol>
+<li>(2024). <em>njRAT Report – Cyber Threat Intelligence Program (CTIP).</em> Retrieved from:<a href="https://assets.kpmg.com/content/dam/kpmg/in/pdf/2024/08/kpmg-ctip-njrat-27-aug-2024.pdf">https://assets.kpmg.com/content/dam/kpmg/in/pdf/2024/08/kpmg-ctip-njrat-27-aug-2024.pdf</a></li>
+<li>Fraunhofer FKIE (Malpedia). <em>njRAT Malware Details.</em> Retrieved from:<a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.njrat">https://malpedia.caad.fkie.fraunhofer.de/details/win.njrat</a></li>
+</ol>
+<p><strong>Cybersecurity Blogs &amp; Analysis</strong></p>
+<ol>
+<li><em>njRAT Analysis – Attack Techniques Hands-on.</em> Retrieved from:<a href="https://www.cynet.com/attack-techniques-hands-on/njrat-report-bladabindi/#heading-2">https://www.cynet.com/attack-techniques-hands-on/njrat-report-bladabindi/#heading-2</a></li>
+<li>BlackBerry Threat Intelligence. (2021). <em>Threat Thursday: Don’t Let njRAT Take Your Cheddar.</em> Retrieved from:<a href="https://blogs.blackberry.com/en/2021/08/threat-thursday-dont-let-njrat-take-your-cheddar">https://blogs.blackberry.com/en/2021/08/threat-thursday-dont-let-njrat-take-your-cheddar</a></li>
+<li>Cybereason Research. <em>Who&rsquo;s Hacking the Hackers? No Honor Among Thieves.</em> Retrieved from:<a href="https://www.cybereason.com/blog/research/whos-hacking-the-hackers-no-honor-among-thieves">https://www.cybereason.com/blog/research/whos-hacking-the-hackers-no-honor-among-thieves</a></li>
+</ol>
+<p><strong>Hands-on Analysis &amp; Reverse Engineering</strong></p>
+<ol>
+<li>RUN. <em>njRAT Malware Trends.</em> Retrieved from:<a href="https://any.run/malware-trends/njrat">https://any.run/malware-trends/njrat</a></li>
+<li><em>njRAT Malware Analysis – Reverse Engineering &amp; Behavior Analysis.</em> Retrieved from:<a href="https://piyush3131.github.io/posts/njRAT_Malware_Analysis/">https://piyush3131.github.io/posts/njRAT_Malware_Analysis/</a></li>
+</ol>
+<p><strong>njRAT Builder</strong></p>
+<ol>
+<li>XAKEP-1lly. <em>njRAT 0.7D Green Edition by im523 (GitHub Repository).</em> Retrieved from:<a href="https://github.com/XAKEP-1lly/NjRat-0.7D-Green-Edition-by-im523">https://github.com/XAKEP-1lly/NjRat-0.7D-Green-Edition-by-im523</a></li>
+</ol>
+<p><strong>Video Analysis</strong></p>
+<ol>
+<li><em>njRAT Malware Analysis – In-depth Review.</em> Retrieved from:<a href="https://www.youtube.com/watch?v=tV-TnyqXBv8&t=172s">https://www.youtube.com/watch?v=tV-TnyqXBv8&amp;t=172s</a></li>
+<li><em>njRAT Overview &amp; Analysis.</em> Retrieved from:<a href="https://www.youtube.com/watch?v=_utd9EwwFXI">https://www.youtube.com/watch?v=_utd9EwwFXI</a></li>
+</ol>
+<p><strong>News &amp; Leak Reports</strong></p>
+<ol>
+<li><em>Leaked Code for njw0rm RAT Spawns New Malware.</em> Retrieved from:<a href="https://news.softpedia.com/news/Leaked-Code-for-Njw0rm-RAT-Spawns-New-Malware-470997.shtml">https://news.softpedia.com/news/Leaked-Code-for-Njw0rm-RAT-Spawns-New-Malware-470997.shtml</a></li>
+<li><em>njRAT Blog Post.</em> Retrieved from:<a href="https://breachnova.com/blog.php?id=27">https://breachnova.com/blog.php?id=27</a></li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://wahbakamaluddin.github.io/tags/blogs/">Blogs</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://wahbakamaluddin.github.io/">wahba</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
