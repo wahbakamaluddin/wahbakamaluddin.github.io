@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CTF-Writeups on wahba</title>
+    <link>https://wahbakamaluddin.github.io/tags/ctf-writeups/</link>
+    <description>Recent content in CTF-Writeups on wahba</description>
+    <generator>Hugo -- 0.136.5</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://wahbakamaluddin.github.io/tags/ctf-writeups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Free Lunch (web)</title>
+      <link>https://wahbakamaluddin.github.io/posts/writeups/hkcert24/01/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://wahbakamaluddin.github.io/posts/writeups/hkcert24/01/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;You are Chris Wong, you have a mission to win the game and redeem the free meal. Try to get over 300 score. Your flag will appears in scoreboard.php.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Intercept the score update HTTP POST Request:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Screenshot 2024-11-10 at 08.57.06.png&#34; loading=&#34;lazy&#34; src=&#34;https://wahbakamaluddin.github.io/images/writeups/hkcert24/NewFreeLunch(web)/Screenshot_2024-11-10_at_08.57.06.png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Observe that it includes a payload with parameters &lt;code&gt;score&lt;/code&gt; and &lt;code&gt;hash&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Modify the Score and Resend:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Screenshot 2024-11-10 at 08.58.29.png&#34; loading=&#34;lazy&#34; src=&#34;https://wahbakamaluddin.github.io/images/writeups/hkcert24/NewFreeLunch(web)/Screenshot_2024-11-10_at_08.58.29.png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Change the &lt;code&gt;score&lt;/code&gt; value in the intercepted request and resend it. The server responds with &amp;ldquo;Invalid hash,&amp;rdquo; it indicates that the &lt;code&gt;score&lt;/code&gt; is part of the hash calculation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Identify the Hashing Algorithm:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Void (reverse)</title>
+      <link>https://wahbakamaluddin.github.io/posts/writeups/hkcert24/02/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://wahbakamaluddin.github.io/posts/writeups/hkcert24/02/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;I made a simple webpage that checks whether the flag is correct&amp;hellip; Wait, where are the flag-checking functions?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Inspect the Page&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Screenshot 2024-11-10 at 14.49.23.png&#34; loading=&#34;lazy&#34; src=&#34;https://wahbakamaluddin.github.io/images/writeups/hkcert24/Void(reverse)/Screenshot_2024-11-10_at_14.49.23.png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Upon inspecting the webpage, there’s an empty or seemingly empty JavaScript block.&lt;/li&gt;
+&lt;li&gt;There’s also a link to an X post: &lt;a href=&#34;https://x.com/aemkei/status/1843756978147078286&#34;&gt;Link&lt;/a&gt;. This post introduces the concept of hiding JavaScript code using the Hangul Filler character (&lt;code&gt;\\u3164&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Invisible Code Concept&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The JavaScript code relies on the &lt;code&gt;\\u3164&lt;/code&gt; character, which is an invisible Hangul Filler character, to hide the flag-checking logic.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;with&lt;/code&gt; block is used to access properties formed by sequences of &lt;code&gt;\\u3164&lt;/code&gt;. The length of these sequences represents the binary value of the ASCII character.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Proxy and Property Access&lt;/strong&gt;:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>New Free Lunch (web) | wahba</title>
 <meta name="keywords" content="Writeups, Web, hkcert24">
 <meta name="description" content="
@@ -28,16 +28,16 @@ Change the score value in the intercepted request and resend it. The server resp
 
 Identify the Hashing Algorithm:">
 <meta name="author" content="Wahba Kamaluddin">
-<link rel="canonical" href="https://wahbakamaluddin.github.io/posts/writeups/hkcert24/newfreelunchweb/">
+<link rel="canonical" href="http://localhost:1313/posts/writeups/hkcert24/newfreelunchweb/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://wahbakamaluddin.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://wahbakamaluddin.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://wahbakamaluddin.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://wahbakamaluddin.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://wahbakamaluddin.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://wahbakamaluddin.github.io/posts/writeups/hkcert24/newfreelunchweb/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/writeups/hkcert24/newfreelunchweb/">
 <noscript>
     <style>
         #theme-toggle,
@@ -74,99 +74,7 @@ Identify the Hashing Algorithm:">
         }
 
     </style>
-</noscript><meta property="og:url" content="https://wahbakamaluddin.github.io/posts/writeups/hkcert24/newfreelunchweb/">
-  <meta property="og:site_name" content="wahba">
-  <meta property="og:title" content="New Free Lunch (web)">
-  <meta property="og:description" content=" You are Chris Wong, you have a mission to win the game and redeem the free meal. Try to get over 300 score. Your flag will appears in scoreboard.php.
-Intercept the score update HTTP POST Request:
-Observe that it includes a payload with parameters score and hash. Modify the Score and Resend:
-Change the score value in the intercepted request and resend it. The server responds with “Invalid hash,” it indicates that the score is part of the hash calculation. Identify the Hashing Algorithm:">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-11-10T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-11-10T00:00:00+00:00">
-    <meta property="article:tag" content="Writeups">
-    <meta property="article:tag" content="Web">
-    <meta property="article:tag" content="Hkcert24">
-      <meta property="og:see_also" content="https://wahbakamaluddin.github.io/posts/writeups/hkcert24/voidreverse/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="New Free Lunch (web)">
-<meta name="twitter:description" content="
-You are Chris Wong, you have a mission to win the game and redeem the free meal. Try to get over 300 score. Your flag will appears in scoreboard.php.
-
-
-
-Intercept the score update HTTP POST Request:
-
-
-Observe that it includes a payload with parameters score and hash.
-
-
-
-Modify the Score and Resend:
-
-
-Change the score value in the intercepted request and resend it. The server responds with &ldquo;Invalid hash,&rdquo; it indicates that the score is part of the hash calculation.
-
-
-
-Identify the Hashing Algorithm:">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://wahbakamaluddin.github.io/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "New Free Lunch (web)",
-      "item": "https://wahbakamaluddin.github.io/posts/writeups/hkcert24/newfreelunchweb/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "New Free Lunch (web)",
-  "name": "New Free Lunch (web)",
-  "description": " You are Chris Wong, you have a mission to win the game and redeem the free meal. Try to get over 300 score. Your flag will appears in scoreboard.php.\nIntercept the score update HTTP POST Request:\nObserve that it includes a payload with parameters score and hash. Modify the Score and Resend:\nChange the score value in the intercepted request and resend it. The server responds with \u0026ldquo;Invalid hash,\u0026rdquo; it indicates that the score is part of the hash calculation. Identify the Hashing Algorithm:\n",
-  "keywords": [
-    "Writeups", "Web", "hkcert24"
-  ],
-  "articleBody": " You are Chris Wong, you have a mission to win the game and redeem the free meal. Try to get over 300 score. Your flag will appears in scoreboard.php.\nIntercept the score update HTTP POST Request:\nObserve that it includes a payload with parameters score and hash. Modify the Score and Resend:\nChange the score value in the intercepted request and resend it. The server responds with “Invalid hash,” it indicates that the score is part of the hash calculation. Identify the Hashing Algorithm:\nWhen inspecting the page, there’s a JavaScript called sha256.min.js, indicating the hash algorithm used is sha256 Find Hash Generation Logic:\nThere’s also a JavaScript code embedded on game.php page\nReviewing the JavaScript code, the information about the hashing can be retrieved:\n1 2 3 4 5 6 7 8 9 10 11 12 13 ... const secretKey = '3636f69fcc3760cb130c1558ffef5e24'; const username = \"admin123\"; const token = \"f980528fc2f243646fd0ea563b9b6cce\"; ... async function endGame() { .... const hash = generateHash(secretKey + username + score); ... } From the code, it can be derived that the hash is generated by concatenating secretKey, username, and score Generate the New Hash:\nTo modify the score, concatenate secretKey, username, and the desired score value, then hash this string with SHA-256. Example input: 3636f69fcc3760cb130c1558ffef5e24admin123301 Using https://www.pelock.com/products/hash-calculator, the new hash generated is: C8B64AF8AA5E06F9BA55F7B19BCEDBDA23B11C0BBC711E5786A2B5D43CCB310F Since the server expect a lowercase hash, convert it to lowercase Send the Modified Request with New Hash:\n",
-  "wordCount" : "236",
-  "inLanguage": "en",
-  "datePublished": "2024-11-10T00:00:00Z",
-  "dateModified": "2024-11-10T00:00:00Z",
-  "author":[{
-    "@type": "Person",
-    "name": "Wahba Kamaluddin"
-  }],
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://wahbakamaluddin.github.io/posts/writeups/hkcert24/newfreelunchweb/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "wahba",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://wahbakamaluddin.github.io/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -184,7 +92,7 @@ Identify the Hashing Algorithm:">
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://wahbakamaluddin.github.io/" accesskey="h" title="wahba (Alt + H)">wahba</a>
+            <a href="http://localhost:1313/" accesskey="h" title="wahba (Alt + H)">wahba</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -210,17 +118,17 @@ Identify the Hashing Algorithm:">
         </div>
         <ul id="menu">
             <li>
-                <a href="https://wahbakamaluddin.github.io/archives" title="Archive">
+                <a href="http://localhost:1313/archives" title="Archive">
                     <span>Archive</span>
                 </a>
             </li>
             <li>
-                <a href="https://wahbakamaluddin.github.io/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
                 </a>
             </li>
             <li>
-                <a href="https://wahbakamaluddin.github.io/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -231,11 +139,11 @@ Identify the Hashing Algorithm:">
 
 <article class="post-single">
   <header class="post-header">
-    
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       New Free Lunch (web)
     </h1>
-    <div class="post-meta"><span title='2024-11-10 00:00:00 +0000 UTC'>November 10, 2024</span>&nbsp;·&nbsp;Wahba Kamaluddin
+    <div class="post-meta"><span title='2024-11-10 00:00:00 +0000 UTC'>November 10, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Wahba Kamaluddin
 
 </div>
   </header> 
@@ -333,16 +241,16 @@ Identify the Hashing Algorithm:">
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://wahbakamaluddin.github.io/tags/writeups/">Writeups</a></li>
-      <li><a href="https://wahbakamaluddin.github.io/tags/web/">Web</a></li>
-      <li><a href="https://wahbakamaluddin.github.io/tags/hkcert24/">Hkcert24</a></li>
+      <li><a href="http://localhost:1313/tags/writeups/">Writeups</a></li>
+      <li><a href="http://localhost:1313/tags/web/">Web</a></li>
+      <li><a href="http://localhost:1313/tags/hkcert24/">Hkcert24</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://wahbakamaluddin.github.io/">wahba</a></span> · 
+        <span>&copy; 2025 <a href="http://localhost:1313/">wahba</a></span> · 
 
     <span>
         Powered by

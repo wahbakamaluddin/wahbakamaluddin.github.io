@@ -16,31 +16,10 @@
       <description></description>
     </item>
     <item>
-      <title>Hkcert24</title>
-      <link>https://wahbakamaluddin.github.io/series/hkcert24/</link>
+      <title>CTF-Writeups</title>
+      <link>https://wahbakamaluddin.github.io/series/ctf-writeups/</link>
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>https://wahbakamaluddin.github.io/series/hkcert24/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Reverse</title>
-      <link>https://wahbakamaluddin.github.io/series/reverse/</link>
-      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>https://wahbakamaluddin.github.io/series/reverse/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Web</title>
-      <link>https://wahbakamaluddin.github.io/series/web/</link>
-      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>https://wahbakamaluddin.github.io/series/web/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Writeups</title>
-      <link>https://wahbakamaluddin.github.io/series/writeups/</link>
-      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
-      <guid>https://wahbakamaluddin.github.io/series/writeups/</guid>
+      <guid>https://wahbakamaluddin.github.io/series/ctf-writeups/</guid>
       <description></description>
     </item>
     <item>
@@ -48,13 +27,6 @@
       <link>https://wahbakamaluddin.github.io/series/notes/</link>
       <pubDate>Sun, 18 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://wahbakamaluddin.github.io/series/notes/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Foundation</title>
-      <link>https://wahbakamaluddin.github.io/series/foundation/</link>
-      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://wahbakamaluddin.github.io/series/foundation/</guid>
       <description></description>
     </item>
   </channel>

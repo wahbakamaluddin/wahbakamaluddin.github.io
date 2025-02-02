@@ -1,0 +1,2619 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Software Engineering | wahba</title>
+<meta name="keywords" content="Notes, Undergraduate">
+<meta name="description" content="Notes on software engineering">
+<meta name="author" content="Wahba Kamaluddin">
+<link rel="canonical" href="http://localhost:1313/posts/notes/se/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/notes/se/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="wahba (Alt + H)">wahba</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Software Engineering
+    </h1>
+    <div class="post-meta"><span title='2024-08-04 00:00:00 +0000 UTC'>August 4, 2024</span>&nbsp;·&nbsp;49 min&nbsp;·&nbsp;Wahba Kamaluddin
+
+</div>
+  </header> 
+  <div class="post-content"><p>
+
+<p><details >
+  <summary markdown="span">Chapter 1: Introduction</summary>
+  <ul>
+<li>What is software engineering?
+<ul>
+<li>Software engineering is an engineering discipline that is concerned with all aspects of software production from the early stages of system specification through to maintaining the system after it has gone into use</li>
+<li>They adopt a systematic and organized approach to their work, since it is the most effective wat to produce high-quality software</li>
+</ul>
+</li>
+<li>Why software engineering is important?
+<ol>
+<li>More and more, individuals and society rely on advanced software systems. We need to be able to produce reliable and trustworthy systems economically and quickly.</li>
+<li>It is usually cheaper, in the long run, to use software engineering methods and techniques for professional software systems rather than just write programs as a personal programming project. Failure to use software engineering method leads to higher costs for testing, quality assurance, and long-term maintenance.</li>
+</ol>
+</li>
+<li>Steps in software engineering (software process)
+<ol>
+<li>Software specification, where customers and engineers define the software that is to be produced and the constraints on its operation.</li>
+<li>Software development, where the software is designed and programmed.</li>
+<li>Software validation, where the software is checked to ensure that it is what the customer requires.</li>
+<li>Software evolution, where the software is modified to reflect changing customer
+and market requirements.</li>
+</ol>
+</li>
+<li>Issues that affect many software
+<ol>
+<li><strong>Heterogeneity</strong>: Systems must run on diverse devices and integrate with older software, requiring flexible and dependable solutions.</li>
+<li><strong>Business and Social Change</strong>: Rapid economic and technological changes demand quick software adaptation, necessitating faster development methods.</li>
+<li><strong>Security and Trust</strong>: Ensuring software security and trustworthiness is vital, especially for remote systems accessed via web interfaces.</li>
+<li><strong>Scale</strong>: Software must accommodate a wide range of scales, from small embedded systems to large cloud-based systems serving global users.</li>
+</ol>
+</li>
+<li>Types of application (different types may require different engineering technique)
+<ol>
+<li><strong>Stand-alone applications</strong>: These run on personal computers or mobile devices and include all necessary functionality, like office apps, CAD programs, and productivity apps.</li>
+<li><strong>Interactive transaction-based applications</strong>: These execute on remote computers and are accessed by users for activities like e-commerce, business systems via web browsers or special clients, and cloud-based services.</li>
+<li><strong>Embedded control systems</strong>: Software systems that control hardware devices, found in mobile phones, car anti-lock braking systems, and microwave ovens.</li>
+<li><strong>Batch processing systems</strong>: Business systems that process large data batches, like periodic billing systems and salary payment systems.</li>
+<li><strong>Entertainment systems</strong>: Personal use systems primarily for entertainment, often games running on specialized console hardware.</li>
+<li><strong>Systems for modeling and simulation</strong>: Developed by scientists and engineers to model physical processes or situations, often requiring high-performance parallel systems.</li>
+<li><strong>Data collection and analysis systems</strong>: Collect data from environments, interact with sensors, and process data, including &ldquo;big data&rdquo; analysis in cloud-based systems.</li>
+<li><strong>Systems of systems</strong>: Composed of multiple software systems, used in large enterprises, with some being generic software products like ERP systems and others specially developed for the environment.</li>
+</ol>
+</li>
+<li>Fundamentals of software engineering
+<ol>
+<li><strong>Managed Development Process</strong>: Software development should follow a planned and understood process tailored to the specific type of software being developed.</li>
+<li><strong>Dependability and Performance</strong>: Software should be reliable, available, safe, and secure against external attacks. It should also perform efficiently without wasting resources.</li>
+<li><strong>Software Specification and Requirements</strong>: Understanding and managing software specifications and requirements are crucial. This involves aligning customer and user expectations to deliver a useful system within budget and schedule.</li>
+<li><strong>Effective Resource Utilization</strong>: Utilize existing resources effectively by reusing software whenever possible instead of developing entirely new solutions.</li>
+</ol>
+</li>
+<li>Software engineering ethics
+<ul>
+<li>Key areas of ethical responsibility
+<ul>
+<li><strong>Confidentiality</strong>: Software engineers should respect the confidentiality of their employers or clients, even without formal agreements.</li>
+<li><strong>Competence</strong>: Engineers should not misrepresent their skills and should only accept work within their competence level.</li>
+<li><strong>Intellectual Property</strong>: Engineers must be aware of and comply with intellectual property laws to protect the rights of employers and clients.</li>
+<li><strong>Computer Misuse</strong>: Engineers should not misuse others&rsquo; computers, ranging from trivial actions like unauthorized game playing to serious offenses like spreading malware.</li>
+</ul>
+</li>
+<li>ACM/IEE Code of Ethics
+<ol>
+<li>PUBLIC — Software engineers shall act consistently with the public interest.</li>
+<li>CLIENT AND EMPLOYER — Software engineers shall act in a manner that is in the best interests of their client and employer consistent with the public interest</li>
+<li>PRODUCT — Software engineers shall ensure that their products and related modifications meet the highest professional standards possible.</li>
+<li>JUDGMENT — Software engineers shall maintain integrity and independence in their professional judgment.</li>
+<li>MANAGEMENT — Software engineering managers and leaders shall subscribe to and promote an ethical approach to the management of software development and maintenance.</li>
+<li>PROFESSION — Software engineers shall advance the integrity and reputation of the profession consistent with the public interest.</li>
+<li>COLLEAGUES — Software engineers shall be fair to and supportive of their colleagues.</li>
+<li>SELF — Software engineers shall participate in lifelong learning regarding the practice of their profession and shall promote an ethical approach to the practice of the profession.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 2: Software Processes</summary>
+  <ul>
+<li>
+<p>Software process is a set of related activities that leads to the production of a software system</p>
+</li>
+<li>
+<p>4 fundamental software process</p>
+<ol>
+<li><strong>Software Specification</strong>: Defining the functionality and operational constraints of the software.</li>
+<li><strong>Software Development</strong>: Producing the software according to the specified requirements.</li>
+<li><strong>Software Validation</strong>: Validating the software to ensure it meets the customer&rsquo;s expectations and requirements.</li>
+<li><strong>Software Evolution</strong>: Continuously updating and improving the software to adapt to changing customer needs and technological advancements.</li>
+</ol>
+</li>
+<li>
+<p>Software Development Life Cycle</p>
+<ul>
+<li>A simplified representation of a software process</li>
+<li>Models
+<ul>
+<li>Waterfall model
+<ul>
+<li>derived from engineering process models used in large military systems engineering
+<img alt="Screenshot 2024-05-19 at 15.09.12.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.09.12.png"></li>
+<li>stages
+<ol>
+<li><strong>Requirements Analysis and Definition</strong>: Consultation with system users to establish services, constraints, and goals, which are then detailed into a system specification.</li>
+<li><strong>System and Software Design</strong>: Allocation of requirements to hardware or software, establishment of system architecture, and identification of software system abstractions and their relationships.</li>
+<li><strong>Implementation and Unit Testing</strong>: Realization of software design into programs or program units, followed by unit testing to verify that each unit meets its specification.</li>
+<li><strong>Integration and System Testing</strong>: Integration of individual program units into a complete system and testing to ensure software requirements are met before delivery to the customer.</li>
+<li><strong>Operation and Maintenance</strong>: The system is installed, put into practical use, and undergoes ongoing maintenance involving error corrections, system unit improvements, and service enhancements based on new requirements.</li>
+</ol>
+</li>
+<li>Since it isn’t flexible (cant acommodate change during development), it is only suitable for
+<ol>
+<li><strong>In embedded systems</strong>, decisions about software functionality must be made early due to hardware limitations.</li>
+<li><strong>Critical systems</strong> require complete specification and design documents for thorough safety and security analysis, as correcting issues later can be costly.</li>
+<li><strong>Large software systems</strong> in collaborative environments benefit from common models for hardware and software, enabling independent development of subsystems.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Incremental development
+<img alt="Screenshot 2024-05-19 at 15.16.35.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.16.35.png">
+<ul>
+<li>Advantages of incremental development
+<ol>
+<li>Reduced cost for implementing requirements changes compared to the waterfall model.</li>
+<li>Easier access to customer feedback through software demonstrations, aiding in progress assessment and adjustments.</li>
+</ol>
+</li>
+<li>Disadvantages of incremental development:
+<ol>
+<li>Challenges in large organizations due to bureaucratic procedures conflicting with agile processes, potentially hindering smooth implementation.</li>
+<li>Difficulty in judging progress for customers from software design documents, leading to potential misunderstandings or misalignment of expectations.</li>
+<li>Early delivery of software to customers may lack complete functionality, requiring careful management of customer expectations and value delivery.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Integration and configuration
+<img alt="Screenshot 2024-05-19 at 15.18.57.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.18.57.png">
+<ul>
+<li>Rely on a base of reusable software components and an integrating framework for the composition of the components</li>
+<li>Types of software components that are frequently reused
+<ol>
+<li>Stand-alone application systems adaptable to specific environments, offering extensive features but requiring customization for particular applications.</li>
+<li>Object collections designed as components or packages for integration into frameworks like Java Spring.</li>
+<li>Web services developed to service standards, accessible for remote invocation via the Internet.</li>
+</ol>
+</li>
+<li>Stages
+<ol>
+<li><strong>Requirements Specification</strong>: Initial system requirements are proposed, including essential functionalities and desirable features.</li>
+<li><strong>Software Discovery and Evaluation</strong>: Candidate components and systems are searched and evaluated based on outlined requirements to determine their suitability for the system.</li>
+<li><strong>Requirements Refinement</strong>: Refinement of requirements occurs using information from discovered components and applications, adjusting the system specification accordingly. Alternative solutions may be sought if modifications are not feasible.</li>
+<li><strong>Application System Configuration</strong>: If an off-the-shelf system meets requirements, it is configured for use in creating the new system.</li>
+<li><strong>Component Adaptation and Integration</strong>: If no off-the-shelf solution is available, reusable components may be adapted or new components developed and integrated to form the system.</li>
+</ol>
+</li>
+<li>Can reduce amount of software to be developed; reducing cost, risks; faster delivery of the software</li>
+<li>May not meet the real needs of user</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Process activities
+<ul>
+<li>Software specification
+<img alt="Screenshot 2024-05-19 at 15.26.28.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.26.28.png">
+<ol>
+<li><strong>Requirements Elicitation and Analysis</strong>: Deriving system requirements through observation, discussions, task analysis, and system modeling or prototyping.</li>
+<li><strong>Requirements Specification</strong>: Translating gathered information into a document defining user and system requirements.</li>
+<li><strong>Requirements Validation</strong>: Checking requirements for realism, consistency, and completeness, and correcting errors in the document.</li>
+</ol>
+</li>
+<li>Software design and implementation
+<ul>
+<li>Designing
+<img alt="Screenshot 2024-05-19 at 15.28.38.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.28.38.png">
+<ol>
+<li><strong>Architectural Design</strong>: Identifying the system&rsquo;s overall structure, key components, their relationships, and distribution.</li>
+<li><strong>Database Design</strong>: Creating data structures and their representation in a database, depending on reusing an existing database or developing a new one.</li>
+<li><strong>Interface Design</strong>: Defining clear interfaces between system components to enable their use without knowledge of internal implementation.</li>
+<li><strong>Component Selection and Design</strong>: Finding reusable components or designing new ones, with design ranging from simple descriptions to detailed models like UML for implementation guidance.</li>
+</ol>
+</li>
+<li>Programming
+<img alt="Screenshot 2024-05-19 at 15.32.06.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.32.06.png">
+<ul>
+<li>No specific stage</li>
+<li>Will carry out test to detect program defects (bugs); then fix it (debugging)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Software validation (verification &amp; validation (v&amp;v))
+<img alt="Screenshot 2024-05-19 at 15.32.06.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.32.06.png">
+<ul>
+<li>Stages
+<ol>
+<li><strong>Component Testing</strong>: Individual system components are tested independently by developers, using tools like JUnit for automation. This includes testing functions, object classes, or groups of these entities.</li>
+<li><strong>System Testing</strong>: Integrated system components are tested to identify errors from interactions and interface issues. It ensures the system meets functional and non-functional requirements, testing overall system properties. Larger systems may undergo staged integration testing.</li>
+<li><strong>Customer Testing</strong>: Final testing before operational use, conducted by the system&rsquo;s customer. It reveals real-world issues not captured by simulated test data, such as errors in requirements, system performance, or alignment with user needs for custom-built software or products.</li>
+</ol>
+</li>
+<li>For a plan-driven software process, testing is driven by a set of test plan
+<img alt="Screenshot 2024-05-19 at 15.37.48.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.37.48.png">
+<ul>
+<li>Independent testing teams execute these plans, which are integral to development activities</li>
+<li>This approach aligns with the V-model, where testing activities correspond to stages in the waterfall process model.</li>
+</ul>
+</li>
+<li>For software products intended for market release, beta testing is common
+<ul>
+<li>This involves delivering the system to potential customers who provide feedback by using the software in real-world scenarios,</li>
+<li>Beta testing helps detect unanticipated errors and informs modifications before general release or further testing phases.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Software evolution
+<img alt="Screenshot 2024-05-19 at 15.41.14.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.41.14.png">
+<ul>
+<li>Software&rsquo;s flexibility and cost-effectiveness compared to hardware have led to its increased use in complex systems. The traditional division between software development and maintenance is blurring, as both are seen as part of an evolutionary process. Continuous software changes are made to meet evolving requirements and customer needs.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Coping with change</p>
+<ul>
+<li>Change is a constant in large software projects due to evolving requirements, new technologies, and business dynamics. This necessitates software processes that can accommodate changes without excessive rework, which adds to development costs.</li>
+<li>Two related approaches are used to reduce rework costs:
+<ol>
+<li>Change anticipation involves activities that predict possible changes before significant rework is needed. For instance, prototyping allows customers to refine requirements before extensive software production, reducing the need for major changes later.</li>
+<li>Change tolerance involves designing processes and software to easily incorporate changes. Incremental development allows proposed changes to be implemented in stages, minimizing the impact on already developed parts of the system.</li>
+</ol>
+</li>
+<li>2 ways of coping with change and changing system requirements
+<ul>
+<li>Prototyping
+<img alt="Screenshot 2024-05-19 at 15.45.26.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.45.26.png">
+<ul>
+<li><strong>Prototyping Process Overview</strong>:
+<ol>
+<li><strong>Requirements Engineering Process</strong>:
+<ul>
+<li>Prototypes assist in eliciting and validating system requirements.</li>
+</ul>
+</li>
+<li><strong>System Design Process</strong>:
+<ul>
+<li>Prototypes explore software solutions and aid in developing user interfaces.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>System Prototype Benefits</strong>:
+<ul>
+<li><strong>User Understanding</strong>:
+<ul>
+<li>Allows potential users to see how well the system supports their work.</li>
+<li>Users may propose new requirements based on prototype usage.</li>
+</ul>
+</li>
+<li><strong>Error Identification</strong>:
+<ul>
+<li>Reveals errors and omissions in system requirements during development.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Prototype Development Process</strong>:
+<ol>
+<li><strong>Objectives Definition</strong>:
+<ul>
+<li>Explicitly state the objectives of prototyping (e.g., user interface development, validation of functional requirements, or demonstrating the application).</li>
+</ul>
+</li>
+<li><strong>Prototype Content</strong>:
+<ul>
+<li>Decide what to include and exclude in the prototype system to control costs and accelerate delivery.</li>
+<li>May relax non-functional requirements for faster development.</li>
+</ul>
+</li>
+<li><strong>Prototype Evaluation</strong>:
+<ul>
+<li>Conduct user training during evaluation.</li>
+<li>Derive an evaluation plan based on prototype objectives.</li>
+<li>Address challenges like user adaptation to the system and potential differences between prototype usage and final system usage.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Incremental delivery
+<img alt="Screenshot 2024-05-19 at 15.47.21.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.47.21.png">
+<ul>
+<li><strong>Incremental Delivery Process</strong>:
+<ol>
+<li><strong>Customer Prioritization</strong>:
+<ul>
+<li>Customers prioritize system services, defining high-priority services for early delivery.</li>
+</ul>
+</li>
+<li><strong>Incremental Definition</strong>:
+<ul>
+<li>Incremental delivery involves defining service increments, with each increment providing a subset of system functionality based on service priority.</li>
+</ul>
+</li>
+<li><strong>Increment Development</strong>:
+<ul>
+<li>Detailed requirements for the first increment are defined and developed without accepting changes for the current increment during development.</li>
+</ul>
+</li>
+<li><strong>Increment Deployment</strong>:
+<ul>
+<li>Completed increments are delivered and integrated with existing ones in the customer&rsquo;s working environment.</li>
+<li>Customers experiment with the system, clarifying requirements for later increments.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>Advantages of Incremental Delivery</strong>:
+<ol>
+<li><strong>Prototyping Benefits</strong>:
+<ul>
+<li>Early increments serve as prototypes, helping customers gain experience and refine requirements for subsequent increments without relearning.</li>
+</ul>
+</li>
+<li><strong>Immediate Value</strong>:
+<ul>
+<li>Customers gain value from the first increment, satisfying critical requirements immediately.</li>
+</ul>
+</li>
+<li><strong>Ease of Change</strong>:
+<ul>
+<li>Incremental delivery maintains the benefits of incorporating changes into the system relatively easily.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>Challenges with Incremental Delivery</strong>:
+<ol>
+<li><strong>Replacement Systems</strong>:
+<ul>
+<li>Iterative delivery is challenging when replacing existing systems as users typically require full functionality and may be unwilling to experiment with incomplete new systems.</li>
+</ul>
+</li>
+<li><strong>Common Facilities Identification</strong>:
+<ul>
+<li>Identifying common facilities needed by all increments can be difficult as requirements are defined incrementally.</li>
+</ul>
+</li>
+<li><strong>Procurement Model Conflict</strong>:
+<ul>
+<li>Conflicts arise with traditional procurement models where a complete system specification is expected upfront, whereas incremental delivery involves evolving specifications over increments.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><strong>Applicability of Incremental Delivery</strong>:
+<ul>
+<li>Incremental delivery is suitable for new systems where evaluators can experiment, but it may not work well for replacing existing systems or very large, complex systems with interdependent requirements. In such cases, a system prototype may be used to experiment and refine definitive requirements before implementation.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Process improvement - Why? - Driven by industry demands for cheaper, better software delivered faster - Involves understanding existing processes and making changes to enhance product quality, reduce costs, and accelerate development. - <strong>Approaches to Process Improvement</strong>: 1. <strong>Process Maturity Approach</strong>: - Focuses on improving process and project management, adopting good software engineering practices. - Aims for improved product quality and process predictability. 2. <strong>Agile Approach</strong>: - Emphasizes iterative development, reducing overheads in the software process. - Prioritizes rapid delivery of functionality and responsiveness to changing customer requirements. - <strong>Process Improvement Cycle</strong>:
+<img alt="Screenshot 2024-05-19 at 15.51.09.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-05-19_at_15.51.09.png"></p>
+<pre><code>    1. **Process Measurement**:
+        - Measure attributes of the software process or product as a baseline for improvement evaluation.
+    2. **Process Analysis**:
+        - Assess the current process, identify weaknesses, and develop process models.
+    3. **Process Change**:
+        - Propose and introduce process changes to address identified weaknesses.
+    4. **Measure Changes**:
+        - Re-measure attributes to evaluate the effectiveness of process improvements.
+- **Process Maturity Levels**:
+
+    ![Screenshot 2024-05-19 at 15.58.47.png](images/university-notes/SE/Screenshot_2024-05-19_at_15.58.47.png)
+
+    - Introduced by the Software Engineering Institute (SEI) to assess software engineering capability of defence contractor
+    - Five levels: Initial, Managed, Defined, Quantitatively Managed, Optimizing, focusing on increasing organizational standardization and process improvement.
+- **Impact of Process Maturity**:
+    - Significant improvements in software engineering capability.
+    - More suitable for large companies due to overheads and complexity.
+</code></pre>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 3: SE practices</summary>
+  <ul>
+<li>
+<p>SE practices</p>
+<ul>
+<li>Based on George Polya’s approach in “How to Solve It”</li>
+<li><strong>Understand the Problem (Communication and Analysis):</strong>
+<ul>
+<li>Identify stakeholders and unknowns.</li>
+<li>Determine required data, functions, and features.</li>
+<li>Break down the problem into smaller, manageable parts.</li>
+<li>Represent the problem graphically if possible.</li>
+</ul>
+</li>
+<li><strong>Plan a Solution (Modeling and Software Design):</strong>
+<ul>
+<li>Recognize patterns and reusable elements from similar problems.</li>
+<li>Define subproblems and potential solutions.</li>
+<li>Create a design model for effective implementation.</li>
+</ul>
+</li>
+<li><strong>Carry Out the Plan (Code Generation):</strong>
+<ul>
+<li>Follow the design as a roadmap, making adjustments as necessary.</li>
+<li>Ensure the solution conforms to the design and is provably correct.</li>
+</ul>
+</li>
+<li><strong>Examine the Result (Testing and Quality Assurance):</strong>
+<ul>
+<li>Implement a thorough testing strategy.</li>
+<li>Validate the solution against stakeholder requirements.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>David Hooker’s 7 general SE principles</p>
+<ol>
+<li><strong>The Reason It All Exists:</strong> Software should provide value to its users. All decisions should support this primary goal.</li>
+<li><strong>KISS (Keep It Simple, Stupid!):</strong> Design should be as simple as possible to facilitate understanding and maintenance. Simplicity often requires thoughtful effort.</li>
+<li><strong>Maintain the Vision:</strong> A clear, consistent vision is crucial to prevent a project from becoming a disjointed patchwork. An empowered architect should enforce this vision.</li>
+<li><strong>What You Produce, Others Will Consume:</strong> Consider the needs of those who will use, maintain, or document the system. Design and code with the understanding that others will need to comprehend and extend your work.</li>
+<li><strong>Be Open to the Future:</strong> Design systems to be adaptable to changes, avoiding solutions that limit future modifications. Aim to solve general problems, not just specific ones.</li>
+<li><strong>Plan Ahead for Reuse:</strong> Reuse of code and designs saves time and effort but requires careful planning and forethought.</li>
+<li><strong>Think!:</strong> Thoughtful consideration before action leads to better results and valuable learning experiences. Recognizing knowledge gaps and researching answers enhances the overall quality of the system.</li>
+</ol>
+</li>
+<li>
+<p>Principles that guied each framework activity - Communication principles 1. <strong>Listen:</strong> Focus on the speaker’s words without planning your response. Ask for clarification if needed but avoid interruptions and contentious behavior. 2. <strong>Prepare Before Communicating:</strong> Understand the problem and relevant jargon before meetings. Prepare an agenda if you are leading the meeting. 3. <strong>Facilitate the Activity:</strong> Have a facilitator to guide the discussion, mediate conflicts, and ensure adherence to communication principles. 4. <strong>Face-to-Face Communication:</strong> Prefer face-to-face meetings, supplemented by visual aids like drawings or documents. 5. <strong>Take Notes and Document Decisions:</strong> Assign someone to record all important points and decisions to prevent misunderstandings. 6. <strong>Strive for Collaboration:</strong> Encourage collaboration and consensus to leverage collective knowledge and build trust among team members. 7. <strong>Stay Focused and Modularize Discussion:</strong> Keep discussions focused on one topic at a time to avoid confusion and ensure resolution. 8. <strong>Draw a Picture if Something is Unclear:</strong> Use visual aids to clarify points when verbal communication is insufficient. 9. <strong>Move On When Needed:</strong> Recognize when to move on from a topic, whether it’s agreed upon, unresolved, or unclear, to maintain communication agility. 10. <strong>Negotiation is Not a Contest:</strong> Aim for win-win outcomes in negotiations, understanding that compromise is necessary for all parties involved. - Planning principles 1. <strong>Understand the Scope of the Project:</strong> Knowing the project&rsquo;s destination is crucial for effective planning. 2. <strong>Involve Stakeholders:</strong> Engage stakeholders to set priorities and establish constraints, often requiring negotiation on delivery order, timelines, and other issues. 3. <strong>Recognize Iterative Planning:</strong> Plans should be flexible and subject to change as work progresses, with replanning occurring after each software increment based on user feedback. 4. <strong>Estimate Based on Current Knowledge:</strong> Provide effort, cost, and task duration estimates based on the current understanding of the work, acknowledging that vague information leads to unreliable estimates. 5. <strong>Consider Risk:</strong> Identify high-impact and high-probability risks and adjust the project plan and schedule to accommodate potential risk occurrences. 6. <strong>Be Realistic:</strong> Account for human factors, such as not working 100% efficiently every day, communication noise, omissions, ambiguities, changes, and inevitable mistakes. 7. <strong>Adjust Granularity:</strong> Plan tasks in detail for the near term (high granularity) and broadly for the distant future (low granularity) to accommodate potential changes. 8. <strong>Ensure Quality:</strong> Identify methods for ensuring quality, such as scheduling technical reviews or using pair programming, and explicitly define them in the plan. 9. <strong>Accommodate Change:</strong> Define how changes will be handled, including customer requests, their implementation timing, and assessing their impact and cost. 10. <strong>Track and Adjust the Plan Frequently:</strong> Monitor progress daily to identify issues early and make necessary adjustments to stay on schedule.
+Effective planning involves the participation of the entire software team, ensuring everyone is committed to the plan.</p>
+<pre><code>- Modelling principles
+    1. **Primary Goal:** The main objective is to build software, not just create models. Models should aid in delivering software quickly, avoiding those that slow the process or add little value.
+    2. **Travel Light:** Create only necessary models to avoid excessive updates and focus time on construction (coding and testing).
+    3. **Simplicity:** Produce the simplest model that adequately describes the problem or software to keep the resulting software simple, which makes it easier to integrate, test, and maintain.
+    4. **Change-Friendly:** Build models that are easy to modify. Even though requirements will change, ensure the models are reasonably complete to avoid missing important features in the design.
+    5. **Explicit Purpose:** Each model should have a clear purpose. If the purpose is not solid, do not spend time on that model.
+    6. **Adaptation:** Tailor models to fit the specific system being developed, as different applications might require different modeling techniques.
+    7. **Useful Over Perfect:** Aim for useful models rather than perfect ones. Avoid spending excessive effort on making models absolutely complete and consistent, focusing instead on moving forward in the software engineering process.
+    8. **Flexible Syntax:** Focus on successful communication of content rather than strict adherence to model syntax. Consistent notation is helpful, but effective communication is key.
+    9. **Instincts Matter:** Trust your instincts. Experienced software engineers should heed their subconscious signals if a model seems flawed, even if it looks correct on paper.
+    10. **Early Feedback:** Review models with team members to gain feedback that can correct mistakes, clarify interpretations, and add omitted features or functions.
+- Requirements modelling principles
+    1. **Information Domain Representation:** Understand and represent the data that flow into, out of, and are stored within the system.
+    2. **Function Definition:** Clearly define the software functions that provide user benefits and support internal processing, describing them at varying levels of detail.
+    3. **Behavior Representation:** Represent the software's behavior in response to external events, driven by interactions with the environment.
+    4. **Partitioning Models:** Use a layered approach to partition models, dividing complex problems into manageable subproblems for better understanding and problem-solving.
+    5. **Essential Information to Implementation Detail:** Start with the end-user perspective, describing the problem's essence without considering the solution's implementation, and gradually move toward detailed implementation considerations.
+
+    By applying these principles, software engineers can systematically approach problem-solving in requirements modeling, ensuring a thorough understanding of the problem before moving on to the design phase.
+
+- Design modelling principles
+    1. **Traceability to Requirements:** Ensure design elements are traceable to the requirements model.
+    2. **System Architecture Consideration:** Begin with architectural considerations before addressing component-level issues.
+    3. **Data Design Importance:** Design data structures as carefully as processing functions.
+    4. **Interface Design:** Design interfaces (internal and external) with care to ensure efficiency, error minimization, and simplicity.
+    5. **User Interface Design:** Prioritize ease of use and tune the user interface to end-user needs.
+    6. **Functional Independence:** Ensure components are functionally independent and cohesive.
+    7. **Loose Coupling:** Maintain low coupling between components to reduce error propagation and enhance maintainability.
+    8. **Understandable Design Representations:** Ensure design models are easily understandable for effective communication.
+    9. **Iterative Development:** Develop the design iteratively, striving for simplicity with each iteration.
+- Construction principles
+    - Coding principles
+        - Preparation Principles
+
+            Before writing any code, ensure the following:
+
+            1. **Understand the Problem:** Clearly grasp the problem you're solving.
+            2. **Understand Design Principles:** Be familiar with basic design concepts.
+            3. **Choose the Right Language:** Select a programming language that suits the software's needs and operating environment.
+            4. **Select the Right Environment:** Choose a programming environment with tools that facilitate your work.
+            5. **Create Unit Tests:** Develop a set of unit tests to apply once the coding is complete.
+        - Programming Principles
+
+            While writing code, adhere to these guidelines:
+
+            1. **Structured Programming:** Follow structured programming practices.
+            2. **Pair Programming:** Consider using pair programming for better results.
+            3. **Appropriate Data Structures:** Choose data structures that fit the design requirements.
+            4. **Consistent Interfaces:** Ensure interfaces align with the software architecture.
+            5. **Simple Conditional Logic:** Keep conditional logic straightforward.
+            6. **Testable Nested Loops:** Write nested loops that are easy to test.
+            7. **Meaningful Variable Names:** Use meaningful variable names and adhere to local coding standards.
+            8. **Self-Documenting Code:** Write code that explains itself.
+            9. **Visual Layout:** Use indentation and blank lines to enhance readability.
+        - Validation Principles
+
+            After completing your initial coding pass:
+
+            1. **Code Walkthroughs:** Conduct code walkthroughs when necessary.
+            2. **Perform Unit Tests:** Execute unit tests and fix any identified errors.
+            3. **Refactor Code:** Refactor the code to improve its structure and readability.
+
+    - Testing principle
+        - Objectives of Software Testing (Glen Myers)
+            1. **Finding Errors:** Testing aims to execute a program with the intent of uncovering errors.
+            2. **High-Probability Test Cases:** Good test cases have a high likelihood of discovering previously unknown errors.
+            3. **Successful Tests:** A test is deemed successful if it uncovers an error that has not been found before.
+        - Testing Principles (Davis)
+            1. **Traceability to Requirements:** All tests should be linked to customer requirements, ensuring that severe defects impacting the program's ability to meet its requirements are identified.
+            2. **Early Test Planning:** Tests should be planned well before coding begins, starting with the completion of the requirements model and the solidification of the design model.
+            3. **Pareto Principle Application:** Typically, 80% of all errors will be found in 20% of the program components. Identifying and thoroughly testing these components is crucial.
+            4. **Progressive Testing:** Testing should start with individual components (&quot;in the small&quot;) and gradually move to integrated clusters and the entire system (&quot;in the large&quot;).
+            5. **Infeasibility of Exhaustive Testing:** Due to the large number of possible path permutations in even moderately sized programs, exhaustive testing is impossible. However, it is feasible to cover program logic adequately and ensure all conditions in component-level designs are tested.
+    - Deployment principles
+        1. **Manage Customer Expectations:**
+            - Clearly communicate what will be delivered to avoid customer disappointment.
+            - Avoid sending conflicting messages about delivery promises to maintain trust and morale.
+        2. **Complete Delivery Package:**
+            - Assemble and test a complete package including all executable software, support files, documents, and installation scripts.
+            - Test in various configurations to ensure compatibility and reliability.
+        3. **Establish Support Regime:**
+            - Prepare support materials and mechanisms before delivery to ensure responsiveness and accurate information for end users.
+            - Maintain records for assessing support needs.
+        4. **Provide Instructional Materials:**
+            - Develop training aids, troubleshooting guidelines, and documentation highlighting new features.
+            - Ensure users have the help materials they need.
+        5. **Fix Bugs Before Delivery:**
+            - Deliver high-quality software even if it means a slight delay.
+            - Avoid releasing buggy software with promises of future fixes to maintain customer satisfaction and trust.
+</code></pre>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 4: System engineering</summary>
+  <ul>
+<li>System components
+<ul>
+<li>Hardware
+<ul>
+<li>Physical layer of the information system</li>
+</ul>
+</li>
+<li>Software
+<ul>
+<li>Programs that control the hardware and produce the desired results:
+<ul>
+<li>System software: Manages hardware components</li>
+<li>Application software (programs that support day-to-day business functions)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data
+<ul>
+<li>Raw material that been transformed into useful information - store in tables</li>
+</ul>
+</li>
+<li>Process
+<ul>
+<li>Tasks and business functions that users/ staffs perform to achieve specific results</li>
+</ul>
+</li>
+<li>People
+<ul>
+<li>People who have interest in an information system (from management to users)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>System development environment
+<ul>
+<li>The people - system stakeholders
+<ul>
+<li>System Owner - responsible for funding the project of developing,
+operating and maintaining the system.-</li>
+<li>External Service Providers - a system analyst/designer/programmer who sells their expertise and experience (act as a consultant).</li>
+<li>Tester - evaluate the system&rsquo;s compliance with its specified
+requirements</li>
+<li>System user:
+<ul>
+<li><strong>Internal System Users</strong>: These are employees of the business, including clerical and service workers, as well as technical and professional staff.</li>
+<li><strong>External System Users</strong>: These include customers, suppliers, and partners of the business.</li>
+</ul>
+</li>
+<li><strong>Project Manager -</strong> Ensures that the project is completed on time and within budget.</li>
+<li><strong>Configuration Manager -</strong> Manages changes to hardware, software, and documentation throughout the system&rsquo;s lifecycle.</li>
+<li><strong>Systems Analyst -</strong> Determines how people, data, processes, and technology can best solve business problems.</li>
+<li><strong>System Designer -</strong> Translates user requirements into technical solutions.</li>
+<li><strong>System Developer/Programmer -</strong> Constructs systems and components based on design specifications.</li>
+</ul>
+</li>
+<li>Business drivers
+<ul>
+<li><strong>e-Commerce -</strong> Buying and selling goods and services using the internet.</li>
+<li><strong>e-Business -</strong> Using the internet to conduct and support daily business activities.</li>
+<li><strong>Three Basic Types of e-Commerce and e-Business Applications:</strong>
+<ol>
+<li><strong>Marketing Products and Services through the Web</strong></li>
+<li><strong>Business-to-Consumer (B2C)</strong>
+<ul>
+<li>Selling products or services to consumers through technologies like websites (e.g., Amazon, eBay).</li>
+</ul>
+</li>
+<li><strong>Business-to-Business (B2B)</strong> - Electronic and paperless transactions within or between businesses.
+<strong>Web-based System</strong></li>
+</ol>
+</li>
+<li>Uses the web to market products and services.
+<strong>Business Support System</strong></li>
+<li>Manages day-to-day business transactions like sales and operations.
+<strong>Knowledge Management System</strong></li>
+<li>An expert system that helps manage business issues by combining, filtering, organizing, and analyzing information to assist managers in planning and operating the business.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Technology drivers
+<strong>Networks and the Internet</strong>
+<ul>
+<li>Pervasive networking technologies based on the Internet, including xHTML, XML, scripting languages, web-specific programming languages, intranets, extranets, portals, and web services.
+<strong>Mobile and Wireless Technologies</strong></li>
+<li>Facilitate communication and connectivity to information systems using devices like PDAs, iPads, Blackberries, email, and Bluetooth.
+<strong>Object Technologies</strong></li>
+<li>Information systems built using object-oriented analysis and design, often with an agile approach.
+<strong>Collaborative Technologies</strong></li>
+<li>Enhance interpersonal communications and teamwork through email, instant messaging, groupware (across physical locations), and workflow tools for process execution.</li>
+</ul>
+</li>
+<li>System engineering process
+<ul>
+<li><strong>Waterfall Model</strong>: Often followed due to the need for parallel development of different system parts.
+<ul>
+<li>Limited iteration between phases as hardware changes are costly; software may need to compensate for hardware issues.</li>
+</ul>
+</li>
+<li><strong>Interdisciplinary Collaboration</strong>: Involves engineers from various disciplines who must work together.
+<ul>
+<li>Different disciplines use distinct vocabularies, necessitating significant negotiation.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of Critical Systems
+<ul>
+<li><strong>Safety-critical systems</strong>: Failure can cause loss of life, injury, or environmental damage (e.g., chemical plant protection systems, medical systems).</li>
+<li><strong>Mission-critical systems</strong>: Failure results in the failure of a goal-directed activity (e.g., spacecraft navigation systems).</li>
+<li><strong>Business-critical systems</strong>: Failure leads to significant economic losses (e.g., customer accounting systems in banks, NASDAQ trading systems).</li>
+</ul>
+</li>
+<li>Safety Critical Properties
+<ul>
+<li>Properties like performance and reliability are measurable.</li>
+<li>Important non-measurable properties:
+<ul>
+<li><strong>Safety</strong>: System should not behave unsafely.</li>
+<li><strong>Security</strong>: System should prevent unauthorized use.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Dependability
+<ul>
+<li>Crucial for critical systems, reflecting users&rsquo; trust in the system.</li>
+<li>Dependability includes:
+<ul>
+<li><strong>Availability</strong>: System operational at a given time.</li>
+<li><strong>Reliability</strong>: Failure-free operation over a specified time.</li>
+<li><strong>Safety</strong>: Safe operation without causing harm.</li>
+<li><strong>Security</strong>: Protection against unauthorized access.</li>
+<li><strong>Repairability</strong>: Ease of repair after failure.</li>
+<li><strong>Maintainability</strong>: Ease of adaptation to new requirements.</li>
+<li><strong>Survivability</strong>: Operation under hostile conditions.</li>
+<li><strong>Error Tolerance</strong>: Handling user input errors.</li>
+</ul>
+</li>
+<li>Dependability costs increase exponentially with higher requirements.</li>
+</ul>
+</li>
+<li>Reliability
+<ul>
+<li>Influences include hardware reliability, software reliability, and operator reliability.</li>
+<li>Key terms:
+<ul>
+<li><strong>System failure</strong>: System does not deliver expected service.</li>
+<li><strong>System error</strong>: Erroneous system state.</li>
+<li><strong>System fault</strong>: Characteristic leading to errors.</li>
+<li><strong>Human error</strong>: Actions introducing faults.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Reliability and Availability
+<ul>
+<li><strong>Reliability</strong>: Probability of failure-free operation.</li>
+<li><strong>Availability</strong>: Probability that the system is operational.</li>
+</ul>
+</li>
+<li>Faults and Failures
+<ul>
+<li>Failures result from system errors due to faults.</li>
+<li>Not all faults cause errors; not all errors lead to failures.</li>
+</ul>
+</li>
+<li>Reliability Achievement
+<ul>
+<li><strong>Fault avoidance</strong>: Minimize or trap mistakes during development.</li>
+<li><strong>Fault detection and removal</strong>: Verification and validation techniques.</li>
+<li><strong>Fault tolerance</strong>: Run-time techniques to handle faults and errors.</li>
+</ul>
+</li>
+<li>Safety
+<ul>
+<li><strong>Primary safety-critical systems</strong>: Direct threat from failures (e.g., airplane landing systems).</li>
+<li><strong>Secondary safety-critical systems</strong>: Indirect threat from failures (e.g., drug administration systems).</li>
+</ul>
+</li>
+<li>Security
+<ul>
+<li>Essential for availability, reliability, and safety.</li>
+<li>Key terms:
+<ul>
+<li><strong>Exposure</strong>: Possible loss or harm.</li>
+<li><strong>Vulnerability</strong>: System weakness.</li>
+<li><strong>Attack</strong>: Exploitation of a vulnerability.</li>
+<li><strong>Threat</strong>: Potential to cause loss or harm.</li>
+<li><strong>Control</strong>: Measure reducing vulnerability.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Security Assurance
+<ul>
+<li><strong>Vulnerability avoidance</strong>: Design to prevent vulnerabilities.</li>
+<li><strong>Attack detection and elimination</strong>: Detect and neutralize attacks.</li>
+<li><strong>Exposure limitation</strong>: Minimize damage from successful attacks.</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+</p>
+<p>
+
+<p><details >
+  <summary markdown="span">Chapter 5: Project management</summary>
+  <ul>
+<li>What is Software Project Management?
+<ul>
+<li><strong>Activities Involved</strong>: Ensuring that software is delivered on time, on schedule, and in accordance with the requirements of the organizations developing and procuring the software.</li>
+<li><strong>Importance</strong>: Software development is always subject to budget and schedule constraints set by the organization.</li>
+</ul>
+</li>
+<li>What is Process Management?
+<ul>
+<li><strong>Definition</strong>: Documenting, managing, and continually improving the process of system development.</li>
+<li><strong>Scope</strong>: Applied to all projects, concerning activities, deliverables, and quality standards.</li>
+</ul>
+</li>
+<li>What is Project Management?
+<ul>
+<li><strong>Project Definition</strong>: A sequence of activities that must be completed on time, within budget, and according to specification.</li>
+<li><strong>Project Management Definition</strong>: The process of scoping, planning, staffing, organizing, directing, reporting, and controlling the development of a system at a minimum cost within a specified time frame while satisfying customer specifications.</li>
+<li><strong>Prerequisite</strong>: A well-defined system development process.</li>
+<li><strong>Scope</strong>: For a single project, focusing on non-standardized and uniquely flexible &lsquo;one-off&rsquo; projects.</li>
+</ul>
+</li>
+<li>Causes of Successful Projects
+<ul>
+<li>Acceptable quality to the customer.</li>
+<li>Delivered on time and within budget.</li>
+<li>Balance adjustments when any factor changes.</li>
+</ul>
+</li>
+<li>Causes of Failed Projects
+<ul>
+<li>Lack of upper-management commitment.</li>
+<li>Lack of organization’s commitment to the system development methodology.</li>
+<li>Shortcuts around the system development methodology.</li>
+<li>Poor expectations management (scope creep, feature creep).</li>
+<li>Premature commitment to a fixed budget and schedule.</li>
+<li>Poor estimating techniques and over-optimism.</li>
+<li>The mythical man-month issue.</li>
+<li>Inadequate people management skills.</li>
+<li>Failure to adapt to business change.</li>
+<li>Insufficient resources and poor estimating.</li>
+<li>Failure to manage to the plan.</li>
+</ul>
+</li>
+<li>The PM Body of Knowledge
+<ul>
+<li><strong>Functions</strong>:
+<ul>
+<li>Scoping: Defining project boundaries.</li>
+<li>Planning: Detailing tasks and activities.</li>
+<li>Estimating: Duration of each task.</li>
+<li>Scheduling: Scheduling all activities.</li>
+<li>Organizing: Defining roles.</li>
+<li>Directing: Directing and motivating team activities.</li>
+<li>Reporting: Reporting to management, users, and the team.</li>
+</ul>
+</li>
+<li><strong>Tools and Techniques</strong>:
+<ul>
+<li>PERT Chart: Graphical network model for task interdependencies and risk identification.</li>
+<li>Gantt Chart: Bar chart for project tasks against a calendar.</li>
+<li>Activity charts: Show task dependencies and critical paths.</li>
+<li>PM Software: Microsoft Project, MacProject, GanttProject.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of Project Plans
+<ul>
+<li><strong>Quality Plan</strong>: Quality procedures and standards.</li>
+<li><strong>Validation Plan</strong>: Approach, resources, and schedule for system validation.</li>
+<li><strong>Configuration Management Plan</strong>: Procedures and structures.</li>
+<li><strong>Maintenance Plan</strong>: Maintenance requirements, costs, and efforts.</li>
+<li><strong>Staff Development Plan</strong>: Skills and experience development for team members.</li>
+</ul>
+</li>
+<li>Project Planning Process
+<ul>
+<li><strong>Steps</strong>:
+<ul>
+<li>Establish project constraints.</li>
+<li>Make initial assessments of project parameters.</li>
+<li>Define project milestones and deliverables.</li>
+<li>Draw up a project schedule.</li>
+<li>Initiate activities according to the schedule.</li>
+<li>Review project progress and revise estimates.</li>
+<li>Update the project schedule as needed.</li>
+<li>Re-negotiate project constraints and deliverables if problems arise.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The PM Life Cycle
+<ol>
+<li><strong>Negotiate Scope</strong>: Define project boundaries and deliverables.</li>
+<li><strong>Identify Tasks</strong>: Break down into activities and tasks; use WBS (Work Breakdown Structure).</li>
+<li><strong>Estimate Task Durations</strong>: Consider project size, resources, experience, and constraints.</li>
+<li><strong>Specify Intertask Dependencies</strong>: Identify dependencies (FS, SS, FF, SF) and use charts for scheduling.</li>
+<li><strong>Assign Resources</strong>: Allocate people, services, facilities, supplies, and budget.</li>
+<li><strong>Direct the Team Effort</strong>: Manage people and team activities.</li>
+<li><strong>Monitor and Control Progress</strong>: Track progress and manage changes.</li>
+<li><strong>Assess Project Results and Experiences</strong>: Collect feedback and evaluate project success.</li>
+</ol>
+</li>
+<li>Risk Management
+<ul>
+<li><strong>Definition</strong>: Identifying and planning to minimize risks.</li>
+<li><strong>Process</strong>:
+<ul>
+<li><strong>Risk Identification</strong>: Identify project, product, and business risks.</li>
+<li><strong>Risk Analysis</strong>: Assess the likelihood and consequences.</li>
+<li><strong>Risk Planning</strong>: Develop plans to avoid or minimize risks.</li>
+<li><strong>Risk Monitoring</strong>: Continuously monitor risks throughout the project.</li>
+</ul>
+</li>
+<li><strong>Potential Risks</strong>: Staff turnover, management change, hardware unavailability, requirements change, specification delays, size underestimation, CASE tool underperformance, technology change, and product competition.</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 6: Requirements Engineerings</summary>
+  <ul>
+<li>Requirements Engineering (RE) is a critical phase in the software development lifecycle. It involves identifying, documenting, validating, and managing the requirements of a system to ensure that it meets the needs of users and stakeholders.</li>
+<li>Requirements vs Specification
+<ul>
+<li><strong>Requirements</strong>:
+<ul>
+<li>Statement of what the system should do or the quality it must have.</li>
+<li>Clarified and documented to generate corresponding specifications.</li>
+</ul>
+</li>
+<li><strong>Specification</strong>:
+<ul>
+<li>Detailed and precise description of the requirements, including design and behavior.</li>
+<li>Focuses on &ldquo;what&rdquo; the system should do, while design specifications focus on &ldquo;how&rdquo; it should do it.</li>
+</ul>
+</li>
+<li><strong>Example</strong>:
+<ul>
+<li><strong>Requirement</strong>: The car should have a maximum speed of at least 120 mph.</li>
+<li><strong>Specification</strong>: Details on the design to ensure the car achieves this speed.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Requirements Structure
+<img alt="Screenshot 2024-07-21 at 15.05.12.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-21_at_15.05.12.png">
+<ul>
+<li><strong>User Requirements</strong>:
+<ul>
+<li>High-level descriptions understandable by non-technical users.</li>
+<li>Examples: a system for a bank the user may require a function to calculate interest over a set time period.</li>
+</ul>
+</li>
+<li><strong>System Requirements</strong>:
+<ul>
+<li>Detailed and technical specifications used for system design.</li>
+<li>Examples: The system must run on a server with IIS. File upload is limited to .xlsx format.</li>
+</ul>
+</li>
+<li><strong>Types of Requirements</strong>
+<ul>
+<li><strong>Functional Requirements</strong>:
+<ul>
+<li>Describe services the system should provide and its behavior in various situations.</li>
+</ul>
+</li>
+<li><strong>Non-functional Requirements</strong>:
+<img alt="Screenshot 2024-07-21 at 15.11.31.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-21_at_15.11.31.png">
+<ul>
+<li>Constraints on system services or functions, such as performance and reliability.</li>
+<li>Classifications:
+<ul>
+<li><strong>Product Requirements</strong>:
+<ul>
+<li>Behavior and characteristics of the delivered product.</li>
+<li>eg: The user interface for LIBSYS shall be implemented as simple HTML without frames or Java applets.</li>
+</ul>
+</li>
+<li><strong>Organisational Requirements</strong>:
+<ul>
+<li>Impact of organizational policies and standards.</li>
+<li>eg: The system development process and deliverable documents shall conform to the process and deliverables defined in XYZCo-SP-STAN-95.</li>
+</ul>
+</li>
+<li><strong>External Requirements</strong>:
+<ul>
+<li>Requirements from external factors like legislation and interoperability.</li>
+<li>eg: The system shall not disclose any personal information about customers apart from their name and reference number to the operators of the system.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Domain Requirements</strong>:
+<ul>
+<li>Specific to the application domain and reflect domain characteristics. (healthcare, finance, etc)</li>
+<li>Examples: An inventory system requiring data integrity and reporting features.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Requirements Engineering Processes
+<img alt="Screenshot 2024-07-21 at 16.46.12.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-21_at_16.46.12.png">
+<ul>
+<li><strong>Feasibility Studies</strong>:
+<ul>
+<li>Determine if the proposed system is worthwhile.</li>
+<li>Assess organizational objectives, technology feasibility, and integration possibilities.</li>
+<li>questions to be asked
+<ul>
+<li>What if the system wasn’t implemented?</li>
+<li>What are current process problems?</li>
+<li>How will the proposed system help?</li>
+<li>What will be the integration problems?</li>
+<li>Is new technology needed? What skills?</li>
+<li>What facilities must be supported by the proposed
+system?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Requirements Elicitation and Analysis</strong>:
+<ul>
+<li><strong>Elicitation</strong>: Gathering requirements through interviews, scenarios, and observation.</li>
+<li>Activities
+<ul>
+<li>Requirements discovery
+<ul>
+<li>The process of gathering information about the proposed and existing systems - sources of information include documentation, stakeholders and the specifications of similar systems (templates).</li>
+<li>Techniques
+<ul>
+<li>Interview
+<ul>
+<li>Closed interviews: pre-defined set of questions</li>
+<li>Open interview: no pre-defined questions</li>
+</ul>
+</li>
+<li>Scenarios
+<ul>
+<li>Real-life examples of how a system can be used</li>
+<li>Can be represented by
+<ul>
+<li>Use case
+<img alt="Screenshot 2024-07-21 at 17.53.39.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-21_at_17.53.39.png">
+<img alt="Screenshot 2024-07-21 at 18.43.43.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-21_at_18.43.43.png"></li>
+<li>Sequence diagram
+<img alt="Screenshot 2024-07-21 at 17.54.49.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-21_at_17.54.49.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Observation
+<ul>
+<li>Watching users interact with current systems to understand their needs and workflows.</li>
+<li>Ethnographic: Requirements derived from the way that people actually work rather than how the process definitions is</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Requirements classification and organisation
+<ul>
+<li>Different perspectives from stakeholders such as interactors, indirect stakeholders, and domain experts. (viewpoints)</li>
+<li>Multi-perspective analysis helps in understanding and analyzing requirements comprehensively.</li>
+<li>Types of viewpoints
+<ul>
+<li>Interactor viewpoints
+<ul>
+<li>People or other systems that interact directly with the system. In an
+ATM, the customers and the account database are interactor VPs.</li>
+</ul>
+</li>
+<li>Indirect viewpoints
+<ul>
+<li>Stakeholders who do not use the system themselves but who
+influence the requirements. In an ATM, management and security
+staff are indirect viewpoints.</li>
+</ul>
+</li>
+<li>Domain viewpoints
+<ul>
+<li>Domain characteristics and constraints that influence the
+requirements. In an ATM, an example would be standards for inter-
+bank communications.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Prioritization and Negotiation
+<ul>
+<li>Prioritizing requirements and resolving conflicts.</li>
+<li>Most important requirements are implemented first</li>
+</ul>
+</li>
+<li>Requirements Documentation:
+<ul>
+<li>Documenting requirements for input into the next round of the development cycle.</li>
+<li>Official statement detailing what is required from the system.</li>
+<li>Should define both user and system requirements without specifying design details.</li>
+<li>Follow standards like IEEE or DOD 2167.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Requirements Validation</strong>:
+<ul>
+<li>Ensures requirements are
+<ul>
+<li>valid - Does the system provide the functions which best support the customer’s needs?</li>
+<li>consistent - Are there any requirements conflicts?</li>
+<li>complete - Are all functions required by the customer included?</li>
+<li>realistic - Can the requirements be implemented given available budget and technology</li>
+<li>verifiable - Can the requirements be checked? (is testing can be done?)</li>
+<li>Comprehensibility - Is the requirement properly understood</li>
+<li>Traceability - Is the origin of the requirement clearly stated</li>
+<li>Adaptability - Can the requirement be changed without a large impact on other requirements?</li>
+</ul>
+</li>
+<li>Requirements Validation Technique
+<ul>
+<li>Requirements reviews
+<ul>
+<li>Systematic manual analysis of the requirements</li>
+<li>Both client and contractor staff should be involved in reviews</li>
+</ul>
+</li>
+<li>Prototyping
+<ul>
+<li>Using an executable model of the system to check requirements.</li>
+</ul>
+</li>
+<li>Test-case generation.
+<ul>
+<li>Developing tests for requirements to check testability.</li>
+<li>Hard to generate test translate to hard implementation.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Requirements Specification:</strong>
+<ul>
+<li>Gather, define, and validate software requirements.</li>
+<li>Format requirements for use by design, development, and testing teams.</li>
+<li>Generate refined business rules.</li>
+<li>Create refined workflow schemas.</li>
+<li>Develop detailed low-level requirements for guiding product development and delivery.</li>
+</ul>
+</li>
+<li><strong>Requirements Management</strong>:
+<img alt="Screenshot 2024-07-21 at 18.28.48.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-21_at_18.28.48.png">
+<ul>
+<li>Planning
+<ul>
+<li>Requirements identification
+<ul>
+<li>How requirements are individually identified;</li>
+</ul>
+</li>
+<li>A change management process
+<ul>
+<li>The process followed when analysing a requirements
+change;</li>
+</ul>
+</li>
+<li>Traceability policies
+<ul>
+<li>The amount of information about requirements relationships
+that is maintained;</li>
+</ul>
+</li>
+<li>CASE tool support
+<ul>
+<li>The tool support required to help manage requirements
+change;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Traceability
+<ul>
+<li>Concerned with the relationships between requirements, theirs sources, and the system design</li>
+<li>Types
+<ul>
+<li><strong>Source traceability</strong> • Links from requirements to stakeholders who proposed these requirements</li>
+<li><strong>Requirements traceability</strong> • Links between dependent requirements;</li>
+<li><strong>Design traceability</strong> • Links from the requirements to the design;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Change and Evolution</strong>:
+<ul>
+<li>Handling changes in requirements due to evolving business needs and technical constraints.</li>
+<li>Volatile requirements
+<ul>
+<li>Stable requirements
+<ul>
+<li>Derived from the core activity of the customer organisation</li>
+<li>May be derived from domain models</li>
+<li>E.g. a hospital will always have doctors, nurses, etc</li>
+</ul>
+</li>
+<li><strong>Unstable requirements</strong>
+<ul>
+<li>Requirements which change during development or when the
+system is in use.</li>
+<li>In a hospital, requirements derived from health-care policy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 7: System Models</summary>
+  <ul>
+<li>
+<p><strong>Purpose</strong>: Helps analysts understand system functionality and communicate with customers.</p>
+</li>
+<li>
+<p><strong>System modelling present the system from different perspevtives</strong>:</p>
+<ul>
+<li><strong>External</strong>: Shows system context/environment.</li>
+<li><strong>Behavioral</strong>: Shows system behavior.</li>
+<li><strong>Structural</strong>: Shows system/data architecture.</li>
+</ul>
+</li>
+<li>
+<p>Context Models</p>
+<ul>
+<li><strong>Definition</strong>: Illustrate the operational context of a system and what lies outside system boundaries.</li>
+<li><strong>Influences</strong>: Social and organizational concerns can affect system boundary decisions.</li>
+<li><strong>Architectural Models</strong>: Show the system&rsquo;s relationship with other systems.</li>
+<li><strong>Example</strong>:
+<img alt="Screenshot 2024-07-22 at 07.09.36.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.09.36.png"></li>
+</ul>
+</li>
+<li>
+<p>Behavioral Models</p>
+<ul>
+<li>Describe overall system behavior.</li>
+<li><strong>Types</strong>:
+<ul>
+<li><strong>Data Flow Diagram (DFD)</strong>
+<img alt="Screenshot 2024-07-22 at 07.27.06.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.27.06.png">
+<img alt="Screenshot 2024-07-22 at 07.27.36.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.27.36.png">
+<ul>
+<li>Depict the flow of data through a system and the processing performed by the system.</li>
+<li>Central part of many analysis methods.</li>
+<li>Simple and intuitive for customers.</li>
+<li>Show end-to-end data processing.</li>
+<li><strong>DFD Components</strong>:
+<ul>
+<li><strong>External Agents/Entities</strong>
+<ul>
+<li>Outside person, organization, or system interacting with the system.</li>
+</ul>
+</li>
+<li><strong>Data Stores</strong>
+<ul>
+<li>Inventory of data (e.g., files, databases).</li>
+</ul>
+</li>
+<li><strong>Processes</strong>
+<ul>
+<li>Work performed by the system in response to data flows or conditions.</li>
+<li><strong>Decomposition</strong>: Breaking a system into subcomponents and processes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Common DFD errors:
+<img alt="Screenshot 2024-07-22 at 07.33.55.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.33.55.png">
+<ul>
+<li><strong>Black Hole</strong>
+<ul>
+<li>Process with inputs but no outputs.</li>
+<li>Named so because; enteres the process then diappears</li>
+</ul>
+</li>
+<li>Has outputs but no inputs</li>
+<li><strong>Gray Hole</strong>
+<ul>
+<li>Process with insufficient inputs to produce outputs.</li>
+<li>Caused by:
+<ul>
+<li><strong>Misnamed process</strong></li>
+<li><strong>Misnamed inputs/outputs</strong></li>
+<li><strong>Incomplete facts</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Data Flow Conventions</strong>:
+<ul>
+<li><strong>Names</strong>: Unique, singular noun phrase for data flows; plural names for data stores.</li>
+<li><strong>Legal Data Flow</strong>: All data must begin and/or end at a process.</li>
+<li><strong>Data Structures</strong>: Arrangement of data attributes defining a single instance of a data flow.</li>
+<li><strong>Divergent and Convergent Flows</strong>: Diverging or converging data flows.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>State Machine Models</strong>
+<img alt="Screenshot 2024-07-22 at 07.38.26.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.38.26.png">
+<img alt="Screenshot 2024-07-22 at 07.39.15.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.39.15.png">
+<img alt="Screenshot 2024-07-22 at 07.39.34.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.39.34.png">
+<ul>
+<li>Model system behavior in response to external and internal events.</li>
+<li>Often used for real-time systems.</li>
+<li><strong>Components</strong>:
+<ul>
+<li><strong>States</strong>: System conditions.</li>
+<li><strong>Events</strong>: Triggers for state transitions.</li>
+<li><strong>Statecharts</strong>: Allow decomposition into sub-models with brief action descriptions.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Data Models</p>
+<ul>
+<li>Describe the logical structure of data processed by the system.</li>
+<li>First step in designing the database</li>
+<li>Entity Relationship Diagrams (ERDs)
+<img alt="Screenshot 2024-07-22 at 07.46.00.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.46.00.png">
+<ul>
+<li>Basic building blocks are entities, attributes, and relationships.</li>
+<li><strong>Components</strong>:
+<img alt="Screenshot 2024-07-22 at 07.42.50.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.42.50.png">
+<ul>
+<li><strong>Entities</strong>: Objects about which data is collected (e.g., customers, products).</li>
+<li><strong>Attributes</strong>: Characteristics of entities (e.g., customer name, address).
+<ul>
+<li><strong>Data Type</strong>: Type of data stored in the attribute.</li>
+<li><strong>Domain</strong>: Legitimate values for the attribute.</li>
+<li><strong>Default Value</strong>: Value recorded if not specified by the user.</li>
+<li><strong>Key</strong>: Unique identifier for records.
+<ul>
+<li><strong>Candidate Key</strong>: Unique values, not repeated.</li>
+<li><strong>Primary Key</strong>: Unique identifier for each row, used for record searching.</li>
+<li><strong>Secondary Key</strong>: Not primary, used for narrowing search.</li>
+<li><strong>Foreign Key</strong>: Primary key used in related tables.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Relationships</strong>: Associations among entities (e.g., 1:M, M:N, 1:1 relationships).
+<img alt="Screenshot 2024-07-22 at 07.45.12.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_07.45.12.png"></li>
+</ul>
+</li>
+<li><strong>Normalization</strong>:
+<ul>
+<li><strong>1NF</strong>: No more than one value per attribute.</li>
+<li><strong>2NF</strong>: Non-primary-key attributes dependent only on primary key.</li>
+<li><strong>3NF</strong>: Non-primary-key attributes not dependent on other non-primary-key attributes.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Object Models (UML)</p>
+<pre><code>Describe the system in terms of object classes and their associations.
+
+- **UML Notations**:
+    - **Use-Case Diagram**: Interaction between actors and software.
+    - **Class Diagram**: Static relationships among classes.
+    - **Sequence Diagram**: Object interactions as messages.
+    - **State Diagram**: States and transitions due to events.
+</code></pre>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 8: Architectural Design</summary>
+  <ul>
+<li>What is Software Architecture?
+<ul>
+<li><strong>IEEE 1471-2000 Definition:</strong> The fundamental organization of a system, including its components, relationships, and principles governing its design and evolution.</li>
+<li><strong>Perry and Wolf, 1992:</strong> A set of architectural elements with a particular form.</li>
+<li><strong>Boehm et al., 1995:</strong> A collection of software and system components, connections, and constraints that satisfy stakeholders&rsquo; needs.</li>
+<li><strong>Clements et al., 1997:</strong> The structure or structures of a system, comprising software components, their properties, and relationships.</li>
+</ul>
+</li>
+<li>Software architecture is crucial due to various differences in projects, including:
+<ul>
+<li>Scale</li>
+<li>Process</li>
+<li>Cost</li>
+<li>Schedule</li>
+<li>Skills and development teams</li>
+<li>Materials and technologies</li>
+<li>Stakeholders</li>
+<li>Risks</li>
+</ul>
+</li>
+<li>Importance of Software Architecture
+<ul>
+<li><strong>Defines Major Components:</strong> Their relationships and interactions.</li>
+<li><strong>Serves as a Blueprint:</strong> Guiding the system&rsquo;s development.</li>
+<li><strong>Addresses Quality Attributes:</strong> Ensuring the system meets desired quality attributes.</li>
+<li><strong>Architectural Design Process:</strong> Identifying sub-systems and the framework for their control and communication.</li>
+<li><strong>Output:</strong> A description of the software architecture.</li>
+</ul>
+</li>
+<li>Architecture vs. Design
+<img alt="Screenshot 2024-07-22 at 11.29.51.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_11.29.51.png">
+<ul>
+<li><strong>Architecture:</strong> Focuses on non-functional requirements (e.g., usability, security).</li>
+<li><strong>Design:</strong> Concentrates on functional requirements and their implementation.</li>
+</ul>
+</li>
+<li>Architectural Design
+<ul>
+<li><strong>Early Stage in System Design:</strong> Links specification and design processes.</li>
+<li><strong>Involves Major Components:</strong> Identifying and defining their communications.</li>
+</ul>
+</li>
+<li>Advantages of Explicit Architecture
+<ul>
+<li><strong>Stakeholder Communication:</strong> Facilitates discussions among stakeholders.</li>
+<li><strong>System Analysis:</strong> Allows analysis of non-functional requirements.</li>
+<li><strong>Large-scale Reuse:</strong> Enables reuse across different systems. System Characteristics</li>
+</ul>
+</li>
+<li>Designing a system architecture can be based on:
+<ul>
+<li><strong>Performance:</strong> Localize critical operations and minimize communications.</li>
+<li><strong>Security:</strong> Use layered architecture with critical assets in inner layers.</li>
+<li><strong>Safety:</strong> Localize safety-critical features in a few sub-systems.</li>
+<li><strong>Availability:</strong> Include redundant components for fault tolerance.</li>
+<li><strong>Maintainability:</strong> Use fine-grain, replaceable components.</li>
+<li>Architectural conflicts can happen if different goals is to be achieved
+<ul>
+<li><strong>Performance vs. Maintainability:</strong> Large components improve performance but reduce maintainability.</li>
+<li><strong>Availability vs. Security:</strong> Redundant data improves availability but complicates security.</li>
+<li><strong>Safety vs. Performance:</strong> Localizing safety features increases communication, degrading performance.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Software architecture styles
+<img alt="Screenshot 2024-07-22 at 11.43.32.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_11.43.32.png">
+<ul>
+<li><strong>Architectural styles</strong> define the overall structural organization of a software system. They are high-level strategies that dictate the relationship and interaction between different system components.</li>
+<li>Centralized systems
+<img alt="Screenshot 2024-07-22 at 11.51.55.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_11.51.55.png">
+<ul>
+<li>Components are distributed across multiple locations and networks.</li>
+<li><strong>Communication Hubs:</strong> Major communications are routed through central hubs.</li>
+<li><strong>Synchronized Databases:</strong> Ensure data consistency across multiple sites.</li>
+<li><strong>User Access:</strong> Multiple users can access data without interference.</li>
+</ul>
+</li>
+<li>Distributed Systems Architecture
+<ul>
+<li>2 types
+<ul>
+<li><strong>Client-Server Architectures</strong>
+<img alt="Screenshot 2024-07-22 at 11.57.15.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_11.57.15.png">
+<ul>
+<li><strong>Application Services:</strong> Provided by servers and used by clients.</li>
+<li><strong>Terminology:</strong>
+<ul>
+<li><strong>Client:</strong> Makes requests.</li>
+<li><strong>Server (Daemon):</strong> Receives and processes requests.</li>
+<li><strong>Protocols:</strong> Rules governing interaction.</li>
+<li><strong>Service:</strong> Provided by protocols.</li>
+<li><strong>Layers’ Protocols:</strong> Each layer performs specific functions and builds on lower layers.</li>
+</ul>
+</li>
+<li>Types of Servers
+<ul>
+<li><strong>Database Server:</strong> Hosts databases and executes data manipulation commands.</li>
+<li><strong>Transaction Server:</strong> Ensures all database updates for a transaction succeed or fail as a whole.</li>
+<li><strong>Application Server:</strong> Hosts application logic and services.</li>
+<li><strong>Messaging or Groupware Server:</strong> Hosts e-mail, calendaring, and other workgroup functionalities.</li>
+<li><strong>Web Server:</strong> Hosts websites.</li>
+</ul>
+</li>
+<li>Different types of architecture of client-server
+<ul>
+<li>Layered
+<img alt="Screenshot 2024-07-22 at 12.00.12.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.00.12.png">
+<img alt="Screenshot 2024-07-22 at 12.00.36.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.00.36.png">
+<ul>
+<li><strong>Presentation Layer:</strong> User interface and interaction.</li>
+<li><strong>Application Processing Layer:</strong> Application-specific functionality and business rules.</li>
+<li><strong>Data Management Layer:</strong> Managing system databases.</li>
+</ul>
+</li>
+<li><strong>Thin-client Model:</strong>
+<img alt="Screenshot 2024-07-22 at 12.01.54.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.01.54.png">
+<ul>
+<li>Application processing and data management on the server; client handles presentation.</li>
+<li>Example
+<img alt="Screenshot 2024-07-22 at 12.04.45.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.04.45.png"></li>
+</ul>
+</li>
+<li><strong>Fat-client Model</strong>
+<img alt="Screenshot 2024-07-22 at 12.02.01.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.02.01.png">
+<ul>
+<li>Server handles data management; client handles application logic and user interaction.</li>
+<li>Example
+<img alt="Screenshot 2024-07-22 at 12.05.23.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.05.23.png"></li>
+</ul>
+</li>
+<li><strong>3-Tier Model:</strong>
+<img alt="Screenshot 2024-07-22 at 12.04.06.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.04.06.png">
+<ul>
+<li>Each application layer may execute on a separate processor, offering better performance and scalability.</li>
+<li>Example
+<img alt="Screenshot 2024-07-22 at 12.05.51.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.05.51.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Distributed Object Architectures</strong>
+<img alt="Screenshot 2024-07-22 at 12.10.31.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.10.31.png">
+<ul>
+<li><strong>No Client-Server Distinction:</strong> Objects provide and use services; objects provide and use services.</li>
+<li><strong>Object Request Broker (ORB):</strong> Manages object communication.
+<ul>
+<li>Every invoaction is passed to an ORB</li>
+<li>Responsible to
+<ul>
+<li>Find the object implementation for the request.</li>
+<li>Prepare the object implementation to receive the
+request.</li>
+<li>Communicate the data making up the request.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Advantages:</strong>
+<ul>
+<li>Allows teh ysstem designer to delays decisions on service provision</li>
+<li>Allows dynamic reconfigurationand</li>
+<li>Flexible and scalable.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Characteristics
+<ul>
+<li><strong>Resource Sharing:</strong> Sharing hardware and software resources.</li>
+<li><strong>Openness:</strong> Use of different vendors&rsquo; equipment and software.</li>
+<li><strong>Concurrency:</strong> Enhancing performance through concurrent processing.</li>
+<li><strong>Scalability:</strong> Adding new resources increases throughput.</li>
+<li><strong>Fault Tolerance:</strong> Continuing operation after a fault occurs.</li>
+</ul>
+</li>
+<li>Disadvantages
+<ul>
+<li><strong>Complexity:</strong> More complex than centralized systems.</li>
+<li><strong>Security:</strong> More susceptible to external attacks.</li>
+<li><strong>Manageability:</strong> Requires more effort for management.</li>
+<li><strong>Unpredictability:</strong> Responses depend on system organization and network load.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Software architecture pattern
+<ul>
+<li><strong>Architectural patterns</strong> provide solutions to common architectural problems. They offer templates for structuring components and their interactions but are more specific than styles.</li>
+<li>Three-tier architecture pattern
+<ul>
+<li>The three-tier architecture pattern divides an application into three interconnected layers, each with distinct responsibilities</li>
+<li>Presentation Tier:
+<ul>
+<li><strong>Role</strong>: This layer handles the user interface and user interaction. It is responsible for presenting data to the user and interpreting user commands.</li>
+<li><strong>Components</strong>: User interfaces such as web pages, mobile app interfaces, or desktop applications.</li>
+<li><strong>Technologies</strong>: HTML, CSS, JavaScript, React, Angular, Vue.js, Swift, Kotlin, etc.</li>
+</ul>
+</li>
+<li>Application Logic Tier (Business Logic Tier):
+<ul>
+<li><strong>Role</strong>: This layer contains the core functionality and business logic of the application. It processes user inputs from the presentation layer, applies business rules, and determines the appropriate data to retrieve or update in the data layer.</li>
+<li><strong>Components</strong>: Application services, business rules, workflows.</li>
+<li><strong>Technologies</strong>: Java, C#, Python, Node.js, .NET, Spring Boot, Express.js, etc.</li>
+</ul>
+</li>
+<li><strong>Data Tier</strong>:
+<ul>
+<li><strong>Role</strong>: This layer manages data storage and retrieval. It interacts with databases or other data sources to store and fetch data as needed by the application logic layer.</li>
+<li><strong>Components</strong>: Databases, data access objects (DAOs), repositories.</li>
+<li><strong>Technologies</strong>: SQL databases (MySQL, PostgreSQL), NoSQL databases (MongoDB, Cassandra), ORM tools (Hibernate, Entity Framework), etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Networks
+<img alt="Screenshot 2024-07-22 at 12.13.01.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_12.13.01.png">
+<ul>
+<li><strong>Communication Links:</strong> Devices exchange data along connections.</li>
+<li><strong>Types of Networks</strong>
+<ul>
+<li><strong>LAN (Local Area Network):</strong> A network connecting devices within a small geographic area, like an office or home. For example inter-office file sharing network</li>
+<li><strong>MAN (Metropolitan Area Network):</strong> A network covering a city or large campus, larger than a LAN but smaller than a WAN. For example a network infrastructure connecting various institutions..</li>
+<li><strong>WAN (Wide Area Network):</strong> A network that spans a large geographic area, connecting multiple LANs. For example a corporate network connecting different offices in different cities.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 9: UI Design</summary>
+  <ul>
+<li>UI should match the skills, experience, and expectations of its anticipated users.</li>
+<li>Users often judge a system by its interface rather than its functionality.</li>
+<li>Poorly designed interfaces can cause catastrophic errors and lead to software being unused.</li>
+<li>UI Problems (According to Galitz)
+<ul>
+<li>Excessive use of computer jargon and acronyms.</li>
+<li>Non-obvious or less-than-intuitive design.</li>
+<li>Inability to distinguish between alternative actions (“what do I do next?”).</li>
+<li>Inconsistent problem-solving approaches.</li>
+<li>Design inconsistency leading to confusion, panic, frustration, boredom, misuse, and abandonment.</li>
+</ul>
+</li>
+<li>UI Design Issues
+<ul>
+<li>Address two primary problems in interactive systems design:
+<ol>
+<li>How should information from the user be provided to the computer system?</li>
+<li>How should information from the computer system be presented to the user?</li>
+</ol>
+</li>
+<li>Solutions:
+<ul>
+<li>Understand users and their tasks.</li>
+<li>Involve the user in interface design.</li>
+<li>Test the system on actual users.</li>
+<li>Practice iterative design.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Human Factors to consider in Interface Design
+<ul>
+<li>Limited short-term memory: People can remember about 7 items instantaneously; presenting more can lead to mistakes.</li>
+<li>People make mistakes: Inappropriate alarms and messages can increase stress and cause more errors.</li>
+<li>People are different: Design should consider a wide range of physical capabilities.</li>
+<li>Interaction preferences vary: Some users prefer pictures, others prefer text.</li>
+</ul>
+</li>
+<li>UI Design Principles
+<ul>
+<li><strong>User Familiarity</strong>: Use user-oriented terms and concepts rather than computer jargon.</li>
+<li><strong>Consistency</strong>: Ensure commands, menus, and formats are consistent.</li>
+<li><strong>Minimal Surprise</strong>: Commands should operate in predictable ways.</li>
+<li><strong>Recoverability</strong>: Provide resilience to user errors with features like undo, confirmation for destructive actions, and &lsquo;soft&rsquo; deletes.</li>
+<li><strong>User Guidance</strong>: Include help systems and on-line manuals.</li>
+<li><strong>User Diversity</strong>: Support different interaction facilities for diverse users, such as larger text for users with seeing difficulties.</li>
+</ul>
+</li>
+<li>UI Design Guidelines
+<ul>
+<li>Ensure users know what to do next.</li>
+<li>Provide clear feedback on data entry and task completion.</li>
+<li>Use consistent screen layouts for instructions and messages.</li>
+<li>Anticipate user errors and provide efficient error messages.</li>
+<li>Prevent users from proceeding without correcting errors.</li>
+<li>Use consistent terminology and navigation control schemes.</li>
+<li>Clearly distinguish between options like “NO” and “CANCEL”.</li>
+</ul>
+</li>
+<li>Information Presentation
+<img alt="Screenshot 2024-07-22 at 14.58.20.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_14.58.20.png">
+<ul>
+<li>Concerned with presenting system information to users.</li>
+<li>Information can be static (unchanged during a session) or dynamic (changes during a session).</li>
+<li><strong>Static Information</strong>: Initialized at the beginning of a session, may be numeric or textual.</li>
+<li><strong>Dynamic Information</strong>: Changes during a session and must be communicated to the user, may also be numeric or textual.</li>
+</ul>
+</li>
+<li>Analogue vs. Digital Presentation
+<img alt="Screenshot 2024-07-22 at 14.59.19.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_14.59.19.png">
+<ul>
+<li><strong>Digital Presentation</strong>: Compact, communicates precise values.</li>
+<li><strong>Analogue Presentation</strong>: Provides an at-a-glance impression, shows relative values, and highlights exceptional data.</li>
+</ul>
+</li>
+<li>Colour Displays
+<ul>
+<li>Colour adds an extra dimension and helps understand complex information structures.</li>
+<li>Use colour to highlight exceptional events but avoid overuse and dependence on colour alone (as 10% of people are colour blind).</li>
+</ul>
+</li>
+<li>Error Messages
+<img alt="Screenshot 2024-07-22 at 15.00.34.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.00.34.png">
+<ul>
+<li>Critical for user acceptance. Should be polite, concise, consistent, and constructive.</li>
+<li>Design messages based on the user’s background and experience.</li>
+</ul>
+</li>
+<li>Dialogue Tone and Terminology
+<ul>
+<li>Use simple, grammatically correct sentences.</li>
+<li>Avoid being funny, cute, or condescending.</li>
+<li>Avoid computer jargon and most abbreviations.</li>
+<li>Be consistent with terminology and phrase instructions carefully using appropriate action verbs.</li>
+</ul>
+</li>
+<li>GUI: Styles &amp; Considerations
+<img alt="Screenshot 2024-07-22 at 15.01.23.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.01.23.png">
+<ul>
+<li>Various styles include windows and frames, menu-driven interfaces, toolbars, and iconic menus, hypertext and hyperlink menus, instruction-driven interfaces, and question-answer dialogues.</li>
+</ul>
+</li>
+<li>UI Design Process
+<img alt="Screenshot 2024-07-22 at 15.02.44.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.02.44.png">
+<ul>
+<li>An iterative process involving close liaison between users and designers.</li>
+<li>Core activities:
+<ul>
+<li><strong>User Analysis</strong>: Understand user tasks..
+<img alt="Screenshot 2024-07-22 at 15.03.43.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.03.43.png">
+<ul>
+<li>Describe user analyses in terms users and designers can understand, using scenarios.</li>
+<li><strong>Analysis Techniques</strong>:
+<ul>
+<li>Task analysis (models steps in completing a task).</li>
+<li>Interviewing and questionnaires.</li>
+<li>Ethnography (observing and questioning users at work).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>UI Prototyping</strong>: Develop prototypes for user experimentation.
+<img alt="Screenshot 2024-07-22 at 15.05.00.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.05.00.png">
+<ul>
+<li>Allow users to gain direct experience with the interface.</li>
+<li>Use paper prototypes early in the process, followed by more sophisticated automated prototypes.</li>
+</ul>
+</li>
+<li><strong>UI Evaluation</strong>: Experiment with prototypes and obtain user feedback.
+<ul>
+<li>Assess the suitability of the user interface design.</li>
+<li>Obtain user feedback through questionnaires, video recordings, code instrumentation, and online feedback mechanisms.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+
+
+
+<p><details >
+  <summary markdown="span">Chapter 10: Systems Construction, Implementation, and Testing</summary>
+  <ul>
+<li>Systems construction, implementation, and testing are crucial phases in the software development lifecycle. These phases ensure that the system is built correctly, integrates well with existing components, and meets the requirements and expectations of users.</li>
+<li>Systems Construction
+<ul>
+<li>System construction involves the development, integration, and testing of system components. It is triggered by the approval of physical design specifications.</li>
+<li><strong>Major Aspects:</strong>
+<ol>
+<li><strong>Programming:</strong> Writing code to develop system functionalities.</li>
+<li><strong>Testing:</strong> Ensuring the system works as expected.</li>
+<li><strong>Integration:</strong> Combining various software components into a cohesive system.</li>
+</ol>
+</li>
+<li>Construction Phase
+<ul>
+<li><strong>Types of Software:</strong>
+<ol>
+<li><strong>New Software:</strong> Developed from scratch.</li>
+<li><strong>Updated/Enhanced Software:</strong> Modifications to existing software.</li>
+<li><strong>Buy/Lease Software:</strong> Acquiring third-party software.</li>
+</ol>
+</li>
+<li><strong>Tasks:</strong>
+<ul>
+<li><strong>Programming, Build and Test Networks:</strong>
+<ul>
+<li><strong>Existing Network:</strong> Use existing infrastructure, skipping this task.</li>
+<li><strong>Modified/New Network:</strong> Implement and test new or modified network architecture based on technical design specifications.</li>
+</ul>
+</li>
+<li><strong>Build and Test Databases:</strong>
+<ul>
+<li><strong>Existing Database:</strong> Verify and test the current database.</li>
+<li><strong>New or Modified Databases:</strong> Develop and test new or modified databases.</li>
+</ul>
+</li>
+<li><strong>Install and Test New Software Packages:</strong>
+<ul>
+<li><strong>New/Purchased/Leased Software:</strong> Check compatibility with networks and databases.</li>
+<li><strong>Updated/Enhanced Software:</strong> Test new functionalities and features.</li>
+</ul>
+</li>
+<li><strong>Write and Test New Programs:</strong>
+<ul>
+<li>Develop and refine prototype programs through comprehensive testing.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Systems Implementation
+<ul>
+<li>System implementation is the installation and delivery of the entire system into production, ensuring a smooth transition to operational status.</li>
+<li>Implementation Phases**:**
+<ul>
+<li><strong>Conduct System Test:</strong>
+<ul>
+<li>Perform a final system test covering all aspects of the system and its environment.</li>
+<li>Communicate testing issues to team members.</li>
+</ul>
+</li>
+<li><strong>Prepare Conversion Plan:</strong>
+<ul>
+<li>Develop a plan to transition the new system into operation.</li>
+<li>The plan includes database installation, end-user training, and system acceptance tests (verification, validation, audit).</li>
+</ul>
+</li>
+<li><strong>Install Databases:</strong>
+<ul>
+<li>Populate new system databases with existing data.</li>
+</ul>
+</li>
+<li><strong>Train System Users:</strong>
+<ul>
+<li>Provide training and user manuals for the new system.</li>
+</ul>
+</li>
+<li><strong>Convert to New System:</strong>
+<ul>
+<li>Gather feedback from system owners/users to benchmark the new system.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Installation Strategies:</strong>
+<ol>
+<li><strong>Abrupt Cut-Over Conversion:</strong> Immediate switch from the old to the new system - high risk.</li>
+<li><strong>Parallel Conversion:</strong> Both old and new systems run simultaneously until the new system is verified.</li>
+<li><strong>Location Conversion:</strong> System is implemented at one location first, then expanded.</li>
+<li><strong>Staged Conversion:</strong> The system is introduced in phases using various strategies (abrupt, parallel, location).</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Software Testing
+<img alt="Screenshot 2024-07-22 at 15.19.34.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.19.34.png">
+<ul>
+<li>Software testing is the process of validating and verifying the quality of the software to find bugs and ensure the software works as intended.</li>
+<li>Activities
+<ol>
+<li><strong>Execute Software with Inputs:</strong> Use inputs that simulate actual operational conditions.</li>
+<li><strong>Compare Outputs:</strong> Verify produced outputs against expected outputs.</li>
+<li><strong>Compare States:</strong> Check resulting states against expected states.</li>
+<li><strong>Measure Execution Characteristics:</strong> Evaluate aspects like memory usage and execution time.</li>
+</ol>
+</li>
+<li>Testing results
+<ul>
+<li><strong>Pass:</strong> Actual results match expected results.</li>
+<li><strong>No Pass:</strong> Actual results differ from expected results.</li>
+</ul>
+</li>
+<li>Testing Scope
+<ul>
+<li>Testing in the small
+<img alt="Screenshot 2024-07-22 at 15.22.52.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.22.52.png">
+<ul>
+<li>Exercising the smallest executable units of the system</li>
+<li>Unit Testing:
+<ul>
+<li>Testing individual components in isolation to find faults and ensure correct functionality.
+<ul>
+<li>Usually performed by programmers</li>
+<li>Objectives:
+<ul>
+<li>Finding faults</li>
+<li>Assure correct functional behaviour of units</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Object Class Testing
+<img alt="Screenshot 2024-07-22 at 15.24.15.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.24.15.png">
+<ul>
+<li>Ensures complete test coverage of a class by testing operations, attributes, and states.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Testing the build
+<ul>
+<li>Finding problems in the interaction between components</li>
+<li><strong>Integration Testing:</strong>
+<ul>
+<li>Testing combined units to detect interface errors and ensure functionality.</li>
+<li>Performed by programmers or testing gorup</li>
+<li>Objectives
+<ul>
+<li>Detect interface errors</li>
+<li>Assure the functionality of the combined units and third-party components
+(e.g.,COTS, other systems)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Interface Testing</strong>
+<ul>
+<li>Detects faults due to interface errors, particularly in object-oriented development.</li>
+<li>Examples
+<ul>
+<li><strong>Interface misuse</strong>. A calling component calls another component and makes an error in its use of its interface e.g. parameters in the wrong order.</li>
+<li><strong>Interface misunderstanding</strong>. A calling component embeds assumptions about the behaviour of the called component which are incorrect.</li>
+<li><strong>Timing errors</strong>. The called and the calling component operate at different speeds and out-of-date information is accessed.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Testing in the large
+<ul>
+<li>Putting the entire system to test</li>
+<li><strong>System Testing</strong>
+<ul>
+<li>Testing the entire system&rsquo;s functionality, performance, reliability, and security.</li>
+<li>Performed by a separate testing group</li>
+<li>Objectives
+<ul>
+<li>Find errors in the overall system behaviour</li>
+<li>Establish confidence in system functionality</li>
+<li>Validate non-functional system requirements</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Acceptance Testing</strong>
+<ul>
+<li>Operating the system in the user environment to evaluate if it meets customer criteria.</li>
+<li>Performed by end-user</li>
+<li>Objectives
+<ul>
+<li>Evaluate whether the system meets the customer criteria</li>
+<li>Determine whether the customer will accept the system</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Regression Testing</strong>
+<ul>
+<li>Testing modified versions of the system to ensure changes haven&rsquo;t introduced new errors.</li>
+<li>Performed by the system itsefl or a regression test group</li>
+<li>Objective
+<ul>
+<li>Ensure changes haven&rsquo;t introduced new errors.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Structural Testing
+<ul>
+<li>Types
+<ul>
+<li><strong>Statement Testing:</strong> Ensure every statement in the program is executed.</li>
+<li><strong>Branch Testing:</strong> Ensure every branch is executed.</li>
+<li><strong>Expression Testing:</strong> Ensure every expression is tested with a variety of values.</li>
+<li><strong>Path Testing:</strong> Ensure all paths of the program are executed.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Testing Methods
+<table>
+  <thead>
+      <tr>
+          <th><strong>Feature</strong></th>
+          <th><strong>Black Box Testing</strong></th>
+          <th><strong>White Box Testing</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Knowledge Requirement</strong></td>
+          <td>Internal workings of the application are not required to be known.</td>
+          <td>Tester has full knowledge of the internal workings of the application.</td>
+      </tr>
+      <tr>
+          <td><strong>Alternate Names</strong></td>
+          <td>Closed box testing, data-driven testing, functional testing.</td>
+          <td>Clear box testing, structural testing, code-based testing.</td>
+      </tr>
+      <tr>
+          <td><strong>Performed By</strong></td>
+          <td>End users, testers, and developers.</td>
+          <td>Normally done by testers and developers.</td>
+      </tr>
+      <tr>
+          <td><strong>Approach</strong></td>
+          <td>Based on external expectations; internal behavior of the application is unknown.</td>
+          <td>Based on knowledge of internal logic and code structure.</td>
+      </tr>
+      <tr>
+          <td><strong>Time Consumption</strong></td>
+          <td>Generally less time-consuming.</td>
+          <td>Generally more time-consuming and exhaustive.</td>
+      </tr>
+      <tr>
+          <td><strong>Suitability</strong></td>
+          <td>Not suited for algorithm testing.</td>
+          <td>Suited for algorithm testing and detailed code examination.</td>
+      </tr>
+      <tr>
+          <td><strong>Coverage</strong></td>
+          <td>Trial and error method</td>
+          <td>Structural coverage including statement, branch, path, and data-flow testing.</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+<li><strong>Test Case Template:</strong>
+<img alt="Screenshot 2024-07-22 at 15.59.49.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_15.59.49.png">
+<ul>
+<li>Set of inputs, execution conditions, and expected results for a particular testing objective.</li>
+</ul>
+</li>
+<li><strong>Terminologies:</strong>
+<ul>
+<li><strong>Fault/Bug:</strong> An imperfection in the code leading to failure.</li>
+<li><strong>Error:</strong> Incorrect system state not yet observed.</li>
+<li><strong>Failure:</strong> Observable failure to deliver expected service.</li>
+<li><strong>Test Case:</strong> Set of inputs and conditions to achieve a testing objective.</li>
+<li><strong>Test Suite:</strong> Collection of related test cases.</li>
+<li><strong>Test Driver/Stub:</strong> Simulates the activity of missing components for integration testing.</li>
+<li><strong>Test Strategy:</strong> Algorithm to create test cases from representations or implementations.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Analysis model</li>
+<li>Use case
+<img alt="IMG_837097C14BB4-1.jpeg" loading="lazy" src="/images/university-notes/SE/d428cff2-4ffa-420e-a9a6-41253dd75645.png">
+<ol>
+<li>Define users and functional requirements
+<ul>
+<li>Users: nouns</li>
+<li>Functional requirements: verbs</li>
+</ul>
+</li>
+<li>Draw use case</li>
+</ol>
+</li>
+<li>ERD
+<img alt="IMG_030464AE2705-1.jpeg" loading="lazy" src="/images/university-notes/SE/802f4645-4456-4c4c-bc0a-7c2491479f1e.png">
+<ol>
+<li>Define entities, relationships</li>
+<li>Draw ERD</li>
+</ol>
+</li>
+<li>Excercises</li>
+<li>GOALS
+<ul>
+<li>Analysis model
+<ul>
+<li>Use case
+<img alt="IMG_837097C14BB4-1.jpeg" loading="lazy" src="/images/university-notes/SE/d428cff2-4ffa-420e-a9a6-41253dd75645.png">
+<ol>
+<li>Define users and functional requirements
+<ul>
+<li>Users: nouns</li>
+<li>Functional requirements: verbs</li>
+</ul>
+</li>
+<li>Draw use case</li>
+</ol>
+</li>
+<li>ERD
+<img alt="IMG_030464AE2705-1.jpeg" loading="lazy" src="/images/university-notes/SE/802f4645-4456-4c4c-bc0a-7c2491479f1e.png">
+<ol>
+<li>Define entities, relationships</li>
+<li>Draw ERD</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Test cases
+<img alt="Screenshot 2024-07-22 at 22.48.27.png" loading="lazy" src="/images/university-notes/SE/Screenshot_2024-07-22_at_22.48.27.png">
+<table>
+  <thead>
+      <tr>
+          <th><strong>Test Case</strong></th>
+          <th><strong>Step No</strong></th>
+          <th><strong>Step Description</strong></th>
+          <th><strong>Expected Results</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Equilateral</strong></td>
+          <td>1</td>
+          <td>Input: (3, 3, 3)</td>
+          <td>Output: &ldquo;Equilateral&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Equilateral</strong></td>
+          <td>2</td>
+          <td>Input: (10, 10, 10)</td>
+          <td>Output: &ldquo;Equilateral&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Isosceles</strong></td>
+          <td>3</td>
+          <td>Input: (3, 3, 2)</td>
+          <td>Output: &ldquo;Isosceles&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Isosceles</strong></td>
+          <td>4</td>
+          <td>Input: (5, 5, 3)</td>
+          <td>Output: &ldquo;Isosceles&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Isosceles</strong></td>
+          <td>5</td>
+          <td>Input: (4, 4, 2)</td>
+          <td>Output: &ldquo;Isosceles&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Isosceles</strong></td>
+          <td>6</td>
+          <td>Input: (6, 6, 4)</td>
+          <td>Output: &ldquo;Isosceles&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Isosceles</strong></td>
+          <td>7</td>
+          <td>Input: (10, 10, 5)</td>
+          <td>Output: &ldquo;Isosceles&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Scalene</strong></td>
+          <td>8</td>
+          <td>Input: (3, 4, 5)</td>
+          <td>Output: &ldquo;Scalene&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Scalene</strong></td>
+          <td>9</td>
+          <td>Input: (5, 7, 10)</td>
+          <td>Output: &ldquo;Scalene&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Scalene</strong></td>
+          <td>10</td>
+          <td>Input: (6, 8, 10)</td>
+          <td>Output: &ldquo;Scalene&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Scalene</strong></td>
+          <td>11</td>
+          <td>Input: (7, 10, 5)</td>
+          <td>Output: &ldquo;Scalene&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Scalene</strong></td>
+          <td>12</td>
+          <td>Input: (9, 12, 15)</td>
+          <td>Output: &ldquo;Scalene&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Invalid</strong></td>
+          <td>13</td>
+          <td>Input: (1, 2, 3)</td>
+          <td>Output: &ldquo;Invalid&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Invalid</strong></td>
+          <td>14</td>
+          <td>Input: (1, 1, 2)</td>
+          <td>Output: &ldquo;Invalid&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Invalid</strong></td>
+          <td>15</td>
+          <td>Input: (5, 1, 1)</td>
+          <td>Output: &ldquo;Invalid&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Invalid</strong></td>
+          <td>16</td>
+          <td>Input: (0, 0, 0)</td>
+          <td>Output: &ldquo;Invalid&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Invalid</strong></td>
+          <td>17</td>
+          <td>Input: (-1, -1, -1)</td>
+          <td>Output: &ldquo;Invalid&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Invalid</strong></td>
+          <td>18</td>
+          <td>Input: (2, 2, 5)</td>
+          <td>Output: &ldquo;Invalid&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Invalid</strong></td>
+          <td>19</td>
+          <td>Input: (0, 5, 5)</td>
+          <td>Output: &ldquo;Invalid&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Edge Case</strong></td>
+          <td>20</td>
+          <td>Input: (1, 1, 1)</td>
+          <td>Output: &ldquo;Equilateral&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Edge Case</strong></td>
+          <td>21</td>
+          <td>Input: (1000000, 1000000, 1000000)</td>
+          <td>Output: &ldquo;Equilateral&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Edge Case</strong></td>
+          <td>22</td>
+          <td>Input: (1000000, 1000000, 1)</td>
+          <td>Output: &ldquo;Isosceles&rdquo;</td>
+      </tr>
+      <tr>
+          <td><strong>Edge Case</strong></td>
+          <td>23</td>
+          <td>Input: (1000000, 999999, 2)</td>
+          <td>Output: &ldquo;Scalene&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+<li>Architectural
+<ul>
+<li>
+<ol>
+<li>Describe the difference between architecture and design. <strong>(5 Marks)</strong></li>
+</ol>
+<ul>
+<li>Architecture is the high-level structure of a software system, focusing on how components interact and fit together. It primarily addresses the non-functional requirements, such as scalability, performance, security and maintainability. It defines the overall framework within which the software operates, determining how the system’s component will interact and communicate</li>
+<li>Design focus on functional requirements. It invovles the detailed planning and specification of individual components and their interactions within the architectural framework. It deals with the implementation details, such as algorithms, data structures and user interface, ensuring each components performs its intended fucntion correctly</li>
+</ul>
+</li>
+<li>
+<ol start="2">
+<li>Describe the difference between three types of network. <strong>(6 Marks)</strong></li>
+</ol>
+<ul>
+<li><strong>LAN (Local Area Network):</strong> A network connecting devices within a small geographic area, like an office or home. For example inter-office file sharing network</li>
+<li><strong>MAN (Metropolitan Area Network):</strong> A network covering a city or large campus, larger than a LAN but smaller than a WAN. For example a network infrastructure connecting various institutions..</li>
+<li><strong>WAN (Wide Area Network):</strong> A network that spans a large geographic area, connecting multiple LANs. For example a corporate network connecting different offices in different cities.</li>
+</ul>
+</li>
+<li>
+<ol start="3">
+<li>
+<p>In a three-tier architecture, each of the application needs to be executed on a separate architecture layers. Explain each tier. <strong>(9 Marks)</strong></p>
+</li>
+<li>
+<p>Presentation layer</p>
+<p>This layer handles what is shown to the user, i.e; the user interface. It is responsible for presenting data to the user and interpreting user commands. Technologies commonly used for web applications are HTML, CSS, and JavaScript</p>
+</li>
+<li>
+<p>Application logic layer</p>
+<p>This layer handle the application logic from or to the user. It is responsible for processing user input, perform any data manipulation, data storing or data retrieval. Technologies commonly used for web applications are JavaScript, Node.js, Express.js</p>
+</li>
+<li>
+<p>Data layer</p>
+<p>This layer handle the data storing fucntionality. It is responsible to store any data from the user and from the application itself. It will proivide the data needed upon retireivel, storing new data, or update data from the application layer. Technologies commonly used are MySQL, MongoDB,</p>
+</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Design a standard/basic web application architecture. <strong>(10 Marks)</strong></li>
+</ol>
+<ul>
+<li>Presentation layer
+<ul>
+<li><strong>Technologies</strong>: React</li>
+<li><strong>Responsibilities</strong>: User interface, user experience, handling user interactions.</li>
+</ul>
+</li>
+<li>Application logic
+<ul>
+<li>Web server
+<ul>
+<li><strong>Technologies</strong>: Nginx</li>
+<li><strong>Responsibilities</strong>: Serving static content, reverse proxy, load balancing.</li>
+</ul>
+</li>
+<li>Server side component (backend)
+<ul>
+<li>Node.js</li>
+<li><strong>Responsibilities</strong>: Processing requests, executing business logic, interacting with the database.</li>
+</ul>
+</li>
+<li><strong>APIs</strong>:
+<ul>
+<li><strong>Technologies</strong>: RESTful APIs</li>
+<li><strong>Responsibilities</strong>: Facilitates communication between the client and server, integrates with third-party services.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data:
+<ul>
+<li><strong>Technologies: MongoDB</strong></li>
+<li><strong>Responsibilities</strong>: Data storage, retrieval, and management.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</details></p>
+</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/notes/">Notes</a></li>
+      <li><a href="http://localhost:1313/tags/undergraduate/">Undergraduate</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">wahba</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
