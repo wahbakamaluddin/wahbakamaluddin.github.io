@@ -4,7 +4,7 @@
     <title>Blogs on wahba</title>
     <link>https://wahbakamaluddin.github.io/series/blogs/</link>
     <description>Recent content in Blogs on wahba</description>
-    <generator>Hugo -- 0.136.5</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://wahbakamaluddin.github.io/series/blogs/index.xml" rel="self" type="application/rss+xml" />
@@ -21,6 +21,13 @@
       <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://wahbakamaluddin.github.io/posts/blogs/01/</guid>
       <description>AI and ML explained in a simple term.</description>
+    </item>
+    <item>
+      <title>Useful resources</title>
+      <link>https://wahbakamaluddin.github.io/posts/blogs/03/</link>
+      <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://wahbakamaluddin.github.io/posts/blogs/03/</guid>
+      <description>List of useful resources I found on the Internet.</description>
     </item>
   </channel>
 </rss>

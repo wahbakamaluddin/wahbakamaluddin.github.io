@@ -4,7 +4,7 @@
     <title>wahba</title>
     <link>https://wahbakamaluddin.github.io/</link>
     <description>Recent content on wahba</description>
-    <generator>Hugo -- 0.136.5</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://wahbakamaluddin.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -23,13 +23,19 @@
       <description>AI and ML explained in a simple term.</description>
     </item>
     <item>
+      <title>Useful resources</title>
+      <link>https://wahbakamaluddin.github.io/posts/blogs/03/</link>
+      <pubDate>Thu, 28 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://wahbakamaluddin.github.io/posts/blogs/03/</guid>
+      <description>List of useful resources I found on the Internet.</description>
+    </item>
+    <item>
       <title>New Free Lunch (web)</title>
       <link>https://wahbakamaluddin.github.io/posts/writeups/hkcert24/01/</link>
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://wahbakamaluddin.github.io/posts/writeups/hkcert24/01/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;You are Chris Wong, you have a mission to win the game and redeem the free meal. Try to get over 300 score. Your flag will appears in scoreboard.php.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;You are Chris Wong, you have a mission to win the game and redeem the free meal. Try to get over 300 score. Your flag will appears in scoreboard.php.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Intercept the score update HTTP POST Request:&lt;/p&gt;
@@ -54,8 +60,7 @@
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://wahbakamaluddin.github.io/posts/writeups/hkcert24/02/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;I made a simple webpage that checks whether the flag is correct&amp;hellip; Wait, where are the flag-checking functions?&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;I made a simple webpage that checks whether the flag is correct&amp;hellip; Wait, where are the flag-checking functions?&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Inspect the Page&lt;/strong&gt;:&lt;/p&gt;
