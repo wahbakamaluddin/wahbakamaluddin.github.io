@@ -22,6 +22,5 @@ image:
 ![Desktop View](assets/img/notes/03/06.jpg){: width="972" height="589" }
 ![Desktop View](assets/img/notes/03/09.jpg){: width="972" height="589" }
 ![Desktop View](assets/img/notes/03/10.jpg){: width="972" height="589" }
-![Desktop View](assets/img/notes/03/11.jpg){: width="972" height="589" }
 ![Desktop View](assets/img/notes/03/12.jpg){: width="972" height="589" }
 ![Desktop View](assets/img/notes/03/14.jpg){: width="972" height="589" }
