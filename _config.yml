@@ -14,9 +14,9 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Wahba # the main title
+title: Wahba Kamaluddin # the main title
 
-tagline: InfoSec student # it will display as the subtitle
+tagline: InfoSec blog # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Personal page of Wahba kamaluddin Nurdin
