@@ -12,7 +12,7 @@ image:
   path: assets/img/notes/04/01.jpg
 ---
 
-[⏬ Download PDF](https://wahbakamaluddin.github.io/assets/pdf/notes/04/Calculus-SN.pdf)
+[⏬ Download PDF](https://wahbakamaluddin.github.io/assets/pdf/notes/04/F&G-SN.pdf)
 
 ![Desktop View](assets/img/notes/04/01.jpg){: width="972" height="589" }
 ![Desktop View](assets/img/notes/04/02.jpg){: width="972" height="589" }
