@@ -16,7 +16,7 @@ timezone:
 
 title: Wahba Kamaluddin # the main title
 
-tagline: InfoSec blog # it will display as the subtitle
+tagline: ~/blog # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Personal page of Wahba kamaluddin Nurdin
