@@ -5,4 +5,4 @@ order: 4
 ---
 
 ## print('hi!')
-I'm an infosec student, and I'm sharing various CS stuffs that might come in handy for students, including notes from my foundation to undergraduate studies, CTF writeups, and other interesting finds. Hope it helps!
+I'm sharing various CS stuffs that might come in handy for students, including notes from my foundation to undergraduate studies, CTF writeups, and other interesting finds. Hope it helps!
