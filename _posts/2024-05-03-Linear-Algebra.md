@@ -1,6 +1,6 @@
 ---
-title: Linear Algebra
-description: Linear algebra note
+title: Cryptography
+description:  note
 author: 
 date: 2025-05-03 
 categories: [Notes, Math]
